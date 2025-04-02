@@ -44,7 +44,7 @@ Implementation Highlights:
 python
 Copy
 
-# IPF core algorithm
+## IPF core algorithm
 while not converged:
     for dimension in dimensions:
         current_margins = calculate_marginals(population, dimension)
