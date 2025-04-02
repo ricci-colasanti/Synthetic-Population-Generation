@@ -23,7 +23,7 @@
             href="https://eprints.whiterose.ac.uk/76042/1/Creating%20Realistic%20Synthetic%20Populations_published.pdf">https://eprints.whiterose.ac.uk/76042/1/Creating%20Realistic%20Synthetic%20Populations_published.pdf</a>
         <p>Click on each <b><span style="color: blue;">header</span></b> to view a detailed description on a new page
         </p>
-        <div class="method-card deterministic">
+        <div class="method-card red">
             <h2>1. <a href="DeterministicRe-weighting.html" target="_blank">Deterministic Re-weighting</a></h2>
     
             <p>Adjusts sample weights directly to match target marginals through multiplicative factors.</p>
@@ -51,7 +51,7 @@ for record in sample_data:
             </ul>
         </div>
 
-        <div class="method-card ipf">
+        <div class="method-card green">
             <h2>2. <a href="IPF.html" target="_blank">Iterative Proportional Fitting (IPF)</a></h2>
        
             <p>Iteratively adjusts weights to simultaneously match all specified marginals.</p>
@@ -80,7 +80,7 @@ while not converged:
             </ul>
         </div>
 
-        <div class="method-card annealing">
+        <div class="method-card blue">
             <h2>3. <a href="SimulatedAnnealing.html" target="_blank">Simulated Annealing</a></h2>
           
             <p>Uses probabilistic search to find optimal population configuration.</p>
@@ -110,7 +110,7 @@ while temperature > min_temp:
             </ul>
         </div>
 
-        <div class="method-card conditional">
+        <div class="method-card orange">
             <h2>4. <a href="ConditionalProbabilities.html" target="_blank">Conditional Probabilities</a></h2>
          
             <p>Creates synthetic individuals by sampling from learned conditional distributions, preserving variable

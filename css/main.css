@@ -41,10 +41,11 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             border-top: 4px solid;
         }
-        .deterministic { border-top-color: #e74c3c; }
-        .ipf { border-top-color: #2ecc71; }
-        .annealing { border-top-color: #9b59b6; }
-        .conditional { border-top-color: #e0a72b; }
+        .red { border-top-color: #e74c3c; }
+        .green { border-top-color: #2ecc71; }
+        .purple { border-top-color: #9b59b6; }
+        .orange { border-top-color: #e0a72b; }
+        .blue { border-top-color: #462be0; }
         .comparison {
             background: #f8f9fa;
             padding: 20px;
