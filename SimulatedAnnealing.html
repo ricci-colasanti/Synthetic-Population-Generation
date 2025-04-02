@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulated Annealing</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
+</head>
+<body>
+    <div class="container">
+    <h1>Python Code to Create Synthetic Population Using Simulated Annealing</h1>
+    
+    <p>This implementation uses <strong><a href="SimulatedAnnealingMethod.html" target="_blank">Simulated Annealing</a></strong> to create a synthetic population that matches target marginal distributions for age, gender, and education.</p>
+    
+    <div class="algorithm">
+        <h2>Simulated Annealing Approach</h2>
+        <p>The algorithm:</p>
+        <ol>
+            <li>Starts with a random initial population</li>
+            <li>Computes an energy function based on how well margins match targets</li>
+            <li>Iteratively makes small random changes</li>
+            <li>Accepts changes that improve the solution</li>
+            <li>Sometimes accepts worse solutions (based on temperature) to avoid local optima</li>
+            <li>Gradually "cools" the system to converge on a solution</li>
+        </ol>
+    </div>
+    
+    <h2>Implementation Code</h2>
+    
+    <pre><code>import numpy as np
+import pandas as pd
+import random
+import math
+
+# Target marginal distributions
+target_margins = {
+    'age': {'18-25': 500, '26-35': 1000},
+    'gender': {'Male': 600, 'Female': 900},
+    'education': {'School': 800, 'Degree': 700}
+}
+
+# All possible categories
+categories = {
+    'age': ['18-25', '26-35'],
+    'gender': ['Male', 'Female'],
+    'education': ['School', 'Degree']
+}
+
+# Parameters for simulated annealing
+initial_temp = 1000
+cooling_rate = 0.95
+iterations_per_temp = 100
+min_temp = 1
+
+def calculate_energy(population):
+    """Calculate how far current margins are from targets"""
+    energy = 0
+    for dim in target_margins:
+        counts = population[dim].value_counts().to_dict()
+        for cat in target_margins[dim]:
+            observed = counts.get(cat, 0)
+            target = target_margins[dim][cat]
+            energy += (observed - target)**2
+    return energy
+
+def generate_initial_population(size=1500):
+    """Create random initial population"""
+    records = []
+    for _ in range(size):
+        record = {
+            'age': random.choice(categories['age']),
+            'gender': random.choice(categories['gender']),
+            'education': random.choice(categories['education'])
+        }
+        records.append(record)
+    return pd.DataFrame(records)
+
+def mutate_population(population):
+    """Make a small random change to the population"""
+    new_pop = population.copy()
+    idx = random.randint(0, len(new_pop)-1)
+    dim = random.choice(list(categories.keys()))
+    new_val = random.choice(categories[dim])
+    new_pop.at[idx, dim] = new_val
+    return new_pop
+
+def simulated_annealing():
+    """Main optimization routine"""
+    current_pop = generate_initial_population()
+    current_energy = calculate_energy(current_pop)
+    temp = initial_temp
+    
+    best_pop = current_pop.copy()
+    best_energy = current_energy
+    
+    while temp > min_temp:
+        for _ in range(iterations_per_temp):
+            # Generate neighbor solution
+            new_pop = mutate_population(current_pop)
+            new_energy = calculate_energy(new_pop)
+            
+            # Calculate energy difference
+            delta_energy = new_energy - current_energy
+            
+            # Decide whether to accept the new solution
+            if delta_energy < 0 or random.random() < math.exp(-delta_energy/temp):
+                current_pop = new_pop
+                current_energy = new_energy
+                
+                # Keep track of best solution found
+                if current_energy < best_energy:
+                    best_pop = current_pop.copy()
+                    best_energy = current_energy
+        
+        # Cool the system
+        temp *= cooling_rate
+    
+    # Add IDs to the best population found
+    best_pop['id'] = range(1, len(best_pop)+1)
+    return best_pop[['id', 'age', 'gender', 'education']]
+
+# Run the optimization
+synthetic_pop = simulated_annealing()
+
+# Verification
+print("Synthetic population head:")
+print(synthetic_pop.head())
+print("\nMarginal verification:")
+print("Age counts:\n", synthetic_pop['age'].value_counts())
+print("\nGender counts:\n", synthetic_pop['gender'].value_counts())
+print("\nEducation counts:\n", synthetic_pop['education'].value_counts())</code></pre>
+    
+    <div class="note">
+        <h3>Key Components</h3>
+        
+        <h4>Energy Function</h4>
+        <p>Measures how well current population matches target margins (sum of squared differences).</p>
+        
+        <h4>Mutation Operator</h4>
+        <p>Randomly changes one attribute of one individual to create neighbor solutions.</p>
+        
+        <h4>Annealing Schedule</h4>
+        <p>Controls exploration vs. exploitation with temperature parameter that decreases over time.</p>
+    </div>
+    
+    <h3>Example Output</h3>
+    <div class="output">
+Synthetic population head:
+   id    age  gender   education
+0   1  26-35  Female  School
+1   2  26-35    Male     Degree
+2   3  18-25  Female     Degree
+3   4  26-35    Male  School
+4   5  26-35  Female     Degree
+
+Marginal verification:
+Age counts:
+26-35    998
+18-25    502
+
+Gender counts:
+Female    897
+Male     603
+
+Education counts:
+School    802
+Degree     698
+    </div>
+    
+    <div class="advantages">
+        <h3>Advantages of Simulated Annealing</h3>
+        <ul>
+            <li>Can escape local optima better than greedy algorithms</li>
+            <li>Flexible for complex constraints and objective functions</li>
+            <li>Doesn't require calculating joint probabilities</li>
+            <li>Can handle non-linear constraints more easily than IPF</li>
+        </ul>
+        <p><strong>Note:</strong> May require parameter tuning (temperature schedule, cooling rate) for optimal performance.</p>
+    </div>
+    </div>
+</body>
+</html>

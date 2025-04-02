@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deterministic Re-weighting with Three Categories</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
+</head>
+<body>
+    <div class="container">
+    <h1>Deterministic Re-weighting with Three Categories</h1>
+    
+    <p>Here's a pseudo-code for <strong>deterministic re-weighting</strong> with three categories (age, gender, education) using a <strong>hierarchical adjustment</strong> approach. This ensures the synthetic population matches marginal totals for all three dimensions.</p>
+    
+    <h2>Pseudo-Code: Deterministic Re-weighting (3D: Age × Gender × Education)</h2>
+    
+    <pre><code># Inputs:
+#   - sample_data: List of records, each with:
+#       - 'w' (initial weight)
+#       - 'age', 'gender', 'education' (categories)
+#   - target_margins: Nested dictionary of target margins, e.g.:
+#       {
+#           'age': {'18-25': 5000, '26-35': 8000, ...},
+#           'gender': {'Male': 10000, 'Female': 12000},
+#           'education': {'School': 8000, 'Degree': 9000, ...}
+#       }
+
+function deterministic_reweighting_3d(sample_data, target_margins):
+    # Step 1: Calculate current sample margins for each dimension
+    sample_margins = {
+        'age': {},
+        'gender': {},
+        'education': {}
+    }
+    
+    for record in sample_data:
+        for dim in ['age', 'gender', 'education']:
+            cat = record[dim]
+            sample_margins[dim][cat] = sample_margins[dim].get(cat, 0) + record['w']
+    
+    # Step 2: Compute adjustment factors per dimension
+    adjustment_factors = {
+        'age': {},
+        'gender': {},
+        'education': {}
+    }
+    
+    for dim in ['age', 'gender', 'education']:
+        for cat in target_margins[dim]:
+            if sample_margins[dim].get(cat, 0) > 0:
+                adjustment_factors[dim][cat] = target_margins[dim][cat] / sample_margins[dim][cat]
+            else:
+                adjustment_factors[dim][cat] = 1.0  # No adjustment if missing
+    
+    # Step 3: Apply adjustments hierarchically (order matters!)
+    # Example order: Age → Gender → Education
+    for record in sample_data:
+        # Apply age adjustment
+        age_cat = record['age']
+        record['w'] *= adjustment_factors['age'].get(age_cat, 1.0)
+        
+        # Apply gender adjustment
+        gender_cat = record['gender']
+        record['w'] *= adjustment_factors['gender'].get(gender_cat, 1.0)
+        
+        # Apply education adjustment
+        edu_cat = record['education']
+        record['w'] *= adjustment_factors['education'].get(edu_cat, 1.0)
+    
+    return sample_data</code></pre>
+    
+    <h2>Example Usage</h2>
+    
+    <pre><code># Sample data (4 individuals with initial weights)
+sample_data = [
+    {'id': 1, 'w': 100, 'age': '18-25', 'gender': 'Male', 'education': 'School'},
+    {'id': 2, 'w': 200, 'age': '26-35', 'gender': 'Female', 'education': 'Degree'},
+    {'id': 3, 'w': 150, 'age': '18-25', 'gender': 'Female', 'education': 'Degree'},
+    {'id': 4, 'w': 300, 'age': '26-35', 'gender': 'Male', 'education': 'School'},
+]
+
+# Target margins (census totals)
+target_margins = {
+    'age': {'18-25': 500, '26-35': 1000},
+    'gender': {'Male': 600, 'Female': 900},
+    'education': {'School': 800, 'Degree': 700}
+}
+
+# Run re-weighting
+adjusted_data = deterministic_reweighting_3d(sample_data, target_margins)
+
+# Output weights will match:
+# - Age: 18-25 (250 orig.) → 500 (scale ×2), 26-35 (500 orig.) → 1000 (scale ×2)
+# - Gender: Male (400 orig.) → 600 (scale ×1.5), Female (350 orig.) → 900 (scale ~2.57)
+# - Education: School (400 orig.) → 800 (scale ×2), Degree (450 orig.) → 700 (scale ×1.55)
+# Final weights are multiplicative (age × gender × education adjustments).</code></pre>
+    
+    <div class="note">
+        <h3>Key Notes:</h3>
+        
+        <h4>Hierarchical Adjustments:</h4>
+        <ul>
+            <li>The order of adjustments matters (e.g., age → gender → education).</li>
+            <li>Later adjustments may "distort" earlier ones. For exact multi-dimensional margins, use <span class="key-point">Iterative Proportional Fitting (IPF)</span> instead.</li>
+        </ul>
+        
+        <h4>Limitations:</h4>
+        <ul>
+            <li>This is a <strong>simplified approach</strong> and may not perfectly match all joint distributions.</li>
+            <li>For high-dimensional consistency, combine with combinatorial optimization or probabilistic methods.</li>
+        </ul>
+        
+        <h4>Resampling for Synthetic Individuals:</h4>
+        <p>To generate discrete individuals from the re-weighted sample:</p>
+        <pre><code>synthetic_population = []
+for record in adjusted_data:
+    num_clones = round(record['w'])  # Round weights to integers
+    synthetic_population.extend([record] * num_clones)</code></pre>
+    </div>
+    </div>
+</body>
+</html>

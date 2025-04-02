@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetic Population Generation</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Synthetic Population Generation</h1>
+        
+        <p>This guide presents three robust methods for creating synthetic populations that match known marginal distributions while preserving realistic relationships between variables.</p>
+        <p>Click on each header to view a detailed description on a new page</p>
+        <div class="method-card deterministic">
+            <h2>1. <a href="DeterministicRe-weighting.html" target="_blank">Deterministic Re-weighting</a></h2>
+            <h3>Simple and Efficient</h3>
+            <p>Adjusts sample weights directly to match target marginals through multiplicative factors.</p>
+            
+            <h4>Implementation Highlights:</h4>
+            <pre><code># Core adjustment logic
+for record in sample_data:
+    for dimension in ['age', 'gender', 'education']:
+        adjustment = target_margins[dimension][record[dimension]] / current_margins[dimension][record[dimension]]
+        record['weight'] *= adjustment</code></pre>
+            
+            <div class="output-sample">
+# Sample Output:
+ID  Age    Gender  Education     Weight
+1   18-25  Male    HighSchool    1.34
+2   26-35  Female  Bachelor      0.92
+3   18-25  Female  Bachelor      1.41
+            </div>
+            
+            <h4>When to Use:</h4>
+            <ul>
+                <li>Quick prototyping</li>
+                <li>When only need to match one or two dimensions</li>
+                <li>Computationally constrained environments</li>
+            </ul>
+        </div>
+        
+        <div class="method-card ipf">
+            <h2>2. <a href="IPF.html" target="_blank">Iterative Proportional Fitting (IPF)</a></h2>
+            <h3>Gold Standard for Multi-Dimensional Matching</h3>
+            <p>Iteratively adjusts weights to simultaneously match all specified marginals.</p>
+            
+            <h4>Implementation Highlights:</h4>
+            <pre><code># IPF core algorithm
+while not converged:
+    for dimension in dimensions:
+        current_margins = calculate_marginals(population, dimension)
+        adjustments = {cat: target[cat]/current[cat] for cat in target}
+        apply_adjustments(population, dimension, adjustments)
+        check_convergence()</code></pre>
+            
+            <div class="output-sample">
+# Sample Output:
+Converged after 8 iterations
+Age marginals matched with RMSE: 0.02
+Gender marginals matched with RMSE: 0.01
+            </div>
+            
+            <h4>When to Use:</h4>
+            <ul>
+                <li>Need to match 3+ dimensions simultaneously</li>
+                <li>Require statistically rigorous results</li>
+                <li>Working with large sample sizes</li>
+            </ul>
+        </div>
+        
+        <div class="method-card annealing">
+            <h2>3. <a href="SimulatedAnnealing.html" target="_blank">Simulated Annealing</a></h2>
+            <h3>Flexible Optimization Approach</h3>
+            <p>Uses probabilistic search to find optimal population configuration.</p>
+            
+            <h4>Implementation Highlights:</h4>
+            <pre><code># Annealing core
+while temperature > min_temp:
+    new_pop = mutate(current_pop)
+    ΔE = energy(new_pop) - energy(current_pop)
+    if ΔE < 0 or random() < exp(-ΔE/temp):
+        current_pop = new_pop
+    temperature *= cooling_rate</code></pre>
+            
+            <div class="output-sample">
+# Sample Output:
+Temperature: 10.0  Energy: 42.3
+Temperature: 9.5   Energy: 38.1
+...
+Final energy: 2.1 (optimal reached)
+            </div>
+            
+            <h4>When to Use:</h4>
+            <ul>
+                <li>Complex, non-linear constraints</li>
+                <li>When IPF struggles to converge</li>
+                <li>Need to incorporate custom constraints</li>
+            </ul>
+        </div>
+  
+  <div class="method-card annealing">
+            <h2>4. <a href="ConditionalProbabilities.html" target="_blank">Conditional Probabilities</a></h2>
+            <h3>Relationship-Preserving Generatio</h3>
+            <p>Creates synthetic individuals by sampling from learned conditional distributions, preserving variable dependencies</p>
+            
+            <h4>Implementation Highlights:</h4>
+            <pre><code># Conditional probability core
+def generate_population(reference_data, size):
+    # Learn P(age), P(gender|age), P(education|age,gender)
+    age_probs = reference_data['age'].value_counts(normalize=True)
+    gender_probs = reference_data.groupby('age')['gender'].value_counts(normalize=True)
+    edu_probs = reference_data.groupby(['age','gender'])['education'].value_counts(normalize=True)
+    
+    synthetic = []
+    for _ in range(size):
+        # Sample hierarchically
+        age = sample(age_probs)
+        gender = sample(gender_probs[age])
+        education = sample(edu_probs[(age,gender)])
+        synthetic.append({'age':age, 'gender':gender, 'education':education})
+    
+    return pd.DataFrame(synthetic)</code></pre>
+            
+            <div class="output-sample">
+Generated 1500 individuals with preserved relationships:
+Age 18-25: 32% (target: 33%)  
+P(Female|18-25): 61% (ref: 60%)  
+P(Bachelor|Male,26-35): 42% (ref: 40%)
+            </div>
+            
+            <h4>When to Use:</h4>
+            <ul>
+            <li>Need to preserve <strong>natural variable dependencies</strong> from real data</li>
+            <li>Creating <strong>entirely new individuals</strong> (not reweighting existing)</li>
+            <li>When <strong>joint distributions</strong> matter more than exact marginal matching</li>
+            <li>Building <strong>Bayesian network-style</strong> synthetic data</li>
+            </ul>
+        </div>
+        
+        <div class="comparison">
+            <h2>Method Comparison</h2>
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Criteria</th>
+                <th>Deterministic</th>
+                <th>IPF</th>
+                <th>Annealing</th>
+                <th>Conditional</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Implementation</td>
+                <td>Simple</td>
+                <td>Medium</td>
+                <td>Complex</td>
+                <td>Medium</td>
+            </tr>
+            <tr>
+                <td>Speed</td>
+                <td>Fastest</td>
+                <td>Fast</td>
+                <td>Slow</td>
+                <td>Medium</td>
+            </tr>
+            <tr>
+                <td>Marginal Accuracy</td>
+                <td>High (1D)</td>
+                <td>High</td>
+                <td>Variable</td>
+                <td>Approximate</td>
+            </tr>
+            <tr>
+                <td>Joint Distribution</td>
+                <td>Poor</td>
+                <td>Good</td>
+                <td>Custom</td>
+                <td>Best</td>
+            </tr>
+            <tr>
+                <td>Best For</td>
+                <td>Quick checks</td>
+                <td>Standard use</td>
+                <td>Custom constraints</td>
+                <td>Realistic relationships</td>
+            </tr>
+        </tbody>
+    </table>
+            
+  
+    </div>
+</body>
+</html>

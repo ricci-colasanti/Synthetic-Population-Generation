@@ -1,0 +1,106 @@
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        .method-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 4px solid;
+        }
+        .deterministic { border-top-color: #e74c3c; }
+        .ipf { border-top-color: #2ecc71; }
+        .annealing { border-top-color: #9b59b6; }
+        .comparison {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .output-sample {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn-download {
+            background: #2ecc71;
+        }
+        .btn-download:hover {
+            background: #27ae60;
+        }
+a {
+  color: blue; /* Set the text color to blue */
+  text-decoration: none; /* Remove the underline */
+}
+
+/* Optional: Add a hover effect */
+a:hover {
+  color: darkblue; /* Change the text color on hover */
+  text-decoration: none; /* Optionally, add an underline on hover */
+}

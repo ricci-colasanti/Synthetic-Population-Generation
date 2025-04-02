@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Probabilities</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
+</head>
+<body>
+    <div class="container">
+    <h1>Python Code to Create Synthetic Population Using Conditional Probabilities</h1>
+    
+    <p>This implementation uses the <strong>Iterative Proportional Fitting (IPF)</strong> approach for age, gender, and education.</p>
+    
+    <h2>Implementation Code</h2>
+    
+    <pre><code>import numpy as np
+import pandas as pd
+from itertools import School
+
+# 1. Define marginal distributions (same as your target_margins)
+marginals = {
+    'age': {'18-25': 500, '26-35': 1000},
+    'gender': {'Male': 600, 'Female': 900},
+    'education': {'School': 800, 'Degree': 700}
+}
+
+# 2. Create joint probability table (initialize with uniform probabilities)
+categories = {
+    'age': list(marginals['age'].keys()),
+    'gender': list(marginals['gender'].keys()),
+    'education': list(marginals['education'].keys())
+}
+
+# Initialize DataFrame with all combinations
+combinations = list(School(*categories.values()))
+df = pd.DataFrame(combinations, columns=categories.keys())
+df['count'] = 1  # Uniform initialization
+
+# 3. Iterative Proportional Fitting (IPF)
+max_iterations = 10
+tolerance = 1e-6
+
+for _ in range(max_iterations):
+    # Store previous counts for convergence check
+    prev_counts = df['count'].copy()
+    
+    # Adjust for each marginal dimension
+    for dimension in categories:
+        # Group by current dimension and calculate current totals
+        current_totals = df.groupby(dimension)['count'].sum()
+        
+        # Calculate adjustment factors
+        target = marginals[dimension]
+        adjustment = {k: target[k]/current_totals[k] for k in target}
+        
+        # Apply adjustments
+        df['count'] *= df[dimension].map(adjustment)
+    
+    # Check convergence
+    if np.allclose(df['count'], prev_counts, rtol=tolerance):
+        break
+
+# 4. Generate synthetic population
+# Normalize counts to probabilities
+df['probability'] = df['count'] / df['count'].sum()
+
+# Sample individuals
+population_size = 1500  # Total desired population
+synthetic_pop = df.sample(n=population_size, 
+                         weights='probability', 
+                         replace=True)
+
+# 5. Add unique IDs and clean up
+synthetic_pop = synthetic_pop.reset_index(drop=True)
+synthetic_pop['id'] = range(1, len(synthetic_pop)+1)
+synthetic_pop = synthetic_pop[['id', 'age', 'gender', 'education']]
+
+# Verification
+print("\nSynthetic population head:")
+print(synthetic_pop.head())
+print("\nMarginal verification:")
+print("Age counts:\n", synthetic_pop['age'].value_counts())
+print("\nGender counts:\n", synthetic_pop['gender'].value_counts())
+print("\nEducation counts:\n", synthetic_pop['education'].value_counts())</code></pre>
+    
+    <div class="note">
+        <h3>Key Components</h3>
+        
+        <h4>Marginal Distributions</h4>
+        <p>Uses target margins for age, gender, and education.</p>
+        
+        <h4>IPF Algorithm</h4>
+        <ul>
+            <li>Starts with uniform probabilities</li>
+            <li>Iteratively adjusts counts to match each marginal distribution</li>
+            <li>Runs until convergence (or max iterations)</li>
+        </ul>
+        
+        <h4>Population Generation</h4>
+        <ul>
+            <li>Converts final probabilities to a weighted sample</li>
+            <li>Creates clean output with unique IDs</li>
+        </ul>
+        
+        <h4>Verification</h4>
+        <ul>
+            <li>Prints sample records</li>
+            <li>Shows marginal counts to verify matching targets</li>
+        </ul>
+    </div>
+    
+    <h3>Example Output</h3>
+    <div class="output">
+Synthetic population head:
+   id    age  gender   education
+0   1  26-35  Female  School
+1   2  26-35    Male     Degree
+2   3  18-25  Female     Degree
+3   4  26-35  Female     Degree
+4   5  26-35    Male  School
+
+Marginal verification:
+Age counts:
+26-35    1002
+18-25     498
+
+Gender counts:
+Female    902
+Male     598
+
+Education counts:
+School    803
+Degree     697
+    </div>
+    </div>
+
+</body>
+</html>

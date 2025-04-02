@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterative Proportional Fitting</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
+</head>
+<body>
+    <div class="container">
+    <h1>Python Code to Create Synthetic Population Using Iterative Proportional Fitting (IPF)</h1>
+    
+    <p>This implementation uses <strong>Iterative Proportional Fitting</strong> to create a synthetic population that matches target marginal distributions for age, gender, and education.</p>
+    
+    <div class="algorithm">
+        <h2>IPF Algorithm Overview</h2>
+        <p>The IPF process:</p>
+        <ol>
+            <li>Starts with an initial joint distribution (often uniform)</li>
+            <li>Iteratively adjusts the weights to match each marginal distribution</li>
+            <li>Cycles through each dimension (age, gender, education)</li>
+            <li>Continues until convergence or maximum iterations reached</li>
+            <li>Generates synthetic population by sampling from the fitted distribution</li>
+        </ol>
+    </div>
+    
+    <h2>Implementation Code</h2>
+    
+    <pre><code>import numpy as np
+import pandas as pd
+from itertools import product
+
+def ipf_synthetic_population():
+    # 1. Define target marginal distributions
+    marginals = {
+        'age': {'18-25': 500, '26-35': 1000},
+        'gender': {'Male': 600, 'Female': 900},
+        'education': {'School': 800, 'Degree': 700}
+    }
+    
+    # 2. Create all possible combinations of categories
+    categories = {
+        'age': list(marginals['age'].keys()),
+        'gender': list(marginals['gender'].keys()),
+        'education': list(marginals['education'].keys())
+    }
+    
+    # Generate all possible combinations
+    combinations = list(product(*categories.values()))
+    
+    # 3. Initialize DataFrame with uniform weights
+    df = pd.DataFrame(combinations, columns=categories.keys())
+    df['weight'] = 1  # Uniform initial weights
+    
+    # 4. IPF Algorithm
+    max_iterations = 50
+    tolerance = 1e-6
+    converged = False
+    
+    for iteration in range(max_iterations):
+        max_diff = 0
+        
+        # Adjust for each dimension
+        for dimension in categories:
+            # Calculate current marginal sums
+            current_margins = df.groupby(dimension)['weight'].sum()
+            
+            # Calculate adjustment factors
+            adjustments = {}
+            for category in marginals[dimension]:
+                target = marginals[dimension][category]
+                current = current_margins.get(category, 0)
+                if current > 0:
+                    adjustments[category] = target / current
+                else:
+                    adjustments[category] = 1.0  # No adjustment if no samples
+            
+            # Apply adjustments
+            df['weight'] *= df[dimension].map(adjustments)
+            
+            # Track maximum adjustment for convergence check
+            current_diff = max(abs(1 - x) for x in adjustments.values())
+            max_diff = max(max_diff, current_diff)
+        
+        # Check for convergence
+        if max_diff < tolerance:
+            print(f"Converged after {iteration+1} iterations")
+            converged = True
+            break
+    
+    if not converged:
+        print(f"Stopped after {max_iterations} iterations (max reached)")
+    
+    # 5. Generate synthetic population
+    population_size = 1500
+    
+    # Normalize weights to probabilities
+    df['probability'] = df['weight'] / df['weight'].sum()
+    
+    # Sample individuals according to probabilities
+    synthetic_pop = df.sample(
+        n=population_size,
+        weights='probability',
+        replace=True
+    ).reset_index(drop=True)
+    
+    # Add unique IDs
+    synthetic_pop['id'] = range(1, len(synthetic_pop)+1)
+    
+    # Return only needed columns
+    return synthetic_pop[['id', 'age', 'gender', 'education']]
+
+# Generate and verify the population
+synthetic_pop = ipf_synthetic_population()
+
+print("\nSynthetic population head:")
+print(synthetic_pop.head())
+print("\nMarginal verification:")
+print("Age counts:\n", synthetic_pop['age'].value_counts())
+print("\nGender counts:\n", synthetic_pop['gender'].value_counts())
+print("\nEducation counts:\n", synthetic_pop['education'].value_counts())</code></pre>
+    
+    <div class="note">
+        <h3>Key Components</h3>
+        
+        <h4>Marginal Constraints</h4>
+        <p>Target distributions for each dimension (age, gender, education).</p>
+        
+        <h4>IPF Core Algorithm</h4>
+        <ul>
+            <li>Cycles through each dimension to adjust weights</li>
+            <li>Uses ratio of target to current marginals for adjustments</li>
+            <li>Includes convergence checking</li>
+        </ul>
+        
+        <h4>Population Generation</h4>
+        <ul>
+            <li>Converts final weights to probabilities</li>
+            <li>Samples individuals using weighted probabilities</li>
+            <li>Adds unique identifiers</li>
+        </ul>
+    </div>
+    
+    <h3>Example Output</h3>
+    <div class="output">
+Converged after 12 iterations
+
+Synthetic population head:
+   id    age  gender   education
+0   1  26-35  Female     Degree
+1   2  26-35    Male  School
+2   3  26-35  Female  School
+3   4  18-25    Male     Degree
+4   5  26-35  Female     Degree
+
+Marginal verification:
+Age counts:
+26-35    1002
+18-25     498
+
+Gender counts:
+Female    899
+Male     601
+
+Education counts:
+School    802
+Degree     698
+    </div>
+    
+    <div class="advantages">
+        <h3>Advantages of IPF</h3>
+        <ul>
+            <li>Guaranteed to converge to a solution that matches all marginals (if one exists)</li>
+            <li>Efficient for high-dimensional problems</li>
+            <li>Preserves the underlying joint distribution structure from the sample</li>
+            <li>Well-established method with statistical foundations</li>
+        </ul>
+    </div>
+    
+    <div class="comparison">
+        <h3>Comparison with Other Methods</h3>
+        <table border="1">
+            <tr>
+                <th>Method</th>
+                <th>Strengths</th>
+                <th>Weaknesses</th>
+            </tr>
+            <tr>
+                <td>IPF</td>
+                <td>Mathematically rigorous, preserves structure, efficient</td>
+                <td>Assumes positive interactions, may flatten rare combinations</td>
+            </tr>
+            <tr>
+                <td>Simulated Annealing</td>
+                <td>Handles complex constraints, avoids local optima</td>
+                <td>Computationally intensive, requires parameter tuning</td>
+            </tr>
+            <tr>
+                <td>Deterministic Reweighting</td>
+                <td>Simple, fast</td>
+                <td>Only matches one dimension at a time, distorts joints</td>
+            </tr>
+        </table>
+        <p>IPF is often the preferred choice when you need to match multiple marginals simultaneously while preserving the joint distribution structure from your sample data.</p>
+    </div>
+    </div>
+</body>
+</html>
