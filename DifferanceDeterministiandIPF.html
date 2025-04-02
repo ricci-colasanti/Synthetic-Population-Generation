@@ -1,81 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deterministic vs IPF Comparison</title>
-     <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
+    <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
 </head>
 
 <body>
-    <h1>Deterministic Reweighting vs IPF</h1>
-    <h2>Core Difference in Approach</h2>
-    
-    <div class="key-diff">
-        <p><strong>Fundamental distinction:</strong> Deterministic reweighting adjusts weights in a single pass per dimension, while IPF iteratively refines weights until all marginal constraints are simultaneously satisfied.</p>
-    </div>
-    
-    <div class="comparison-grid">
-        <div class="method deterministic">
-            <h3>Deterministic Reweighting</h3>
-            <p><strong>Approach:</strong> Sequential 1D adjustment</p>
-            <pre><code># Pseudocode
+    <div class="container">
+        <h1>Deterministic Reweighting vs IPF</h1>
+        <h2>Core Difference in Approach</h2>
+
+        <div class="key-diff">
+            <p><strong>Fundamental distinction:</strong> Deterministic reweighting adjusts weights in a single pass per
+                dimension, while IPF iteratively refines weights until all marginal constraints are simultaneously
+                satisfied.</p>
+        </div>
+
+        <div class="comparison-grid">
+            <div class="method deterministic">
+                <h3>Deterministic Reweighting</h3>
+                <p><strong>Approach:</strong> Sequential 1D adjustment</p>
+                <pre><code># Pseudocode
 for each dimension:
     for each record:
         weight *= (target_marginal / current_marginal)</code></pre>
-            <ul>
-                <li>Processes one variable at a time</li>
-                <li>Final weights are product of single-dimension adjustments</li>
-                <li>No convergence checking</li>
-            </ul>
-        </div>
-        
-        <div class="method ipf">
-            <h3>Iterative Proportional Fitting (IPF)</h3>
-            <p><strong>Approach:</strong> Cyclic multi-dimensional convergence</p>
-            <pre><code># Pseudocode
+                <ul>
+                    <li>Processes one variable at a time</li>
+                    <li>Final weights are product of single-dimension adjustments</li>
+                    <li>No convergence checking</li>
+                </ul>
+            </div>
+
+            <div class="method ipf">
+                <h3>Iterative Proportional Fitting (IPF)</h3>
+                <p><strong>Approach:</strong> Cyclic multi-dimensional convergence</p>
+                <pre><code># Pseudocode
 while not converged:
     for each dimension:
         adjust weights proportionally
         check all marginal differences</code></pre>
-            <ul>
-                <li>Cycles through all dimensions repeatedly</li>
-                <li>Adjusts weights to gradually satisfy all constraints</li>
-                <li>Includes convergence threshold</li>
-            </ul>
+                <ul>
+                    <li>Cycles through all dimensions repeatedly</li>
+                    <li>Adjusts weights to gradually satisfy all constraints</li>
+                    <li>Includes convergence threshold</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Key Practical Differences</h2>
+
+        <div class="diff-point">
+            <h4>1. Dimensionality Handling</h4>
+            <p><strong>Deterministic:</strong> Treats dimensions independently (may distort relationships between
+                variables)
+            </p>
+            <p><strong>IPF:</strong> Actively balances all dimensions simultaneously (better preserves interactions)</p>
+        </div>
+
+        <div class="diff-point">
+            <h4>2. Output Quality</h4>
+            <p><strong>Deterministic:</strong> Perfect 1D marginals but poor joint distributions</p>
+            <p><strong>IPF:</strong> Good multi-dimensional balance (though may flatten rare combinations)</p>
+        </div>
+
+        <div class="diff-point">
+            <h4>3. Computational Process</h4>
+            <p><strong>Deterministic:</strong> Single pass - fast but simplistic</p>
+            <p><strong>IPF:</strong> Iterative - slower but more refined</p>
+        </div>
+
+        <div class="diff-point">
+            <h4>4. Use Cases</h4>
+            <p><strong>Deterministic:</strong> Best for quick prototypes or when only 1-2 dimensions matter</p>
+            <p><strong>IPF:</strong> Preferred for production-grade synthesis with 3+ important dimensions</p>
+        </div>
+
+        <div class="key-diff">
+            <h3>Analogy</h3>
+            <p><strong>Deterministic</strong> is like adjusting each instrument in an orchestra separately, while
+                <strong>IPF</strong> is like a conductor coordinating all instruments together through rehearsals until
+                harmony is achieved.</p>
         </div>
     </div>
-    
-    <h2>Key Practical Differences</h2>
-    
-    <div class="diff-point">
-        <h4>1. Dimensionality Handling</h4>
-        <p><strong>Deterministic:</strong> Treats dimensions independently (may distort relationships between variables)</p>
-        <p><strong>IPF:</strong> Actively balances all dimensions simultaneously (better preserves interactions)</p>
-    </div>
-    
-    <div class="diff-point">
-        <h4>2. Output Quality</h4>
-        <p><strong>Deterministic:</strong> Perfect 1D marginals but poor joint distributions</p>
-        <p><strong>IPF:</strong> Good multi-dimensional balance (though may flatten rare combinations)</p>
-    </div>
-    
-    <div class="diff-point">
-        <h4>3. Computational Process</h4>
-        <p><strong>Deterministic:</strong> Single pass - fast but simplistic</p>
-        <p><strong>IPF:</strong> Iterative - slower but more refined</p>
-    </div>
-    
-    <div class="diff-point">
-        <h4>4. Use Cases</h4>
-        <p><strong>Deterministic:</strong> Best for quick prototypes or when only 1-2 dimensions matter</p>
-        <p><strong>IPF:</strong> Preferred for production-grade synthesis with 3+ important dimensions</p>
-    </div>
-    
-    <div class="key-diff">
-        <h3>Analogy</h3>
-        <p><strong>Deterministic</strong> is like adjusting each instrument in an orchestra separately, while <strong>IPF</strong> is like a conductor coordinating all instruments together through rehearsals until harmony is achieved.</p>
-    </div>
-    </div>
 </body>
+
 </html>
