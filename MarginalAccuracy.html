@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Marginal Accuracy</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
+</head>
+<body>
+    <div class="container">    <h1>Understanding Marginal Accuracy in Population Synthesis</h1>
+    
+    <div class="definition-box">
+        <h2>What is Marginal Accuracy?</h2>
+        <p><strong>Marginal accuracy</strong> measures how well a synthetic population matches the target distributions of <em>individual variables</em> (like age, gender, or education) without considering their combinations.</p>
+    </div>
+    
+    <div class="example">
+        <h3>Example Scenario</h3>
+        <p>Given these target distributions for a population of 1,000:</p>
+        
+        <table>
+            <tr>
+                <th>Variable</th>
+                <th>Category</th>
+                <th>Target Count</th>
+                <th>Target %</th>
+            </tr>
+            <tr>
+                <td rowspan="2">Age</td>
+                <td>18-25</td>
+                <td>300</td>
+                <td>30%</td>
+            </tr>
+            <tr>
+                <td>26-35</td>
+                <td>700</td>
+                <td>70%</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Gender</td>
+                <td>Male</td>
+                <td>450</td>
+                <td>45%</td>
+            </tr>
+            <tr>
+                <td>Female</td>
+                <td>550</td>
+                <td>55%</td>
+            </tr>
+        </table>
+    </div>
+    
+    <h2>How Methods Achieve Marginal Accuracy</h2>
+    
+    <table>
+        <tr>
+            <th>Method</th>
+            <th>Marginal Accuracy</th>
+            <th>Mechanism</th>
+            <th>Visual</th>
+        </tr>
+        <tr>
+            <td><span class="method-highlight deterministic">Deterministic Reweighting</span></td>
+            <td>Perfect for 1-2 dimensions</td>
+            <td>Direct weight adjustment per variable</td>
+            <td>
+                <div class="accuracy-meter">
+                    Perfect
+                    <div class="meter-bar perfect"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><span class="method-highlight ipf">Iterative Proportional Fitting (IPF)</span></td>
+            <td>High for all dimensions</td>
+            <td>Iterative proportional adjustments</td>
+            <td>
+                <div class="accuracy-meter">
+                    High
+                    <div class="meter-bar high"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><span class="method-highlight conditional">Conditional Probabilities</span></td>
+            <td>Approximate</td>
+            <td>Sampling from conditional distributions</td>
+            <td>
+                <div class="accuracy-meter">
+                    Medium
+                    <div class="meter-bar medium"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><span class="method-highlight annealing">Simulated Annealing</span></td>
+            <td>Variable (depends on parameters)</td>
+            <td>Optimization toward targets</td>
+            <td>
+                <div class="accuracy-meter">
+                    Variable
+                    <div class="meter-bar variable"></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    <div class="example">
+        <h3>Tradeoffs with Joint Distributions</h3>
+        <p>Methods that prioritize perfect marginal accuracy often sacrifice realistic joint distributions:</p>
+        
+        <table>
+            <tr>
+                <th>Method</th>
+                <th>Marginal Accuracy</th>
+                <th>Joint Distribution Quality</th>
+            </tr>
+            <tr>
+                <td>Deterministic</td>
+                <td>✅ Perfect</td>
+                <td>❌ Poor</td>
+            </tr>
+            <tr>
+                <td>IPF</td>
+                <td>✅ High</td>
+                <td>⚠️ Moderate</td>
+            </tr>
+            <tr>
+                <td>Conditional</td>
+                <td>⚠️ Approximate</td>
+                <td>✅ Best</td>
+            </tr>
+        </table>
+    </div>
+    
+    <h2>Key Considerations</h2>
+    <ol>
+        <li><strong>Precision Needs:</strong> Health policy models may need perfect marginals, while marketing simulations may prioritize realistic combinations</li>
+        <li><strong>Variable Importance:</strong> Some variables (like age in healthcare) may need higher marginal accuracy than others</li>
+        <li><strong>Convergence:</strong> IPF guarantees convergence to marginal targets if constraints are compatible</li>
+        <li><strong>Sample Size:</strong> Conditional methods need sufficient reference data to estimate probabilities accurately</li>
+    </ol>
+    
+    <div class="definition-box">
+        <h3>Measuring Marginal Accuracy</h3>
+        <p>Common metrics include:</p>
+        <ul>
+            <li><strong>Absolute Difference:</strong> |Target - Synthetic| counts</li>
+            <li><strong>RMSE:</strong> Root Mean Square Error across categories</li>
+            <li><strong>χ² Test:</strong> Statistical test for distribution matching</li>
+        </ul>
+    </div>
+    </div>
+</body>
+</html>
