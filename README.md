@@ -24,9 +24,9 @@ Sample Output:
 Copy
 
 ID  Age    Gender  Education     Weight
-1   18-25  Male    HighSchool    1.34
-2   26-35  Female  Bachelor      0.92
-3   18-25  Female  Bachelor      1.41
+1   18-25  Male    School    1.34
+2   26-35  Female  Degree      0.92
+3   18-25  Female  Degree      1.41
 
 When to Use:
 
@@ -130,7 +130,7 @@ Copy
 Generated 1500 individuals with preserved relationships:
 Age 18-25: 32% (target: 33%)  
 P(Female|18-25): 61% (ref: 60%)  
-P(Bachelor|Male,26-35): 42% (ref: 40%)
+P(Degree|Male,26-35): 42% (ref: 40%)
 
 When to Use:
 
