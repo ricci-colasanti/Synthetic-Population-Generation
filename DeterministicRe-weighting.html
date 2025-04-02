@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deterministic Re-weighting with Three Categories</title>
     <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
 </head>
+
 <body>
     <div class="container">
-    <h1>Deterministic Re-weighting with Three Categories</h1>
-    
-    <p>Here's a pseudo-code for <strong>deterministic re-weighting</strong> with three categories (age, gender, education) using a <strong>hierarchical adjustment</strong> approach. This ensures the synthetic population matches marginal totals for all three dimensions.</p>
-    
-    <h2>Pseudo-Code: Deterministic Re-weighting (3D: Age × Gender × Education)</h2>
-    
-    <pre><code># Inputs:
+        <h1>Deterministic Re-weighting with Three Categories</h1>
+
+        <p>Here's a pseudo-code for <strong>deterministic re-weighting</strong> with three categories (age, gender,
+            education) using a <strong>hierarchical adjustment</strong> approach. This ensures the synthetic population
+            matches marginal totals for all three dimensions.</p>
+
+        <h2>Pseudo-Code: Deterministic Re-weighting (3D: Age × Gender × Education)</h2>
+
+        <pre><code># Inputs:
 #   - sample_data: List of records, each with:
 #       - 'w' (initial weight)
 #       - 'age', 'gender', 'education' (categories)
@@ -68,10 +72,10 @@ function deterministic_reweighting_3d(sample_data, target_margins):
         record['w'] *= adjustment_factors['education'].get(edu_cat, 1.0)
     
     return sample_data</code></pre>
-    
-    <h2>Example Usage</h2>
-    
-    <pre><code># Sample data (4 individuals with initial weights)
+
+        <h2>Example Usage</h2>
+
+        <pre><code># Sample data (4 individuals with initial weights)
 sample_data = [
     {'id': 1, 'w': 100, 'age': '18-25', 'gender': 'Male', 'education': 'School'},
     {'id': 2, 'w': 200, 'age': '26-35', 'gender': 'Female', 'education': 'Degree'},
@@ -94,29 +98,33 @@ adjusted_data = deterministic_reweighting_3d(sample_data, target_margins)
 # - Gender: Male (400 orig.) → 600 (scale ×1.5), Female (350 orig.) → 900 (scale ~2.57)
 # - Education: School (400 orig.) → 800 (scale ×2), Degree (450 orig.) → 700 (scale ×1.55)
 # Final weights are multiplicative (age × gender × education adjustments).</code></pre>
-    
-    <div class="note">
-        <h3>Key Notes:</h3>
-        
-        <h4>Hierarchical Adjustments:</h4>
-        <ul>
-            <li>The order of adjustments matters (e.g., age → gender → education).</li>
-            <li>Later adjustments may "distort" earlier ones. For exact multi-dimensional margins, use <span class="key-point">Iterative Proportional Fitting (IPF)</span> instead.</li>
-        </ul>
-        
-        <h4>Limitations:</h4>
-        <ul>
-            <li>This is a <strong>simplified approach</strong> and may not perfectly match all joint distributions.</li>
-            <li>For high-dimensional consistency, combine with combinatorial optimization or probabilistic methods.</li>
-        </ul>
-        
-        <h4>Resampling for Synthetic Individuals:</h4>
-        <p>To generate discrete individuals from the re-weighted sample:</p>
-        <pre><code>synthetic_population = []
+
+        <div class="note">
+            <h3>Key Notes:</h3>
+
+            <h4>Hierarchical Adjustments:</h4>
+            <ul>
+                <li>The order of adjustments matters (e.g., age → gender → education).</li>
+                <li>Later adjustments may "distort" earlier ones. For exact multi-dimensional margins, use <span
+                        class="key-point">Iterative Proportional Fitting (IPF)</span> instead.</li>
+            </ul>
+
+            <h4>Limitations:</h4>
+            <ul>
+                <li>This is a <strong>simplified approach</strong> and may not perfectly match all joint distributions.
+                </li>
+                <li>For high-dimensional consistency, combine with combinatorial optimization or probabilistic methods.
+                </li>
+            </ul>
+
+            <h4>Resampling for Synthetic Individuals:</h4>
+            <p>To generate discrete individuals from the re-weighted sample:</p>
+            <pre><code>synthetic_population = []
 for record in adjusted_data:
     num_clones = round(record['w'])  # Round weights to integers
     synthetic_population.extend([record] * num_clones)</code></pre>
-    </div>
+        </div>
     </div>
 </body>
+
 </html>

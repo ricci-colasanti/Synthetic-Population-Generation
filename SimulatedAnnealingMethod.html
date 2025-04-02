@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulated Annealing Guide</title>
     <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
 </head>
+
 <body>
     <div class="container">
-    <h1>Simulated Annealing in Python</h1>
-    
-    <p>Simulated annealing is a probabilistic technique for approximating the global optimum of a given function. It's often used for optimization problems.</p>
-    
-    <p>Here's a step-by-step guide to create a simple simulated annealing algorithm in Python. We'll use a basic example of finding the minimum of a function.</p>
-    
-    <h2>Step 1: Define the Objective Function</h2>
-    
-    <p>First, let's define the objective function that we want to minimize. For this example, we'll use the Rastrigin function, which is a common test function for optimization algorithms.</p>
-    
-    <pre><code class="language-python">import math
+        <h1>Simulated Annealing in Python</h1>
+
+        <p>Simulated annealing is a probabilistic technique for approximating the global optimum of a given function.
+            It's often used for optimization problems.</p>
+
+        <p>Here's a step-by-step guide to create a simple simulated annealing algorithm in Python. We'll use a basic
+            example of finding the minimum of a function.</p>
+
+        <h2>Step 1: Define the Objective Function</h2>
+
+        <p>First, let's define the objective function that we want to minimize. For this example, we'll use the
+            Rastrigin function, which is a common test function for optimization algorithms.</p>
+
+        <pre><code class="language-python">import math
 
 def rastrigin(x):
     A = 10
     return A * len(x) + sum([(xi**2 - A * math.cos(2 * math.pi * xi)) for xi in x])</code></pre>
-    
-    <h2>Step 2: Define the Simulated Annealing Algorithm</h2>
-    
-    <p>Next, we'll define the simulated annealing algorithm. This includes the initial solution, the cooling schedule, and the acceptance probability function.</p>
-    
-    <pre><code class="language-python">import random
+
+        <h2>Step 2: Define the Simulated Annealing Algorithm</h2>
+
+        <p>Next, we'll define the simulated annealing algorithm. This includes the initial solution, the cooling
+            schedule, and the acceptance probability function.</p>
+
+        <pre><code class="language-python">import random
 import math
 
 def simulated_annealing(objective_function, initial_solution, max_iterations, initial_temperature, cooling_rate):
@@ -60,12 +66,12 @@ def simulated_annealing(objective_function, initial_solution, max_iterations, in
         temperature *= cooling_rate
 
     return best_solution, best_energy</code></pre>
-    
-    <h2>Step 3: Run the Simulated Annealing Algorithm</h2>
-    
-    <p>Finally, we'll run the simulated annealing algorithm with some initial parameters.</p>
-    
-    <pre><code class="language-python"># Initial solution (randomly chosen)
+
+        <h2>Step 3: Run the Simulated Annealing Algorithm</h2>
+
+        <p>Finally, we'll run the simulated annealing algorithm with some initial parameters.</p>
+
+        <pre><code class="language-python"># Initial solution (randomly chosen)
 initial_solution = [random.uniform(-5.12, 5.12) for _ in range(2)]
 
 # Parameters for the simulated annealing algorithm
@@ -78,24 +84,30 @@ best_solution, best_energy = simulated_annealing(rastrigin, initial_solution, ma
 
 print(f"Best solution: {best_solution}")
 print(f"Best energy: {best_energy}")</code></pre>
-    
-    <div class="explanation">
-        <h2>Explanation</h2>
-        
-        <ul>
-            <li><strong>Objective Function:</strong> The rastrigin function is a common test function for optimization algorithms.</li>
-            <li><strong>Simulated Annealing Algorithm:</strong>
-                <ul>
-                    <li><strong>Initial Solution:</strong> Start with a random initial solution.</li>
-                    <li><strong>Temperature:</strong> Start with a high initial temperature and gradually cool it down.</li>
-                    <li><strong>Candidate Solution:</strong> Generate a new candidate solution by perturbing the current solution.</li>
-                    <li><strong>Acceptance Probability:</strong> Accept the new solution if it's better or with a certain probability if it's worse.</li>
-                    <li><strong>Cooling Schedule:</strong> Gradually reduce the temperature.</li>
-                </ul>
-            </li>
-            <li><strong>Running the Algorithm:</strong> Set the parameters and run the algorithm to find the best solution.</li>
-        </ul>
-    </div>
+
+        <div class="explanation">
+            <h2>Explanation</h2>
+
+            <ul>
+                <li><strong>Objective Function:</strong> The rastrigin function is a common test function for
+                    optimization algorithms.</li>
+                <li><strong>Simulated Annealing Algorithm:</strong>
+                    <ul>
+                        <li><strong>Initial Solution:</strong> Start with a random initial solution.</li>
+                        <li><strong>Temperature:</strong> Start with a high initial temperature and gradually cool it
+                            down.</li>
+                        <li><strong>Candidate Solution:</strong> Generate a new candidate solution by perturbing the
+                            current solution.</li>
+                        <li><strong>Acceptance Probability:</strong> Accept the new solution if it's better or with a
+                            certain probability if it's worse.</li>
+                        <li><strong>Cooling Schedule:</strong> Gradually reduce the temperature.</li>
+                    </ul>
+                </li>
+                <li><strong>Running the Algorithm:</strong> Set the parameters and run the algorithm to find the best
+                    solution.</li>
+            </ul>
+        </div>
     </div>
 </body>
+
 </html>

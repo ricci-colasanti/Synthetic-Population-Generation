@@ -1,105 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Joint Distributions</title>
     <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
 </head>
+
 <body>
     <div class="container">
-</head>
-<body>
-    <h1>Understanding Joint Distributions in Population Synthesis</h1>
-    
-    <div class="comparison-box">
-        <h2>Joint vs. Marginal Distributions</h2>
-        <p><strong>Joint distributions</strong> capture how variables <em>co-occur</em> in a population, while <strong>marginal distributions</strong> only show individual variable statistics.</p>
-    </div>
-    
-    <div class="example">
-        <h3>Example with Age, Gender, and Education</h3>
-        
-        <h4>Marginal Distributions (Single Variables)</h4>
-        <ul>
-            <li>P(Age = 18-25) = 30%</li>
-            <li>P(Gender = Female) = 55%</li>
-            <li>P(Education = Degree) = 40%</li>
-        </ul>
-        
-        <h4>Joint Distributions (Combinations)</h4>
-        <table>
-            <tr>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Education</th>
-                <th>Probability</th>
-            </tr>
-            <tr>
-                <td>18-25</td>
-                <td>Female</td>
-                <td>Degree</td>
-                <td>12%</td>
-            </tr>
-            <tr>
-                <td>26-35</td>
-                <td>Male</td>
-                <td>School</td>
-                <td>8%</td>
-            </tr>
-            <tr>
-                <td>18-25</td>
-                <td>Male</td>
-                <td>Degree</td>
-                <td>5%</td>
-            </tr>
-        </table>
-    </div>
-    
-    <h2>How Methods Handle Joint Distributions</h2>
-    
-    <table>
-        <tr>
-            <th>Method</th>
-            <th>Joint Distribution Preservation</th>
-            <th>Visualization</th>
-        </tr>
-        <tr>
-            <td><span class="method-highlight deterministic">Deterministic Reweighting</span></td>
-            <td>Only matches single-variable marginals well<br>
-                May distort natural relationships</td>
-            <td>✅ Age<br>✅ Gender<br>✅ Education<br>❌ Combinations</td>
-        </tr>
-        <tr>
-            <td><span class="method-highlight ipf">Iterative Proportional Fitting (IPF)</span></td>
-            <td>Better at preserving 2-way relationships<br>
-                3+ way interactions might still be off</td>
-            <td>✅ Age×Gender<br>✅ Gender×Education<br>⚠️ Age×Gender×Education</td>
-        </tr>
-        <tr>
-            <td><span class="method-highlight conditional">Conditional Probabilities</span></td>
-            <td>Explicitly models multi-way dependencies<br>
-                Best preserves realistic combinations</td>
-            <td>✅ Age×Gender×Education<br>✅ Natural clustering</td>
-        </tr>
-    </table>
-    
-    <div class="example">
-        <h3>Real-World Example</h3>
-        <p>A real population might show:</p>
-        <ul>
-            <li><strong>70%</strong> of 18-25 year-old females pursue Degree</li>
-            <li>But only <strong>40%</strong> of 26-35 year-old males do</li>
-        </ul>
-        <p>Conditional probability methods will maintain these natural relationships, while simpler methods might artificially flatten them to hit marginal targets.</p>
-    </div>
-    
-    <h2>Key Takeaways</h2>
-    <ol>
-        <li>Joint distributions reflect <strong>real-world correlations</strong> between variables</li>
-        <li>Simple reweighting can create <strong>unrealistic combinations</strong> even when marginals match</li>
-        <li>Choose methods based on your need for <strong>relationship preservation</strong> vs <strong>marginal accuracy</strong></li>
-    </ol>
+        </head>
+
+        <body>
+            <h1>Understanding Joint Distributions in Population Synthesis</h1>
+
+            <div class="comparison-box">
+                <h2>Joint vs. Marginal Distributions</h2>
+                <p><strong>Joint distributions</strong> capture how variables <em>co-occur</em> in a population, while
+                    <strong>marginal distributions</strong> only show individual variable statistics.</p>
+            </div>
+
+            <div class="example">
+                <h3>Example with Age, Gender, and Education</h3>
+
+                <h4>Marginal Distributions (Single Variables)</h4>
+                <ul>
+                    <li>P(Age = 18-25) = 30%</li>
+                    <li>P(Gender = Female) = 55%</li>
+                    <li>P(Education = Degree) = 40%</li>
+                </ul>
+
+                <h4>Joint Distributions (Combinations)</h4>
+                <table>
+                    <tr>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Education</th>
+                        <th>Probability</th>
+                    </tr>
+                    <tr>
+                        <td>18-25</td>
+                        <td>Female</td>
+                        <td>Degree</td>
+                        <td>12%</td>
+                    </tr>
+                    <tr>
+                        <td>26-35</td>
+                        <td>Male</td>
+                        <td>School</td>
+                        <td>8%</td>
+                    </tr>
+                    <tr>
+                        <td>18-25</td>
+                        <td>Male</td>
+                        <td>Degree</td>
+                        <td>5%</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>How Methods Handle Joint Distributions</h2>
+
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>Joint Distribution Preservation</th>
+                    <th>Visualization</th>
+                </tr>
+                <tr>
+                    <td><span class="method-highlight deterministic">Deterministic Reweighting</span></td>
+                    <td>Only matches single-variable marginals well<br>
+                        May distort natural relationships</td>
+                    <td>✅ Age<br>✅ Gender<br>✅ Education<br>❌ Combinations</td>
+                </tr>
+                <tr>
+                    <td><span class="method-highlight ipf">Iterative Proportional Fitting (IPF)</span></td>
+                    <td>Better at preserving 2-way relationships<br>
+                        3+ way interactions might still be off</td>
+                    <td>✅ Age×Gender<br>✅ Gender×Education<br>⚠️ Age×Gender×Education</td>
+                </tr>
+                <tr>
+                    <td><span class="method-highlight conditional">Conditional Probabilities</span></td>
+                    <td>Explicitly models multi-way dependencies<br>
+                        Best preserves realistic combinations</td>
+                    <td>✅ Age×Gender×Education<br>✅ Natural clustering</td>
+                </tr>
+            </table>
+
+            <div class="example">
+                <h3>Real-World Example</h3>
+                <p>A real population might show:</p>
+                <ul>
+                    <li><strong>70%</strong> of 18-25 year-old females pursue Degree</li>
+                    <li>But only <strong>40%</strong> of 26-35 year-old males do</li>
+                </ul>
+                <p>Conditional probability methods will maintain these natural relationships, while simpler methods
+                    might artificially flatten them to hit marginal targets.</p>
+            </div>
+
+            <h2>Key Takeaways</h2>
+            <ol>
+                <li>Joint distributions reflect <strong>real-world correlations</strong> between variables</li>
+                <li>Simple reweighting can create <strong>unrealistic combinations</strong> even when marginals match
+                </li>
+                <li>Choose methods based on your need for <strong>relationship preservation</strong> vs <strong>marginal
+                        accuracy</strong></li>
+            </ol>
     </div>
 </body>
+
 </html>
