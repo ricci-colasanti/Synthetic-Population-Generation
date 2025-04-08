@@ -14,6 +14,10 @@
 
         <p>IPF is a mathematical procedure that adjusts the cells of a contingency table so that the table's margins
             match predefined target values.</p>
+        <p> A worked example [on going development] is avalable in this <a
+                href="https://colab.research.google.com/drive/1TJaEePAhBn6LRtfZQ9-o2peAxiH-7cdm?usp=sharing">Colab
+                notebook</a></p>
+
 
         <h2>1. Core Components of IPF</h2>
 
@@ -22,334 +26,336 @@
         <h4>A. Seed Table (Initial Table)</h4>
         <h4>B. Target Margins (Constraints)</h4>
 
-       
+
 
         <h3>1.1 Starting with individual survey data to create seed table</h2>
 
-        <p>The seed table in IPF is typically created from survey data where each row represents an individual
-            respondent with their characteristics.</p>
+            <p>The seed table in IPF is typically created from survey data where each row represents an individual
+                respondent with their characteristics.</p>
 
-        <h3>Example Survey Data (First 10 Respondents):</h3>
+            <h3>Example Survey Data (First 10 Respondents):</h3>
 
-        <table border="1">
-            <tr>
-                <th>Respondent ID</th>
-                <th>Age Group</th>
-                <th>Gender</th>
-                <th>Income</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>18-30</td>
-                <td>Male</td>
-                <td>Low</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>31-50</td>
-                <td>Female</td>
-                <td>Medium</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>51+</td>
-                <td>Male</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>18-30</td>
-                <td>Female</td>
-                <td>Low</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>31-50</td>
-                <td>Male</td>
-                <td>Medium</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>31-50</td>
-                <td>Female</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>51+</td>
-                <td>Female</td>
-                <td>Medium</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>18-30</td>
-                <td>Male</td>
-                <td>Low</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>31-50</td>
-                <td>Male</td>
-                <td>Medium</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>51+</td>
-                <td>Male</td>
-                <td>High</td>
-            </tr>
-        </table>
-
-        <h2>1.2 Creating the Contingency Table (Cross-Tabulation)</h2>
-
-        <p>We count how many individuals fall into each combination of categories:</p>
-
-        <h3>Step 1: Count Age × Gender Combinations</h3>
-
-        <p>For our 1000 respondents (full survey), we might get these counts:</p>
-
-        <table border="1">
-            <tr>
-                <th>Age \ Gender</th>
-                <th>Male</th>
-                <th>Female</th>
-                <th>Total</th>
-            </tr>
-            <tr>
-                <td>18-30</td>
-                <td>100</td>
-                <td>150</td>
-                <td>250</td>
-            </tr>
-            <tr>
-                <td>31-50</td>
-                <td>200</td>
-                <td>250</td>
-                <td>450</td>
-            </tr>
-            <tr>
-                <td>51+</td>
-                <td>150</td>
-                <td>150</td>
-                <td>300</td>
-            </tr>
-            <tr>
-                <td>Total</td>
-                <td>450</td>
-                <td>550</td>
-                <td>1000</td>
-            </tr>
-        </table>
-
-        <h3>How These Counts Are Calculated:</h3>
-
-        <ul>
-            <li><strong>18-30 Males:</strong> Count all respondents where Age=18-30 AND Gender=Male</li>
-            <li><strong>31-50 Females:</strong> Count all respondents where Age=31-50 AND Gender=Female</li>
-            <li>And so on for all combinations</li>
-        </ul>
-
-        <h3>Step 2: Verify Sample Representativeness</h3>
-
-        <p>Before using this as our seed table, we should check if our sample is representative:</p>
-
-        <table border="1">
-            <tr>
-                <th>Characteristic</th>
-                <th>Sample %</th>
-                <th>Population %</th>
-                <th>Difference</th>
-            </tr>
-            <tr>
-                <td>18-30</td>
-                <td>25%</td>
-                <td>30%</td>
-                <td>+5%</td>
-            </tr>
-            <tr>
-                <td>Male</td>
-                <td>45%</td>
-                <td>48%</td>
-                <td>+3%</td>
-            </tr>
-        </table>
-
-        <h2>1.3 Using the Contingency Table as IPF Seed</h2>
-
-        <p>Now we have our seed table ready for IPF:</p>
-
-        <table border="1">
-            <tr>
-                <th>Age \ Gender</th>
-                <th>Male</th>
-                <th>Female</th>
-                <th>Row Total</th>
-            </tr>
-            <tr>
-                <td>18-30</td>
-                <td>100</td>
-                <td>150</td>
-                <td>250</td>
-            </tr>
-            <tr>
-                <td>31-50</td>
-                <td>200</td>
-                <td>250</td>
-                <td>450</td>
-            </tr>
-            <tr>
-                <td>51+</td>
-                <td>150</td>
-                <td>150</td>
-                <td>300</td>
-            </tr>
-            <tr>
-                <td>Col Total</td>
-                <td>450</td>
-                <td>550</td>
-                <td>1000</td>
-            </tr>
-        </table>
-
-        <h2>1.4 Why This Process Matters</h2>
-
-        <ul>
-            <li><strong>Preserves relationships:</strong> The seed table maintains the correlations between variables
-                found in the survey</li>
-            <li><strong>More accurate than random:</strong> Better than creating synthetic data with no underlying
-                structure</li>
-            <li><strong>Adjustable:</strong> IPF will scale these relationships to match known population totals</li>
-        </ul>
-
-        <h2>1.5 Extension to More Variables</h2>
-
-        <p>The same process works for 3+ variables (e.g., Age × Gender × Income):</p>
-
-        <table border="1">
-            <tr>
-                <th>Age \ Gender \ Income</th>
-                <th>Male Low</th>
-                <th>Male Medium</th>
-                <th>Male High</th>
-                <th>Female Low</th>
-                <th>...</th>
-            </tr>
-            <tr>
-                <td>18-30</td>
-                <td>40</td>
-                <td>30</td>
-                <td>30</td>
-                <td>70</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>31-50</td>
-                <td>60</td>
-                <td>80</td>
-                <td>60</td>
-                <td>80</td>
-                <td>...</td>
-            </tr>
-        </table>
-
-        <p>With such a contingency table representing the joint distribution of variables (e.g., age × gender):</p>
-
-        <table border="1">
-            <tr>
-                <th>Age \ Gender</th>
-                <th>Male</th>
-                <th>Female</th>
-                <th><strong>Row Total</strong></th>
-            </tr>
-            <tr>
-                <td>18-30</td>
-                <td>100</td>
-                <td>150</td>
-                <td><strong>250</strong></td>
-            </tr>
-            <tr>
-                <td>31-50</td>
-                <td>200</td>
-                <td>250</td>
-                <td><strong>450</strong></td>
-            </tr>
-            <tr>
-                <td>51+</td>
-                <td>150</td>
-                <td>150</td>
-                <td><strong>300</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Col Total</strong></td>
-                <td><strong>450</strong></td>
-                <td><strong>550</strong></td>
-                <td><strong>1000</strong></td>
-            </tr>
-        </table>
-
-        <h2>Target Margins in Iterative Proportional Fitting</h2>
-
-        <h2>What Are Target Margins?</h2>
-        <p>Target margins (also called constraints) are the known population totals that we want our final table to
-            match. These typically come from authoritative sources like:</p>
-        <ul>
-            <li>Census data</li>
-            <li>Official demographic statistics</li>
-            <li>Large-scale surveys</li>
-            <li>Administrative records</li>
-        </ul>
-
-        <h2>Example Margins Structure</h2>
-
-        <h3>For a 2D Age × Gender Table:</h3>
-        <div class="margin-example">
-            <h4>Row Margins (Age Totals):</h4>
             <table border="1">
                 <tr>
+                    <th>Respondent ID</th>
                     <th>Age Group</th>
-                    <th>Target Total</th>
+                    <th>Gender</th>
+                    <th>Income</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>18-30</td>
+                    <td>Male</td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>31-50</td>
+                    <td>Female</td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>51+</td>
+                    <td>Male</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>18-30</td>
+                    <td>Female</td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>31-50</td>
+                    <td>Male</td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>31-50</td>
+                    <td>Female</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>51+</td>
+                    <td>Female</td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>18-30</td>
+                    <td>Male</td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>31-50</td>
+                    <td>Male</td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>51+</td>
+                    <td>Male</td>
+                    <td>High</td>
+                </tr>
+            </table>
+
+            <h2>1.2 Creating the Contingency Table (Cross-Tabulation)</h2>
+
+            <p>We count how many individuals fall into each combination of categories:</p>
+
+            <h3>Step 1: Count Age × Gender Combinations</h3>
+
+            <p>For our 1000 respondents (full survey), we might get these counts:</p>
+
+            <table border="1">
+                <tr>
+                    <th>Age \ Gender</th>
+                    <th>Male</th>
+                    <th>Female</th>
+                    <th>Total</th>
                 </tr>
                 <tr>
                     <td>18-30</td>
-                    <td>300</td>
+                    <td>100</td>
+                    <td>150</td>
+                    <td>250</td>
                 </tr>
                 <tr>
                     <td>31-50</td>
-                    <td>500</td>
+                    <td>200</td>
+                    <td>250</td>
+                    <td>450</td>
                 </tr>
                 <tr>
                     <td>51+</td>
-                    <td>200</td>
+                    <td>150</td>
+                    <td>150</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>450</td>
+                    <td>550</td>
+                    <td>1000</td>
                 </tr>
             </table>
 
-            <h4>Column Margins (Gender Totals):</h4>
+            <h3>How These Counts Are Calculated:</h3>
+
+            <ul>
+                <li><strong>18-30 Males:</strong> Count all respondents where Age=18-30 AND Gender=Male</li>
+                <li><strong>31-50 Females:</strong> Count all respondents where Age=31-50 AND Gender=Female</li>
+                <li>And so on for all combinations</li>
+            </ul>
+
+            <h3>Step 2: Verify Sample Representativeness</h3>
+
+            <p>Before using this as our seed table, we should check if our sample is representative:</p>
+
             <table border="1">
                 <tr>
-                    <th>Gender</th>
-                    <th>Target Total</th>
+                    <th>Characteristic</th>
+                    <th>Sample %</th>
+                    <th>Population %</th>
+                    <th>Difference</th>
+                </tr>
+                <tr>
+                    <td>18-30</td>
+                    <td>25%</td>
+                    <td>30%</td>
+                    <td>+5%</td>
                 </tr>
                 <tr>
                     <td>Male</td>
-                    <td>600</td>
-                </tr>
-                <tr>
-                    <td>Female</td>
-                    <td>400</td>
+                    <td>45%</td>
+                    <td>48%</td>
+                    <td>+3%</td>
                 </tr>
             </table>
-        </div>
 
-        <h2>Key Properties of Target Margins</h2>
+            <h2>1.3 Using the Contingency Table as IPF Seed</h2>
 
-        <h3>1. Consistency Requirement</h3>
-        <p>The sum of row margins must equal the sum of column margins:</p>
-        <pre>300 (18-30) + 500 (31-50) + 200 (51+) = 1000
+            <p>Now we have our seed table ready for IPF:</p>
+
+            <table border="1">
+                <tr>
+                    <th>Age \ Gender</th>
+                    <th>Male</th>
+                    <th>Female</th>
+                    <th>Row Total</th>
+                </tr>
+                <tr>
+                    <td>18-30</td>
+                    <td>100</td>
+                    <td>150</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td>31-50</td>
+                    <td>200</td>
+                    <td>250</td>
+                    <td>450</td>
+                </tr>
+                <tr>
+                    <td>51+</td>
+                    <td>150</td>
+                    <td>150</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>Col Total</td>
+                    <td>450</td>
+                    <td>550</td>
+                    <td>1000</td>
+                </tr>
+            </table>
+
+            <h2>1.4 Why This Process Matters</h2>
+
+            <ul>
+                <li><strong>Preserves relationships:</strong> The seed table maintains the correlations between
+                    variables
+                    found in the survey</li>
+                <li><strong>More accurate than random:</strong> Better than creating synthetic data with no underlying
+                    structure</li>
+                <li><strong>Adjustable:</strong> IPF will scale these relationships to match known population totals
+                </li>
+            </ul>
+
+            <h2>1.5 Extension to More Variables</h2>
+
+            <p>The same process works for 3+ variables (e.g., Age × Gender × Income):</p>
+
+            <table border="1">
+                <tr>
+                    <th>Age \ Gender \ Income</th>
+                    <th>Male Low</th>
+                    <th>Male Medium</th>
+                    <th>Male High</th>
+                    <th>Female Low</th>
+                    <th>...</th>
+                </tr>
+                <tr>
+                    <td>18-30</td>
+                    <td>40</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td>70</td>
+                    <td>...</td>
+                </tr>
+                <tr>
+                    <td>31-50</td>
+                    <td>60</td>
+                    <td>80</td>
+                    <td>60</td>
+                    <td>80</td>
+                    <td>...</td>
+                </tr>
+            </table>
+
+            <p>With such a contingency table representing the joint distribution of variables (e.g., age × gender):</p>
+
+            <table border="1">
+                <tr>
+                    <th>Age \ Gender</th>
+                    <th>Male</th>
+                    <th>Female</th>
+                    <th><strong>Row Total</strong></th>
+                </tr>
+                <tr>
+                    <td>18-30</td>
+                    <td>100</td>
+                    <td>150</td>
+                    <td><strong>250</strong></td>
+                </tr>
+                <tr>
+                    <td>31-50</td>
+                    <td>200</td>
+                    <td>250</td>
+                    <td><strong>450</strong></td>
+                </tr>
+                <tr>
+                    <td>51+</td>
+                    <td>150</td>
+                    <td>150</td>
+                    <td><strong>300</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Col Total</strong></td>
+                    <td><strong>450</strong></td>
+                    <td><strong>550</strong></td>
+                    <td><strong>1000</strong></td>
+                </tr>
+            </table>
+
+            <h2>Target Margins in Iterative Proportional Fitting</h2>
+
+            <h2>What Are Target Margins?</h2>
+            <p>Target margins (also called constraints) are the known population totals that we want our final table to
+                match. These typically come from authoritative sources like:</p>
+            <ul>
+                <li>Census data</li>
+                <li>Official demographic statistics</li>
+                <li>Large-scale surveys</li>
+                <li>Administrative records</li>
+            </ul>
+
+            <h2>Example Margins Structure</h2>
+
+            <h3>For a 2D Age × Gender Table:</h3>
+            <div class="margin-example">
+                <h4>Row Margins (Age Totals):</h4>
+                <table border="1">
+                    <tr>
+                        <th>Age Group</th>
+                        <th>Target Total</th>
+                    </tr>
+                    <tr>
+                        <td>18-30</td>
+                        <td>300</td>
+                    </tr>
+                    <tr>
+                        <td>31-50</td>
+                        <td>500</td>
+                    </tr>
+                    <tr>
+                        <td>51+</td>
+                        <td>200</td>
+                    </tr>
+                </table>
+
+                <h4>Column Margins (Gender Totals):</h4>
+                <table border="1">
+                    <tr>
+                        <th>Gender</th>
+                        <th>Target Total</th>
+                    </tr>
+                    <tr>
+                        <td>Male</td>
+                        <td>600</td>
+                    </tr>
+                    <tr>
+                        <td>Female</td>
+                        <td>400</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>Key Properties of Target Margins</h2>
+
+            <h3>1. Consistency Requirement</h3>
+            <p>The sum of row margins must equal the sum of column margins:</p>
+            <pre>300 (18-30) + 500 (31-50) + 200 (51+) = 1000
 600 (Male) + 400 (Female) = 1000</pre>
 
-        <h3>2. Multi-Dimensional Extensions</h3>
-        <p>For 3+ variables, we need margins for each dimension:</p>
-        <pre><code class="python"># Example for Age × Gender × Income
+            <h3>2. Multi-Dimensional Extensions</h3>
+            <p>For 3+ variables, we need margins for each dimension:</p>
+            <pre><code class="python"># Example for Age × Gender × Income
 age_margins = [300, 500, 200]          # Age totals
 gender_margins = [600, 400]            # Gender totals
 income_margins = [400, 350, 250]       # Income totals (Low, Medium, High)
@@ -357,68 +363,70 @@ income_margins = [400, 350, 250]       # Income totals (Low, Medium, High)
 # Grand total must match across all dimensions
 assert sum(age_margins) == sum(gender_margins) == sum(income_margins)  # 1000</code></pre>
 
-        <h2>Sources of Target Margins</h2>
+            <h2>Sources of Target Margins</h2>
 
-        <h3>Common Data Sources</h3>
-        <table border="1">
-            <tr>
-                <th>Source</th>
-                <th>Example Margins</th>
-                <th>Python Loading Example</th>
-            </tr>
-            <tr>
-                <td>Census API</td>
-                <td>Age by gender tables</td>
-                <td>
-                    <pre><code class="python">import requests
+            <h3>Common Data Sources</h3>
+            <table border="1">
+                <tr>
+                    <th>Source</th>
+                    <th>Example Margins</th>
+                    <th>Python Loading Example</th>
+                </tr>
+                <tr>
+                    <td>Census API</td>
+                    <td>Age by gender tables</td>
+                    <td>
+                        <pre><code class="python">import requests
 census_data = requests.get("https://api.census.gov/data/2020/acs/acs5?get=AGE,SEX&for=state:24")</code></pre>
-                </td>
-            </tr>
-            <tr>
-                <td>CSV Files</td>
-                <td>Pre-aggregated totals</td>
-                <td>
-                    <pre><code class="python">import pandas as pd
+                    </td>
+                </tr>
+                <tr>
+                    <td>CSV Files</td>
+                    <td>Pre-aggregated totals</td>
+                    <td>
+                        <pre><code class="python">import pandas as pd
 margins = pd.read_csv("margins.csv")</code></pre>
-                </td>
-            </tr>
-            <tr>
-                <td>Statistical Models</td>
-                <td>Projected demographics</td>
-                <td>
-                    <pre><code class="python">from statsmodels.api import GLM
+                    </td>
+                </tr>
+                <tr>
+                    <td>Statistical Models</td>
+                    <td>Projected demographics</td>
+                    <td>
+                        <pre><code class="python">from statsmodels.api import GLM
 model = GLM(...)
 predicted_margins = model.predict(...)</code></pre>
-                </td>
-            </tr>
-        </table>
+                    </td>
+                </tr>
+            </table>
 
-        <h2>Practical Considerations</h2>
+            <h2>Practical Considerations</h2>
 
-        <h2>Advanced Margin Handling in Iterative Proportional Fitting</h2>
+            <h2>Advanced Margin Handling in Iterative Proportional Fitting</h2>
 
-        <h2>1. Handling Margin Mismatches</h2>
+            <h2>1. Handling Margin Mismatches</h2>
 
-        <h3>1.1 The Consistency Problem</h3>
-        <p>When row and column margins don't sum to the same total, we must resolve the discrepancy before running IPF:
-        </p>
+            <h3>1.1 The Consistency Problem</h3>
+            <p>When row and column margins don't sum to the same total, we must resolve the discrepancy before running
+                IPF:
+            </p>
 
-        <div class="scenario-box">
-            <h4>Common Causes of Mismatches:</h4>
-            <ul>
-                <li><strong>Different data sources:</strong> Age totals from census, gender totals from health survey
-                </li>
-                <li><strong>Reporting periods:</strong> Margins collected in different years</li>
-                <li><strong>Rounding errors:</strong> Published statistics using rounded numbers</li>
-                <li><strong>Sampling variability:</strong> Survey weights not perfectly calibrated</li>
-            </ul>
-        </div>
+            <div class="scenario-box">
+                <h4>Common Causes of Mismatches:</h4>
+                <ul>
+                    <li><strong>Different data sources:</strong> Age totals from census, gender totals from health
+                        survey
+                    </li>
+                    <li><strong>Reporting periods:</strong> Margins collected in different years</li>
+                    <li><strong>Rounding errors:</strong> Published statistics using rounded numbers</li>
+                    <li><strong>Sampling variability:</strong> Survey weights not perfectly calibrated</li>
+                </ul>
+            </div>
 
-        <h3>1.2 Normalization Approaches</h3>
+            <h3>1.2 Normalization Approaches</h3>
 
-        <div class="code-container">
-            <h4>Python: Advanced Margin Normalization</h4>
-            <pre><code class="python">def normalize_margins(row_margins, col_margins, method='proportional'):
+            <div class="code-container">
+                <h4>Python: Advanced Margin Normalization</h4>
+                <pre><code class="python">def normalize_margins(row_margins, col_margins, method='proportional'):
     <span class="code-comment">"""
     Normalize margins to common total using different strategies
     
@@ -456,31 +464,31 @@ predicted_margins = model.predict(...)</code></pre>
     
     <span class="code-keyword">else</span>:
         <span class="code-keyword">raise</span> ValueError(<span class="code-string">f"Unknown method: {method}"</span>)</code></pre>
-        </div>
+            </div>
 
-        <h3>1.3 Practical Example</h3>
-        <div class="example-box">
-            <h4>Mismatched Margins Scenario:</h4>
-            <table border="1">
-                <tr>
-                    <th></th>
-                    <th>Row Margins</th>
-                    <th>Sum</th>
-                </tr>
-                <tr>
-                    <td>Age Groups</td>
-                    <td>[320, 520, 210]</td>
-                    <td>1050</td>
-                </tr>
-                <tr>
-                    <td>Gender</td>
-                    <td>[610, 390]</td>
-                    <td>1000</td>
-                </tr>
-            </table>
+            <h3>1.3 Practical Example</h3>
+            <div class="example-box">
+                <h4>Mismatched Margins Scenario:</h4>
+                <table border="1">
+                    <tr>
+                        <th></th>
+                        <th>Row Margins</th>
+                        <th>Sum</th>
+                    </tr>
+                    <tr>
+                        <td>Age Groups</td>
+                        <td>[320, 520, 210]</td>
+                        <td>1050</td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>[610, 390]</td>
+                        <td>1000</td>
+                    </tr>
+                </table>
 
-            <h4>After Proportional Normalization:</h4>
-            <pre><code class="python">row_margins, col_margins = normalize_margins(
+                <h4>After Proportional Normalization:</h4>
+                <pre><code class="python">row_margins, col_margins = normalize_margins(
     [320, 520, 210],
     [610, 390],
     method='proportional'
@@ -488,35 +496,35 @@ predicted_margins = model.predict(...)</code></pre>
 <span class="code-comment"># Result:</span>
 <span class="code-comment"># Rows: [304.76, 495.24, 200.00] (sum=1000)</span>
 <span class="code-comment"># Cols: [634.15, 405.85] (sum=1040) → Will be normalized to 1000 in next IPF iteration</span></code></pre>
-        </div>
+            </div>
 
-        <h2>2. Weighted vs. Unweighted Margins</h2>
+            <h2>2. Weighted vs. Unweighted Margins</h2>
 
-        <h3>2.1 Understanding the Difference</h3>
-        <table border="1">
-            <tr>
-                <th>Type</th>
-                <th>Description</th>
-                <th>When to Use</th>
-                <th>Calculation</th>
-            </tr>
-            <tr>
-                <td>Unweighted</td>
-                <td>Raw counts from sample</td>
-                <td>When sample is perfectly representative</td>
-                <td>Simple value_counts()</td>
-            </tr>
-            <tr>
-                <td>Weighted</td>
-                <td>Adjusted for sampling design</td>
-                <td>Most real-world surveys</td>
-                <td>Sum of weights per group</td>
-            </tr>
-        </table>
+            <h3>2.1 Understanding the Difference</h3>
+            <table border="1">
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>When to Use</th>
+                    <th>Calculation</th>
+                </tr>
+                <tr>
+                    <td>Unweighted</td>
+                    <td>Raw counts from sample</td>
+                    <td>When sample is perfectly representative</td>
+                    <td>Simple value_counts()</td>
+                </tr>
+                <tr>
+                    <td>Weighted</td>
+                    <td>Adjusted for sampling design</td>
+                    <td>Most real-world surveys</td>
+                    <td>Sum of weights per group</td>
+                </tr>
+            </table>
 
-        <h3>2.2 Comprehensive Weighting Example</h3>
-        <div class="code-container">
-            <pre><code class="python">import pandas as pd
+            <h3>2.2 Comprehensive Weighting Example</h3>
+            <div class="code-container">
+                <pre><code class="python">import pandas as pd
 import numpy as np
 
 <span class="code-comment"># Sample survey data with weights</span>
@@ -563,20 +571,20 @@ targets = {
 
 <span class="code-comment"># Apply calibration</span>
 calibrated_data = calibrate_weights(survey_data, targets)</code></pre>
-        </div>
+            </div>
 
-        <h3>2.3 Weighting Considerations</h3>
-        <div class="considerations-box">
-            <h4>Key Factors in Weighting:</h4>
-            <ul>
-                <li><strong>Design weights:</strong> Account for unequal sampling probabilities</li>
-                <li><strong>Non-response adjustment:</strong> Compensate for missing responses</li>
-                <li><strong>Post-stratification:</strong> Align with population benchmarks</li>
-                <li><strong>Weight trimming:</strong> Prevent extreme weights that increase variance</li>
-            </ul>
+            <h3>2.3 Weighting Considerations</h3>
+            <div class="considerations-box">
+                <h4>Key Factors in Weighting:</h4>
+                <ul>
+                    <li><strong>Design weights:</strong> Account for unequal sampling probabilities</li>
+                    <li><strong>Non-response adjustment:</strong> Compensate for missing responses</li>
+                    <li><strong>Post-stratification:</strong> Align with population benchmarks</li>
+                    <li><strong>Weight trimming:</strong> Prevent extreme weights that increase variance</li>
+                </ul>
 
-            <h4>Python Implementation Tips:</h4>
-            <pre><code class="python"><span class="code-comment"># Check weight diagnostics</span>
+                <h4>Python Implementation Tips:</h4>
+                <pre><code class="python"><span class="code-comment"># Check weight diagnostics</span>
 print(<span class="code-string">"Weight summary:"</span>, survey_data['weight'].describe())
 print(<span class="code-string">"Effective sample size:"</span>, 
       (sum(survey_data['weight'])**2 / sum(survey_data['weight']**2))
@@ -586,12 +594,12 @@ import matplotlib.pyplot as plt
 plt.hist(survey_data['weight'], bins=20)
 plt.title(<span class="code-string">'Survey Weight Distribution'</span>)
 plt.show()</code></pre>
-        </div>
+            </div>
 
-        <h2>Visualizing Margin Constraints</h2>
-        <div class="visualization">
-            <p>Relationship between seed table and target margins:</p>
-            <pre>
+            <h2>Visualizing Margin Constraints</h2>
+            <div class="visualization">
+                <p>Relationship between seed table and target margins:</p>
+                <pre>
             Seed Table                  Target Margins
             ┌───────────────┐           ┌───────────────┐
             │ 100 │ 150 │250│           │      300      │
@@ -603,224 +611,254 @@ plt.show()</code></pre>
             │ 450 │ 550 │   │           ┌───────┬───────┐
             └───────────────┘           │ 600   │ 400   │
                                         └───────┴───────┘</pre>
-        </div>
+            </div>
 
-        <p>Known totals for each category (e.g., from census data):</p>
-        <ul>
-            <li><strong>New row totals (age):</strong> [300, 500, 200]</li>
-            <li><strong>New column totals (gender):</strong> [600, 400]</li>
-        </ul>
+            <p>Known totals for each category (e.g., from census data):</p>
+            <ul>
+                <li><strong>New row totals (age):</strong> [300, 500, 200]</li>
+                <li><strong>New column totals (gender):</strong> [600, 400]</li>
+            </ul>
 
-        <h2>2. How IPF Adjusts the Table Iteratively</h2>
+            <h2>2. How IPF Adjusts the Table Iteratively</h2>
 
-        <h3>Initial Table (Seed):</h3>
+            <h3>Initial Table (Seed):</h3>
 
-        <table border="1">
-            <tr>
-                <th>Age \ Gender</th>
-                <th>Male</th>
-                <th>Female</th>
-                <th><strong>Row Total</strong></th>
-                <th><strong>Row Target</strong></th>
-            </tr>
-            <tr>
-                <td>18-30</td>
-                <td>100</td>
-                <td>150</td>
-                <td>250</td>
-                <td><strong>300</strong></td>
-            </tr>
-            <tr>
-                <td>31-50</td>
-                <td>200</td>
-                <td>250</td>
-                <td>450</td>
-                <td><strong>500</strong></td>
-            </tr>
-            <tr>
-                <td>51+</td>
-                <td>150</td>
-                <td>150</td>
-                <td>300</td>
-                <td><strong>200</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Col Total</strong></td>
-                <td><strong>450</strong></td>
-                <td><strong>550</strong></td>
-                <td>1000</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td><strong>Col Target</strong></td>
-                <td><strong>600</strong></td>
-                <td><strong>400</strong></td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-        </table>
+            <table border="1">
+                <tr>
+                    <th>Age \ Gender</th>
+                    <th>Male</th>
+                    <th>Female</th>
+                    <th><strong>Row Total</strong></th>
+                    <th><strong>Row Target</strong></th>
+                </tr>
+                <tr>
+                    <td>18-30</td>
+                    <td>100</td>
+                    <td>150</td>
+                    <td>250</td>
+                    <td><strong>300</strong></td>
+                </tr>
+                <tr>
+                    <td>31-50</td>
+                    <td>200</td>
+                    <td>250</td>
+                    <td>450</td>
+                    <td><strong>500</strong></td>
+                </tr>
+                <tr>
+                    <td>51+</td>
+                    <td>150</td>
+                    <td>150</td>
+                    <td>300</td>
+                    <td><strong>200</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Col Total</strong></td>
+                    <td><strong>450</strong></td>
+                    <td><strong>550</strong></td>
+                    <td>1000</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><strong>Col Target</strong></td>
+                    <td><strong>600</strong></td>
+                    <td><strong>400</strong></td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </table>
 
-        <h3>Iteration 1: Adjust Rows to Match Row Targets</h3>
+            <h3>Iteration 1: Adjust Rows to Match Row Targets</h3>
 
-        <p>For each row, multiply each cell by: <br>
-            <code>Row Adjustment Factor = Row Target / Current Row Total</code></p>
+            <p>For each row, multiply each cell by: <br>
+                <code>Row Adjustment Factor = Row Target / Current Row Total</code></p>
 
-        <ul>
-            <li><strong>Row 1 (18-30):</strong> Adjustment factor = 300 / 250 = 1.2</li>
-            <li><strong>Row 2 (31-50):</strong> Adjustment factor = 500 / 450 ≈ 1.111</li>
-            <li><strong>Row 3 (51+):</strong> Adjustment factor = 200 / 300 ≈ 0.666</li>
-        </ul>
+            <ul>
+                <li><strong>Row 1 (18-30):</strong> Adjustment factor = 300 / 250 = 1.2</li>
+                <li><strong>Row 2 (31-50):</strong> Adjustment factor = 500 / 450 ≈ 1.111</li>
+                <li><strong>Row 3 (51+):</strong> Adjustment factor = 200 / 300 ≈ 0.666</li>
+            </ul>
 
-        <p><strong>After Row Adjustment:</strong></p>
+            <p><strong>After Row Adjustment:</strong></p>
 
-        <table border="1">
-            <tr>
-                <th>Age \ Gender</th>
-                <th>Male</th>
-                <th>Female</th>
-                <th><strong>Row Total</strong></th>
-            </tr>
-            <tr>
-                <td>18-30</td>
-                <td>120</td>
-                <td>180</td>
-                <td><strong>300</strong></td>
-            </tr>
-            <tr>
-                <td>31-50</td>
-                <td>222.2</td>
-                <td>277.8</td>
-                <td><strong>500</strong></td>
-            </tr>
-            <tr>
-                <td>51+</td>
-                <td>100</td>
-                <td>100</td>
-                <td><strong>200</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Col Total</strong></td>
-                <td><strong>442.2</strong></td>
-                <td><strong>557.8</strong></td>
-                <td><strong>1000</strong></td>
-            </tr>
-        </table>
+            <table border="1">
+                <tr>
+                    <th>Age \ Gender</th>
+                    <th>Male</th>
+                    <th>Female</th>
+                    <th><strong>Row Total</strong></th>
+                </tr>
+                <tr>
+                    <td>18-30</td>
+                    <td>120</td>
+                    <td>180</td>
+                    <td><strong>300</strong></td>
+                </tr>
+                <tr>
+                    <td>31-50</td>
+                    <td>222.2</td>
+                    <td>277.8</td>
+                    <td><strong>500</strong></td>
+                </tr>
+                <tr>
+                    <td>51+</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td><strong>200</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Col Total</strong></td>
+                    <td><strong>442.2</strong></td>
+                    <td><strong>557.8</strong></td>
+                    <td><strong>1000</strong></td>
+                </tr>
+            </table>
 
-        <p>→ <em>Row totals now match targets, but columns do not.</em></p>
+            <p>→ <em>Row totals now match targets, but columns do not.</em></p>
 
-        <h3>Iteration 1: Adjust Columns to Match Column Targets</h3>
+            <h3>Iteration 1: Adjust Columns to Match Column Targets</h3>
 
-        <p>For each column, multiply each cell by: <br>
-            <code>Column Adjustment Factor = Column Target / Current Column Total</code></p>
+            <p>For each column, multiply each cell by: <br>
+                <code>Column Adjustment Factor = Column Target / Current Column Total</code></p>
 
-        <ul>
-            <li><strong>Male Column:</strong> Adjustment factor = 600 / 442.2 ≈ 1.357</li>
-            <li><strong>Female Column:</strong> Adjustment factor = 400 / 557.8 ≈ 0.717</li>
-        </ul>
+            <ul>
+                <li><strong>Male Column:</strong> Adjustment factor = 600 / 442.2 ≈ 1.357</li>
+                <li><strong>Female Column:</strong> Adjustment factor = 400 / 557.8 ≈ 0.717</li>
+            </ul>
 
-        <p><strong>After Column Adjustment:</strong></p>
+            <p><strong>After Column Adjustment:</strong></p>
 
-        <table border="1">
-            <tr>
-                <th>Age \ Gender</th>
-                <th>Male</th>
-                <th>Female</th>
-                <th><strong>Row Total</strong></th>
-            </tr>
-            <tr>
-                <td>18-30</td>
-                <td>162.8</td>
-                <td>129.1</td>
-                <td><strong>291.9</strong></td>
-            </tr>
-            <tr>
-                <td>31-50</td>
-                <td>301.4</td>
-                <td>199.2</td>
-                <td><strong>500.6</strong></td>
-            </tr>
-            <tr>
-                <td>51+</td>
-                <td>135.7</td>
-                <td>71.7</td>
-                <td><strong>207.4</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Col Total</strong></td>
-                <td><strong>600</strong></td>
-                <td><strong>400</strong></td>
-                <td><strong>1000</strong></td>
-            </tr>
-        </table>
+            <table border="1">
+                <tr>
+                    <th>Age \ Gender</th>
+                    <th>Male</th>
+                    <th>Female</th>
+                    <th><strong>Row Total</strong></th>
+                </tr>
+                <tr>
+                    <td>18-30</td>
+                    <td>162.8</td>
+                    <td>129.1</td>
+                    <td><strong>291.9</strong></td>
+                </tr>
+                <tr>
+                    <td>31-50</td>
+                    <td>301.4</td>
+                    <td>199.2</td>
+                    <td><strong>500.6</strong></td>
+                </tr>
+                <tr>
+                    <td>51+</td>
+                    <td>135.7</td>
+                    <td>71.7</td>
+                    <td><strong>207.4</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Col Total</strong></td>
+                    <td><strong>600</strong></td>
+                    <td><strong>400</strong></td>
+                    <td><strong>1000</strong></td>
+                </tr>
+            </table>
 
-        <p>→ <em>Column totals now match targets, but rows are slightly off again.</em></p>
+            <p>→ <em>Column totals now match targets, but rows are slightly off again.</em></p>
 
-        <h3>Final Converged Table (After Several Iterations):</h3>
+            <h3>Final Converged Table (After Several Iterations):</h3>
 
-        <table border="1">
-            <tr>
-                <th>Age \ Gender</th>
-                <th>Male</th>
-                <th>Female</th>
-                <th><strong>Row Total</strong></th>
-            </tr>
-            <tr>
-                <td>18-30</td>
-                <td>180</td>
-                <td>120</td>
-                <td><strong>300</strong></td>
-            </tr>
-            <tr>
-                <td>31-50</td>
-                <td>300</td>
-                <td>200</td>
-                <td><strong>500</strong></td>
-            </tr>
-            <tr>
-                <td>51+</td>
-                <td>120</td>
-                <td>80</td>
-                <td><strong>200</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Col Total</strong></td>
-                <td><strong>600</strong></td>
-                <td><strong>400</strong></td>
-                <td><strong>1000</strong></td>
-            </tr>
-        </table>
+            <table border="1">
+                <tr>
+                    <th>Age \ Gender</th>
+                    <th>Male</th>
+                    <th>Female</th>
+                    <th><strong>Row Total</strong></th>
+                </tr>
+                <tr>
+                    <td>18-30</td>
+                    <td>180</td>
+                    <td>120</td>
+                    <td><strong>300</strong></td>
+                </tr>
+                <tr>
+                    <td>31-50</td>
+                    <td>300</td>
+                    <td>200</td>
+                    <td><strong>500</strong></td>
+                </tr>
+                <tr>
+                    <td>51+</td>
+                    <td>120</td>
+                    <td>80</td>
+                    <td><strong>200</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Col Total</strong></td>
+                    <td><strong>600</strong></td>
+                    <td><strong>400</strong></td>
+                    <td><strong>1000</strong></td>
+                </tr>
+            </table>
 
-        <p>→ <em>Now both row and column totals match the targets perfectly.</em></p>
+            <p>→ <em>Now both row and column totals match the targets perfectly.</em></p>
 
-        <h2>3. Key Properties of IPF</h2>
+            <h2>3. Key Properties of IPF</h2>
 
-        <ul>
-            <li><strong>Convergence:</strong> Guaranteed if margins are consistent</li>
-            <li><strong>Fractional Weights:</strong> Produces non-integer weights (may need rounding)</li>
-            <li><strong>Extensions:</strong> Integer IPF, multi-dimensional IPF</li>
-            <li><strong>Applications:</strong> Transport modeling, economics, survey raking</li>
-        </ul>
+            <ul>
+                <li><strong>Convergence:</strong> Guaranteed if margins are consistent</li>
+                <li><strong>Fractional Weights:</strong> Produces non-integer weights (may need rounding)</li>
+                <li><strong>Extensions:</strong> Integer IPF, multi-dimensional IPF</li>
+                <li><strong>Applications:</strong> Transport modeling, economics, survey raking</li>
+            </ul>
 
-        
-        <h1>Iterative Proportional Fitting (IPF) with Vanilla Python</h1>
 
-        <h2>1. Data Preparation</h2>
+            <h1>Iterative Proportional Fitting (IPF) with Vanilla Python</h1>
 
-        <h3>1.1 Starting with Individual Survey Data</h3>
-        <p>The seed table in IPF is created from survey data where each row represents an individual respondent.</p>
+            <h2>1. Data Preparation</h2>
 
-        <h4>Example Survey Data:</h4>
-        <table border="1">
-            <tr><th>ID</th><th>Age</th><th>Gender</th><th>Income</th></tr>
-            <tr><td>1</td><td>18-30</td><td>Male</td><td>Low</td></tr>
-            <tr><td>2</td><td>31-50</td><td>Female</td><td>Medium</td></tr>
-            <tr><td>3</td><td>51+</td><td>Male</td><td>High</td></tr>
-            <tr><td>4</td><td>18-30</td><td>Female</td><td>Low</td></tr>
-            <tr><td>5</td><td>31-50</td><td>Male</td><td>Medium</td></tr>
-        </table>
+            <h3>1.1 Starting with Individual Survey Data</h3>
+            <p>The seed table in IPF is created from survey data where each row represents an individual respondent.</p>
 
-        <h4>Python: Loading Survey Data</h4>
-        <pre><code class="python"># Sample survey data as list of dictionaries
+            <h4>Example Survey Data:</h4>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Income</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>18-30</td>
+                    <td>Male</td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>31-50</td>
+                    <td>Female</td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>51+</td>
+                    <td>Male</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>18-30</td>
+                    <td>Female</td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>31-50</td>
+                    <td>Male</td>
+                    <td>Medium</td>
+                </tr>
+            </table>
+
+            <h4>Python: Loading Survey Data</h4>
+            <pre><code class="python"># Sample survey data as list of dictionaries
 survey_data = [
     {"Age": "18-30", "Gender": "Male", "Income": "Low"},
     {"Age": "31-50", "Gender": "Female", "Income": "Medium"},
@@ -829,11 +867,11 @@ survey_data = [
     {"Age": "31-50", "Gender": "Male", "Income": "Medium"}
 ]</code></pre>
 
-        <h3>1.2 Creating the Contingency Table</h3>
-        <p>We count how many individuals fall into each combination of categories:</p>
+            <h3>1.2 Creating the Contingency Table</h3>
+            <p>We count how many individuals fall into each combination of categories:</p>
 
-        <h4>Python: Creating Cross-Tabulation</h4>
-        <pre><code class="python">def create_contingency(data, row_var, col_var):
+            <h4>Python: Creating Cross-Tabulation</h4>
+            <pre><code class="python">def create_contingency(data, row_var, col_var):
     # Initialize counts
     row_categories = sorted({d[row_var] for d in data})
     col_categories = sorted({d[col_var] for d in data})
@@ -862,22 +900,47 @@ survey_data = [
 result = create_contingency(survey_data, "Age", "Gender")
 print("Contingency Table:", result["table"])</code></pre>
 
-        <h4>Resulting Contingency Table:</h4>
-        <table border="1">
-            <tr><th>Age\Gender</th><th>Male</th><th>Female</th><th>Total</th></tr>
-            <tr><td>18-30</td><td>100</td><td>150</td><td>250</td></tr>
-            <tr><td>31-50</td><td>200</td><td>250</td><td>450</td></tr>
-            <tr><td>51+</td><td>150</td><td>150</td><td>300</td></tr>
-            <tr><td>Total</td><td>450</td><td>550</td><td>1000</td></tr>
-        </table>
+            <h4>Resulting Contingency Table:</h4>
+            <table border="1">
+                <tr>
+                    <th>Age\Gender</th>
+                    <th>Male</th>
+                    <th>Female</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>18-30</td>
+                    <td>100</td>
+                    <td>150</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td>31-50</td>
+                    <td>200</td>
+                    <td>250</td>
+                    <td>450</td>
+                </tr>
+                <tr>
+                    <td>51+</td>
+                    <td>150</td>
+                    <td>150</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>450</td>
+                    <td>550</td>
+                    <td>1000</td>
+                </tr>
+            </table>
 
-        <h2>2. IPF Implementation</h2>
+            <h2>2. IPF Implementation</h2>
 
-        <h3>2.1 IPF Inputs</h3>
-        <p>IPF requires a seed table and target margins:</p>
+            <h3>2.1 IPF Inputs</h3>
+            <p>IPF requires a seed table and target margins:</p>
 
-        <h4>Python: Setting Up IPF</h4>
-        <pre><code class="python"># Seed table as nested dictionaries
+            <h4>Python: Setting Up IPF</h4>
+            <pre><code class="python"># Seed table as nested dictionaries
 seed = {
     "18-30": {"Male": 100, "Female": 150},
     "31-50": {"Male": 200, "Female": 250},
@@ -888,11 +951,11 @@ seed = {
 row_targets = {"18-30": 300, "31-50": 500, "51+": 200}
 col_targets = {"Male": 600, "Female": 400}</code></pre>
 
-        <h3>2.2 IPF Algorithm</h3>
-        <p>The iterative process adjusts rows and columns alternately:</p>
+            <h3>2.2 IPF Algorithm</h3>
+            <p>The iterative process adjusts rows and columns alternately:</p>
 
-        <h4>Python: IPF Implementation</h4>
-        <pre><code class="python">def ipf(seed, row_targets, col_targets, max_iter=10, tol=1e-6):
+            <h4>Python: IPF Implementation</h4>
+            <pre><code class="python">def ipf(seed, row_targets, col_targets, max_iter=10, tol=1e-6):
     current = {row: cols.copy() for row, cols in seed.items()}
     row_categories = list(row_targets.keys())
     col_categories = list(col_targets.keys())
@@ -932,16 +995,41 @@ col_targets = {"Male": 600, "Female": 400}</code></pre>
 result = ipf(seed, row_targets, col_targets)
 print("Final IPF result:", result)</code></pre>
 
-        <h3>2.3 Final Result</h3>
-        <table border="1">
-            <tr><th>Age\Gender</th><th>Male</th><th>Female</th><th>Total</th></tr>
-            <tr><td>18-30</td><td>180</td><td>120</td><td>300</td></tr>
-            <tr><td>31-50</td><td>300</td><td>200</td><td>500</td></tr>
-            <tr><td>51+</td><td>120</td><td>80</td><td>200</td></tr>
-            <tr><td>Total</td><td>600</td><td>400</td><td>1000</td></tr>
-        </table>
+            <h3>2.3 Final Result</h3>
+            <table border="1">
+                <tr>
+                    <th>Age\Gender</th>
+                    <th>Male</th>
+                    <th>Female</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>18-30</td>
+                    <td>180</td>
+                    <td>120</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>31-50</td>
+                    <td>300</td>
+                    <td>200</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>51+</td>
+                    <td>120</td>
+                    <td>80</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>600</td>
+                    <td>400</td>
+                    <td>1000</td>
+                </tr>
+            </table>
 
-        
+
     </div>
 
     </div>
