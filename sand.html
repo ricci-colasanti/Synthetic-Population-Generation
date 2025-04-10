@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shared Memory Usage in Python</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
+
+</head>
+<body>
+    <h1>Direct Shared Memory Access vs. Local Copies</h1>
+
+    <section id="current-implementation">
+        <h2>Current Implementation (With Local Copy)</h2>
+        <pre><code class="language-python"># Current approach
+existing_shm = shared_memory.SharedMemory(name=shm_name)
+try:
+    data_array = np.ndarray(shape, dtype=dtype, buffer=existing_shm.buf)
+    data = pd.DataFrame(data_array, columns=columns)  # Creates local copy
+    # ... rest of processing ...
+finally:
+    existing_shm.close()</code></pre>
+
+        <h3>Why This Creates a Copy:</h3>
+        <ul>
+            <li><strong>Pandas DataFrame Construction</strong>: When creating a DataFrame from a NumPy array, Pandas makes its own copy of the data by default</li>
+            <li><strong>Memory Layout Differences</strong>: Pandas may reorganize the data for its internal representation</li>
+            <li><strong>Safety Feature</strong>: Ensures operations on the DataFrame don't affect the shared memory</li>
+        </ul>
+    </section>
+
+    <section id="direct-access-option">
+        <h2>Potential Direct Access Approach</h2>
+        <pre><code class="language-python"># Alternative direct access approach
+existing_shm = shared_memory.SharedMemory(name=shm_name)
+try:
+    # Work directly with the numpy array
+    data_array = np.ndarray(shape, dtype=dtype, buffer=existing_shm.buf)
+    
+    # Modify operations to work with numpy instead of pandas
+    current_pop = initialize_population_numpy(data_array, columns, criteria)
+    # ... rest of processing using numpy ...
+finally:
+    existing_shm.close()</code></pre>
+
+        <h3>Requirements for Direct Access:</h3>
+        <ol>
+            <li><strong>Rewrite Helper Functions</strong>: Need numpy versions of initialize_population, perturb_population, etc.</li>
+            <li><strong>Column Handling</strong>: Would need to manage column access differently (via indices rather than names)</li>
+            <li><strong>Type Safety</strong>: Must ensure no operations trigger implicit copies</li>
+        </ol>
+    </section>
+
+    <section id="comparison">
+        <h2>Comparison of Approaches</h2>
+        <table>
+            <tr>
+                <th>Approach</th>
+                <th>Memory Usage</th>
+                <th>Performance</th>
+                <th>Code Complexity</th>
+                <th>Safety</th>
+            </tr>
+            <tr>
+                <td>Current (with copy)</td>
+                <td>Higher (2× data size)</td>
+                <td>Good (Pandas optimized)</td>
+                <td>Lower (clean Pandas syntax)</td>
+                <td>Higher (isolated operations)</td>
+            </tr>
+            <tr>
+                <td>Direct access</td>
+                <td>Lower (1× data size)</td>
+                <td>Potentially better</td>
+                <td>Higher (manual array handling)</td>
+                <td>Lower (risk of corruption)</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="recommendation">
+        <h2>Recommendation</h2>
+        <p>The current approach using a local copy is generally better because:</p>
+        <ul>
+            <li><strong>Safety</strong>: Prevents accidental corruption of shared data</li>
+            <li><strong>Maintainability</strong>: Pandas operations are more readable</li>
+            <li><strong>Functionality</strong>: Full access to Pandas' rich API</li>
+        </ul>
+        
+        <p>You could consider direct access if:</p>
+        <ul>
+            <li>Working with extremely large datasets where memory is critical</li>
+            <li>You can guarantee read-only access to the shared data</li>
+            <li>Performance benchmarks show significant gains</li>
+        </ul>
+    </section>
+
+    <section id="hybrid-approach">
+        <h2>Hybrid Approach Example</h2>
+        <pre><code class="language-python"># Example of optimized memory usage
+existing_shm = shared_memory.SharedMemory(name=shm_name)
+try:
+    data_array = np.ndarray(shape, dtype=dtype, buffer=existing_shm.buf)
+    
+    # Create DataFrame without copy for read-only operations
+    data = pd.DataFrame(data_array, columns=columns, copy=False)
+    
+    # Force read-only mode
+    data_array.flags.writeable = False
+    
+    # Process data (must ensure no modification attempts)
+    current_pop = initialize_population(data, criteria)
+    # ...
+finally:
+    existing_shm.close()</code></pre>
+        
+        <h3>Caveats of Hybrid Approach:</h3>
+        <ul>
+            <li>Must ensure all operations are truly read-only</li>
+            <li>Some Pandas operations may still trigger copies</li>
+            <li>Requires careful testing to verify memory savings</li>
+        </ul>
+    </section>
+</body>
+</html>
