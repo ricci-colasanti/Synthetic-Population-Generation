@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simulated Annealing with Shared Memory</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
+
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Parallel Simulated Annealing with Shared Memory</h1>
+
+        <section id="solution">
+            <h2>Complete Implementation</h2>
+            <p>A more full explanation of the code can be found <a href="FullExplanationOfParellCode.html" target="_blank"><b>here</b></a></p>
+            <pre><code class="language-python">import numpy as np
+            import pandas as pd
+            from multiprocessing import Pool, shared_memory
+            import os
+            
+            def worker_function(args):
+                """Worker function for parallel simulated annealing"""
+                # Unpack arguments
+                shm_name, shape, dtype, columns, criteria, params = args
+                temp, cooling_rate, iterations = params
+                
+                # Access shared memory
+                existing_shm = shared_memory.SharedMemory(name=shm_name)
+                try:
+                    # Create numpy array from shared memory
+                    data_array = np.ndarray(shape, dtype=dtype, buffer=existing_shm.buf)
+                    
+                    # Convert to DataFrame (creates local copy)
+                    data = pd.DataFrame(data_array, columns=columns)
+                    
+                    # Initialize solution
+                    current_pop = initialize_population(data, criteria)
+                    current_cost = calculate_cost(current_pop, criteria)
+                    
+                    # Annealing process
+                    for _ in range(iterations):
+                        candidate_pop = current_pop.copy()
+                        candidate_pop = perturb_population(candidate_pop, data, criteria)
+                        candidate_cost = calculate_cost(candidate_pop, criteria)
+                        
+                        if (candidate_cost < current_cost or 
+                            np.random.random() < np.exp(-(candidate_cost - current_cost)/temp)):
+                            current_pop = candidate_pop
+                            current_cost = candidate_cost
+                            
+                        temp *= cooling_rate
+                        
+                    return current_pop
+                finally:
+                    existing_shm.close()
+            
+            def initialize_population(data, criteria):
+                """Create initial synthetic population based on criteria"""
+                if criteria['method'] == 'stratified':
+                    # Get unique combinations of grouping columns
+                    group_cols = criteria['groupby_cols']
+                    grouped = data.groupby(group_cols, observed=True)
+                    
+                    # Calculate sample sizes per group
+                    n_groups = len(grouped)
+                    samples_per_group = max(1, criteria['sample_size'] // n_groups)
+                    
+                    # Sample from each group
+                    samples = []
+                    for name, group in grouped:
+                        samples.append(group.sample(n=min(len(group), samples_per_group), replace=True))
+                    
+                    return pd.concat(samples, ignore_index=True)
+                elif criteria['method'] == 'random':
+                    return data.sample(n=criteria['sample_size'], replace=True)
+            
+            def perturb_population(population, data, criteria):
+                """Modify population through random perturbations"""
+                n_changes = max(1, int(len(population) * criteria['perturb_rate']))
+                
+                for _ in range(n_changes):
+                    idx = np.random.randint(len(population))
+                    
+                    if criteria['method'] == 'stratified':
+                        # Find similar records based on grouping columns
+                        mask = np.ones(len(data), dtype=bool)
+                        for col in criteria['groupby_cols']:
+                            mask &= (data[col] == population.iloc[idx][col])
+                        candidates = data[mask]
+                    else:
+                        candidates = data
+                        
+                    if len(candidates) > 0:
+                        population.iloc[idx] = candidates.sample(1).iloc[0]
+                        
+                return population
+            
+            def calculate_cost(population, criteria):
+                """Measure how well population matches target criteria"""
+                if criteria['method'] == 'stratified':
+                    # Calculate actual proportions
+                    counts = population.groupby(criteria['groupby_cols'], observed=True).size()
+                    actual_proportions = counts / counts.sum()
+                    
+                    # Align with target proportions
+                    target_proportions = pd.Series(criteria['target_proportions'], 
+                                                 index=counts.index)
+                    
+                    # Calculate MSE between actual and target proportions
+                    return ((actual_proportions - target_proportions) ** 2).mean()
+                else:
+                    # For random sampling, maximize diversity
+                    return -population.nunique().sum()
+            
+            def generate_populations(original_data, criteria_list, n_processes=None):
+                """Generate synthetic populations in parallel"""
+                if n_processes is None:
+                    n_processes = min(len(criteria_list), os.cpu_count())
+                
+                # Convert DataFrame to numpy array for shared memory
+                data_array = original_data.to_numpy()
+                dtype = data_array.dtype
+                shape = data_array.shape
+                
+                # Create shared memory block
+                shm = shared_memory.SharedMemory(create=True, size=data_array.nbytes)
+                try:
+                    shared_array = np.ndarray(shape, dtype=dtype, buffer=shm.buf)
+                    np.copyto(shared_array, data_array)
+                    
+                    # Prepare worker arguments
+                    common_params = (1000.0, 0.95, 1000)  # temp, cooling_rate, iterations
+                    args_list = [(
+                        shm.name,
+                        shape,
+                        dtype,
+                        original_data.columns.tolist(),
+                        criteria,
+                        common_params
+                    ) for criteria in criteria_list]
+                    
+                    # Execute in parallel
+                    with Pool(n_processes) as pool:
+                        results = pool.map(worker_function, args_list)
+                        
+                    return results
+                finally:
+                    shm.close()
+                    shm.unlink()
+            
+            if __name__ == '__main__':
+                # Example usage
+                np.random.seed(42)
+                
+                # Sample data
+                data = pd.DataFrame({
+                    'age': np.random.randint(18, 70, 1000),
+                    'sex': np.random.choice(['M', 'F'], 1000),
+                    'income': np.random.normal(50000, 15000, 1000).astype(int),
+                    'employment': np.random.choice(
+                        ['employed', 'unemployed', 'student', 'retired'], 
+                        1000,
+                        p=[0.6, 0.1, 0.2, 0.1]
+                    )
+                })
+                
+                # Define different generation criteria (fixed proportions)
+                criteria_list = [
+                    {
+                        'method': 'stratified',
+                        'groupby_cols': ['sex', 'employment'],
+                        'target_proportions': {
+                            ('M', 'employed'): 0.3,
+                            ('M', 'unemployed'): 0.1,
+                            ('M', 'student'): 0.1,
+                            ('M', 'retired'): 0.05,
+                            ('F', 'employed'): 0.3,
+                            ('F', 'unemployed'): 0.05,
+                            ('F', 'student'): 0.05,
+                            ('F', 'retired'): 0.05
+                        },
+                        'sample_size': 200,
+                        'perturb_rate': 0.05
+                    },
+                    {
+                        'method': 'random',
+                        'sample_size': 300,
+                        'perturb_rate': 0.1
+                    }
+                ]
+                
+                # Generate populations
+                populations = generate_populations(data, criteria_list)
+                
+                # Verify original data unchanged
+                print(f"Original data length: {len(data)}")
+                for i, pop in enumerate(populations):
+                    print(f"\nPopulation {i+1} (method: {criteria_list[i]['method']})")
+                    print(f"Size: {len(pop)}")
+                    print("First 5 records:")
+                    print(pop.head())</code></pre>
+        </section>
+
+        <section id="fixes-applied">
+            <h2>Fixes Applied</h2>
+            <ul>
+                <li><strong>Fixed GroupBy Operations</strong>: Used proper groupby syntax to avoid deprecation warnings
+                </li>
+                <li><strong>Aligned Target Proportions</strong>: Ensured target proportions match the actual group
+                    combinations</li>
+                <li><strong>Improved Cost Calculation</strong>: Properly aligned actual and target proportions before
+                    comparison</li>
+                <li><strong>Better Sampling Logic</strong>: Fixed stratified sampling to handle group sizes correctly
+                </li>
+                <li><strong>Added observed=True</strong>: For better performance with categorical groupings</li>
+            </ul>
+        </section>
+
+        <section id="key-improvements">
+            <h2>Key Improvements</h2>
+            <ol>
+                <li>The target proportions now exactly match all possible combinations of grouping columns</li>
+                <li>GroupBy operations use modern Pandas syntax without deprecation warnings</li>
+                <li>Cost calculation properly aligns the actual and target distributions</li>
+                <li>Sampling logic more robustly handles edge cases (small groups)</li>
+                <li>Better memory management with proper shared memory cleanup</li>
+            </ol>
+        </section>
+
+        <p>A colab implementation of the code can be found here <a href="https://colab.research.google.com/drive/1BIcymM9mJBk4_TkNWe6fiXiZBFt4F8E8?usp=sharing" target="_blank">https://colab.research.google.com/drive/1BIcymM9mJBk4_TkNWe6fiXiZBFt4F8E8?usp=sharing</a></p>
+    </div>
+</body>
+
+</html>

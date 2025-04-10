@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Detailed Explanation of Synthetic Population Generation Code</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Comprehensive Code Explanation</h1>
+
+        <section id="worker-function">
+            <h2>worker_function(args)</h2>
+            <p>The main worker function that performs simulated annealing in parallel.</p>
+            <pre><code class="language-python">def worker_function(args):
+    """Worker function for parallel simulated annealing"""
+    # Unpack arguments
+    shm_name, shape, dtype, columns, criteria, params = args
+    temp, cooling_rate, iterations = params
+    
+    # Access shared memory
+    existing_shm = shared_memory.SharedMemory(name=shm_name)
+    try:
+        # Create numpy array from shared memory
+        data_array = np.ndarray(shape, dtype=dtype, buffer=existing_shm.buf)
+        
+        # Convert to DataFrame (creates local copy)
+        data = pd.DataFrame(data_array, columns=columns)</code></pre>
+
+            <h3>Key Components:</h3>
+            <ul>
+                <li><strong>Shared Memory Access</strong>: Uses <code>shared_memory.SharedMemory</code> to access the
+                    data pool without copying</li>
+                <li><strong>Data Conversion</strong>: Converts the shared NumPy array to a local Pandas DataFrame for
+                    processing</li>
+                <li><strong>Parameter Unpacking</strong>: Receives all necessary parameters through a single argument
+                    tuple</li>
+            </ul>
+
+            <pre><code class="language-python">        # Initialize solution
+        current_pop = initialize_population(data, criteria)
+        current_cost = calculate_cost(current_pop, criteria)
+        
+        # Annealing process
+        for _ in range(iterations):
+            candidate_pop = current_pop.copy()
+            candidate_pop = perturb_population(candidate_pop, data, criteria)
+            candidate_cost = calculate_cost(candidate_pop, criteria)
+            
+            if (candidate_cost < current_cost or 
+                np.random.random() < np.exp(-(candidate_cost - current_cost)/temp)):
+                current_pop = candidate_pop
+                current_cost = candidate_cost
+                
+            temp *= cooling_rate
+            
+        return current_pop
+    finally:
+        existing_shm.close()</code></pre>
+
+            <h3>Annealing Process:</h3>
+            <ol>
+                <li>Creates candidate solutions by perturbing the current population</li>
+                <li>Evaluates candidate quality using cost function</li>
+                <li>Accepts better solutions immediately</li>
+                <li>Accepts worse solutions with probability based on temperature</li>
+                <li>Cools down the temperature each iteration</li>
+            </ol>
+        </section>
+
+        <section id="initialize-population">
+            <h2>initialize_population(data, criteria)</h2>
+            <p>Creates the initial synthetic population based on specified criteria.</p>
+            <pre><code class="language-python">def initialize_population(data, criteria):
+    """Create initial synthetic population based on criteria"""
+    if criteria['method'] == 'stratified':
+        # Get unique combinations of grouping columns
+        group_cols = criteria['groupby_cols']
+        grouped = data.groupby(group_cols, observed=True)
+        
+        # Calculate sample sizes per group
+        n_groups = len(grouped)
+        samples_per_group = max(1, criteria['sample_size'] // n_groups)
+        
+        # Sample from each group
+        samples = []
+        for name, group in grouped:
+            samples.append(group.sample(n=min(len(group), samples_per_group), replace=True))
+        
+        return pd.concat(samples, ignore_index=True)
+    elif criteria['method'] == 'random':
+        return data.sample(n=criteria['sample_size'], replace=True)</code></pre>
+
+            <h3>Initialization Methods:</h3>
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Stratified</td>
+                    <td>Samples proportionally from each subgroup defined by groupby_cols</td>
+                </tr>
+                <tr>
+                    <td>Random</td>
+                    <td>Simple random sampling from entire population</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="perturb-population">
+            <h2>perturb_population(population, data, criteria)</h2>
+            <p>Randomly modifies the population to explore the solution space.</p>
+            <pre><code class="language-python">def perturb_population(population, data, criteria):
+    """Modify population through random perturbations"""
+    n_changes = max(1, int(len(population) * criteria['perturb_rate']))
+    
+    for _ in range(n_changes):
+        idx = np.random.randint(len(population))
+        
+        if criteria['method'] == 'stratified':
+            # Find similar records based on grouping columns
+            mask = np.ones(len(data), dtype=bool)
+            for col in criteria['groupby_cols']:
+                mask &= (data[col] == population.iloc[idx][col])
+            candidates = data[mask]
+        else:
+            candidates = data
+            
+        if len(candidates) > 0:
+            population.iloc[idx] = candidates.sample(1).iloc[0]
+            
+    return population</code></pre>
+
+            <h3>Perturbation Strategy:</h3>
+            <ul>
+                <li><strong>Stratified Perturbation</strong>: Only swaps with records from the same demographic group
+                </li>
+                <li><strong>Random Perturbation</strong>: Can swap with any record in the population</li>
+                <li><strong>Perturbation Rate</strong>: Controls what percentage of records get modified each iteration
+                </li>
+            </ul>
+        </section>
+
+        <section id="calculate-cost">
+            <h2>calculate_cost(population, criteria)</h2>
+            <p>Evaluates how well the synthetic population matches the target criteria.</p>
+            <pre><code class="language-python">def calculate_cost(population, criteria):
+    """Measure how well population matches target criteria"""
+    if criteria['method'] == 'stratified':
+        # Calculate actual proportions
+        counts = population.groupby(criteria['groupby_cols'], observed=True).size()
+        actual_proportions = counts / counts.sum()
+        
+        # Align with target proportions
+        target_proportions = pd.Series(criteria['target_proportions'], 
+                                     index=counts.index)
+        
+        # Calculate MSE between actual and target proportions
+        return ((actual_proportions - target_proportions) ** 2).mean()
+    else:
+        # For random sampling, maximize diversity
+        return -population.nunique().sum()</code></pre>
+
+            <h3>Cost Calculation:</h3>
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>Cost Metric</th>
+                </tr>
+                <tr>
+                    <td>Stratified</td>
+                    <td>Mean squared error from target subgroup proportions</td>
+                </tr>
+                <tr>
+                    <td>Random</td>
+                    <td>Negative sum of unique values (maximizes diversity)</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="generate-populations">
+            <h2>generate_populations(original_data, criteria_list, n_processes=None)</h2>
+            <p>Orchestrates the parallel generation of synthetic populations.</p>
+            <pre><code class="language-python">def generate_populations(original_data, criteria_list, n_processes=None):
+    """Generate synthetic populations in parallel"""
+    if n_processes is None:
+        n_processes = min(len(criteria_list), os.cpu_count())
+    
+    # Convert DataFrame to numpy array for shared memory
+    data_array = original_data.to_numpy()
+    dtype = data_array.dtype
+    shape = data_array.shape
+    
+    # Create shared memory block
+    shm = shared_memory.SharedMemory(create=True, size=data_array.nbytes)
+    try:
+        shared_array = np.ndarray(shape, dtype=dtype, buffer=shm.buf)
+        np.copyto(shared_array, data_array)
+        
+        # Prepare worker arguments
+        common_params = (1000.0, 0.95, 1000)  # temp, cooling_rate, iterations
+        args_list = [(
+            shm.name,
+            shape,
+            dtype,
+            original_data.columns.tolist(),
+            criteria,
+            common_params
+        ) for criteria in criteria_list]
+        
+        # Execute in parallel
+        with Pool(n_processes) as pool:
+            results = pool.map(worker_function, args_list)
+            
+        return results
+    finally:
+        shm.close()
+        shm.unlink()</code></pre>
+
+            <h3>Parallel Processing Flow:</h3>
+            <ol>
+                <li>Converts DataFrame to NumPy array for shared memory</li>
+                <li>Creates shared memory block and copies data</li>
+                <li>Prepares arguments for each worker process</li>
+                <li>Launches parallel processing pool</li>
+                <li>Collects results and cleans up shared memory</li>
+            </ol>
+        </section>
+    </div>
+</body>
+
+</html>
