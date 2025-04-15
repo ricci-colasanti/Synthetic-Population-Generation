@@ -1,0 +1,26 @@
+variable,category,count
+age_group,65+,34
+age_group,35-44,21
+age_group,55-64,20
+age_group,45-54,18
+age_group,25-34,16
+age_group,18-24,9
+gender,Female,70
+gender,Male,48
+gender,Other,1
+education,Bachelor's,39
+education,HS Graduate,37
+education,Some College,24
+education,Less than HS,8
+education,Master's,7
+education,Doctorate,4
+income_bracket,20k-40k,27
+income_bracket,40k-60k,25
+income_bracket,60k-80k,22
+income_bracket,80k-100k,18
+income_bracket,<20k,15
+income_bracket,100k+,12
+employment_status,Employed,59
+employment_status,Retired,37
+employment_status,Student,14
+employment_status,Unemployed,9

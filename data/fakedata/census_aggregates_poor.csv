@@ -1,0 +1,22 @@
+variable,category,count
+age_group,25-34,31
+age_group,35-44,21
+age_group,55-64,20
+age_group,18-24,17
+age_group,45-54,15
+age_group,65+,13
+gender,Male,61
+gender,Female,58
+education,HS Graduate,49
+education,Less than HS,37
+education,Some College,15
+education,Bachelor's,13
+education,Master's,5
+income_bracket,<20k,38
+income_bracket,20k-40k,37
+income_bracket,40k-60k,35
+income_bracket,60k-80k,9
+employment_status,Employed,44
+employment_status,Retired,37
+employment_status,Unemployed,32
+employment_status,Student,6

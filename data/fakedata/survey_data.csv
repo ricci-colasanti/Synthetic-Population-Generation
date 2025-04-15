@@ -1,0 +1,1254 @@
+respondent_id,age,gender,education,income_bracket,employment_status,zip_code,has_children,age_group
+ID_0001,42,Male,HS Graduate,40k-60k,Employed,63388,False,35-44
+ID_0002,66,Female,Doctorate,20k-40k,Retired,45217,True,65+
+ID_0003,61,Male,HS Graduate,20k-40k,Employed,71626,False,55-64
+ID_0004,36,Female,Bachelor's,100k+,Student,82771,False,35-44
+ID_0005,60,Female,HS Graduate,100k+,Student,94865,True,55-64
+ID_0006,79,Female,Bachelor's,40k-60k,Employed,68801,False,65+
+ID_0007,67,Male,Bachelor's,20k-40k,Retired,33612,False,65+
+ID_0008,30,Female,Master's,20k-40k,Employed,55638,True,25-34
+ID_0009,63,Male,Bachelor's,40k-60k,Employed,08041,True,55-64
+ID_0010,78,Female,Master's,40k-60k,Student,91125,False,65+
+ID_0011,29,Female,Some College,60k-80k,Employed,77114,False,25-34
+ID_0012,32,Male,Bachelor's,80k-100k,Employed,00834,False,25-34
+ID_0013,40,Female,Some College,60k-80k,Employed,56989,False,35-44
+ID_0014,70,Male,Less than HS,20k-40k,Retired,90840,False,65+
+ID_0015,57,Male,Bachelor's,20k-40k,Employed,30165,False,55-64
+ID_0016,19,Male,Master's,80k-100k,Retired,62839,True,18-24
+ID_0017,57,Female,HS Graduate,60k-80k,Unemployed,96489,False,55-64
+ID_0018,40,Female,Less than HS,20k-40k,Employed,64651,False,35-44
+ID_0019,77,Female,HS Graduate,20k-40k,Retired,31198,False,65+
+ID_0020,76,Female,Master's,80k-100k,Retired,61932,True,65+
+ID_0021,22,Female,HS Graduate,20k-40k,Employed,53003,False,18-24
+ID_0022,51,Male,HS Graduate,60k-80k,Retired,79876,False,45-54
+ID_0023,27,Female,Less than HS,40k-60k,Employed,34526,False,25-34
+ID_0024,44,Male,HS Graduate,<20k,Retired,84990,True,35-44
+ID_0025,72,Female,Bachelor's,60k-80k,Retired,28669,False,65+
+ID_0026,59,Male,Doctorate,<20k,Retired,05840,False,55-64
+ID_0027,21,Female,HS Graduate,20k-40k,Student,10687,False,18-24
+ID_0028,21,Female,HS Graduate,20k-40k,Employed,74609,True,18-24
+ID_0029,25,Female,Master's,60k-80k,Retired,74608,False,18-24
+ID_0030,23,Male,Master's,80k-100k,Employed,08719,False,18-24
+ID_0031,42,Male,HS Graduate,20k-40k,Unemployed,93598,False,35-44
+ID_0032,44,Male,Less than HS,80k-100k,Employed,35580,False,35-44
+ID_0033,64,Female,Doctorate,60k-80k,Student,49851,True,55-64
+ID_0034,67,Female,Bachelor's,40k-60k,Retired,08083,False,65+
+ID_0035,70,Male,Master's,40k-60k,Retired,84064,True,65+
+ID_0036,71,Male,HS Graduate,60k-80k,Retired,23407,True,65+
+ID_0037,57,Male,Bachelor's,20k-40k,Student,56343,True,55-64
+ID_0038,37,Female,Bachelor's,<20k,Employed,96441,False,35-44
+ID_0039,44,Male,Master's,40k-60k,Retired,63278,False,35-44
+ID_0040,24,Female,Doctorate,100k+,Student,54123,False,18-24
+ID_0041,76,Male,HS Graduate,80k-100k,Student,24559,False,65+
+ID_0042,40,Female,Bachelor's,20k-40k,Retired,21132,True,35-44
+ID_0043,37,Female,HS Graduate,40k-60k,Employed,66080,False,35-44
+ID_0044,66,Male,Bachelor's,40k-60k,Retired,69923,True,65+
+ID_0045,68,Female,Bachelor's,40k-60k,Student,09599,False,65+
+ID_0046,51,Male,Master's,80k-100k,Employed,03006,False,45-54
+ID_0047,46,Female,HS Graduate,40k-60k,Employed,90295,False,45-54
+ID_0048,78,Female,HS Graduate,<20k,Retired,58031,False,65+
+ID_0049,61,Male,Less than HS,80k-100k,Employed,37003,True,55-64
+ID_0050,68,Female,HS Graduate,<20k,Retired,61273,True,65+
+ID_0051,22,Female,Some College,60k-80k,Retired,11729,False,18-24
+ID_0052,44,Female,Master's,80k-100k,Employed,28421,False,35-44
+ID_0053,29,Male,Some College,20k-40k,Student,18250,False,25-34
+ID_0054,34,Male,Bachelor's,40k-60k,Employed,91258,True,25-34
+ID_0055,54,Male,Master's,<20k,Student,33661,False,45-54
+ID_0056,51,Female,Master's,80k-100k,Employed,55909,True,45-54
+ID_0057,47,Female,Some College,60k-80k,Retired,55078,True,45-54
+ID_0058,53,Female,HS Graduate,20k-40k,Employed,50695,True,45-54
+ID_0059,23,Male,HS Graduate,20k-40k,Unemployed,67211,False,18-24
+ID_0060,49,Female,Some College,60k-80k,Student,18980,True,45-54
+ID_0061,49,Female,Bachelor's,20k-40k,Employed,15455,False,45-54
+ID_0062,26,Female,Bachelor's,20k-40k,Student,40703,True,25-34
+ID_0063,75,Male,Bachelor's,40k-60k,Retired,71954,False,65+
+ID_0064,39,Male,Master's,60k-80k,Unemployed,83425,False,35-44
+ID_0065,27,Male,Bachelor's,20k-40k,Student,87810,True,25-34
+ID_0066,46,Male,Doctorate,<20k,Employed,55727,False,45-54
+ID_0067,28,Female,Master's,80k-100k,Employed,01355,False,25-34
+ID_0068,45,Female,HS Graduate,20k-40k,Employed,46714,False,35-44
+ID_0069,19,Female,Less than HS,40k-60k,Employed,78724,True,18-24
+ID_0070,73,Male,Some College,60k-80k,Employed,07389,False,65+
+ID_0071,38,Female,Bachelor's,20k-40k,Unemployed,31174,False,35-44
+ID_0072,74,Female,Bachelor's,60k-80k,Retired,08818,False,65+
+ID_0073,48,Male,HS Graduate,40k-60k,Employed,79545,False,45-54
+ID_0074,75,Female,Master's,100k+,Student,31988,False,65+
+ID_0075,58,Female,HS Graduate,40k-60k,Employed,45472,False,55-64
+ID_0076,69,Female,Master's,80k-100k,Employed,71247,False,65+
+ID_0077,78,Male,Some College,60k-80k,Employed,15817,True,65+
+ID_0078,34,Female,Less than HS,20k-40k,Employed,55082,False,25-34
+ID_0079,44,Other,HS Graduate,<20k,Retired,53854,False,35-44
+ID_0080,47,Female,HS Graduate,<20k,Retired,13992,False,45-54
+ID_0081,58,Female,Less than HS,100k+,Employed,58297,False,55-64
+ID_0082,74,Male,Bachelor's,100k+,Employed,80504,True,65+
+ID_0083,25,Female,HS Graduate,<20k,Retired,54953,True,18-24
+ID_0084,54,Female,Bachelor's,40k-60k,Retired,48373,True,45-54
+ID_0085,22,Female,HS Graduate,20k-40k,Employed,01173,True,18-24
+ID_0086,43,Male,Less than HS,100k+,Student,77798,False,35-44
+ID_0087,23,Female,Bachelor's,20k-40k,Employed,96324,False,18-24
+ID_0088,33,Female,Some College,40k-60k,Employed,38763,False,25-34
+ID_0089,18,Female,Bachelor's,20k-40k,Employed,54506,True,
+ID_0090,26,Female,HS Graduate,20k-40k,Retired,20305,True,25-34
+ID_0091,38,Female,Less than HS,20k-40k,Student,67297,False,35-44
+ID_0092,24,Female,Some College,40k-60k,Employed,29079,True,18-24
+ID_0093,60,Female,Some College,40k-60k,Unemployed,62879,False,55-64
+ID_0094,32,Male,Less than HS,20k-40k,Employed,80740,True,25-34
+ID_0095,41,Male,Bachelor's,<20k,Employed,54422,True,35-44
+ID_0096,22,Female,Master's,40k-60k,Employed,90694,False,18-24
+ID_0097,68,Female,HS Graduate,80k-100k,Retired,94552,False,65+
+ID_0098,55,Female,Master's,60k-80k,Employed,02430,True,45-54
+ID_0099,72,Male,Less than HS,60k-80k,Employed,26951,False,65+
+ID_0100,46,Male,Bachelor's,20k-40k,Employed,26541,True,45-54
+ID_0101,63,Female,Bachelor's,60k-80k,Unemployed,56170,True,55-64
+ID_0102,69,Female,HS Graduate,40k-60k,Retired,56908,False,65+
+ID_0103,74,Female,Doctorate,80k-100k,Employed,91103,False,65+
+ID_0104,63,Female,Some College,40k-60k,Employed,73302,True,55-64
+ID_0105,28,Male,HS Graduate,<20k,Employed,04173,False,25-34
+ID_0106,21,Female,Bachelor's,<20k,Unemployed,45434,True,18-24
+ID_0107,76,Female,Doctorate,<20k,Retired,73900,False,65+
+ID_0108,27,Female,Master's,100k+,Employed,85273,False,25-34
+ID_0109,51,Male,HS Graduate,20k-40k,Unemployed,78330,True,45-54
+ID_0110,74,Male,Bachelor's,60k-80k,Retired,20951,True,65+
+ID_0111,21,Female,HS Graduate,40k-60k,Employed,98055,False,18-24
+ID_0112,69,Male,Some College,80k-100k,Retired,62818,False,65+
+ID_0113,27,Male,Some College,20k-40k,Student,66281,False,25-34
+ID_0114,50,Male,HS Graduate,20k-40k,Retired,26654,False,45-54
+ID_0115,63,Female,Some College,100k+,Student,62143,True,55-64
+ID_0116,35,Male,Master's,80k-100k,Employed,65198,False,25-34
+ID_0117,29,Female,Some College,80k-100k,Unemployed,28894,False,25-34
+ID_0118,68,Female,Bachelor's,40k-60k,Retired,35837,False,65+
+ID_0119,40,Female,HS Graduate,40k-60k,Employed,60409,False,35-44
+ID_0120,61,Female,Doctorate,80k-100k,Retired,57940,True,55-64
+ID_0121,42,Male,Less than HS,80k-100k,Employed,17122,True,35-44
+ID_0122,77,Male,Bachelor's,<20k,Retired,17907,False,65+
+ID_0123,54,Male,Bachelor's,20k-40k,Employed,64054,False,45-54
+ID_0124,21,Female,Bachelor's,60k-80k,Unemployed,40066,False,18-24
+ID_0125,30,Female,HS Graduate,40k-60k,Unemployed,59419,True,25-34
+ID_0126,35,Female,Some College,80k-100k,Employed,31007,True,25-34
+ID_0127,79,Female,Bachelor's,<20k,Retired,31343,True,65+
+ID_0128,46,Female,HS Graduate,60k-80k,Employed,18486,False,45-54
+ID_0129,61,Female,Bachelor's,40k-60k,Employed,90970,False,55-64
+ID_0130,47,Female,Some College,20k-40k,Retired,82551,True,45-54
+ID_0131,65,Male,Some College,60k-80k,Employed,47594,False,55-64
+ID_0132,72,Female,HS Graduate,40k-60k,Retired,94284,False,65+
+ID_0133,55,Female,Less than HS,40k-60k,Student,69016,False,45-54
+ID_0134,45,Female,Bachelor's,100k+,Student,65110,False,35-44
+ID_0135,77,Female,Some College,40k-60k,Retired,18804,False,65+
+ID_0136,24,Male,Bachelor's,80k-100k,Student,56298,False,18-24
+ID_0137,41,Male,Some College,80k-100k,Student,59637,True,35-44
+ID_0138,58,Male,HS Graduate,60k-80k,Retired,90377,False,55-64
+ID_0139,27,Male,Some College,80k-100k,Employed,83192,False,25-34
+ID_0140,54,Female,HS Graduate,20k-40k,Employed,47293,True,45-54
+ID_0141,44,Male,Bachelor's,80k-100k,Student,21881,False,35-44
+ID_0142,38,Female,Doctorate,20k-40k,Employed,58649,False,35-44
+ID_0143,53,Male,Master's,80k-100k,Employed,21303,False,45-54
+ID_0144,60,Male,Some College,40k-60k,Student,95969,True,55-64
+ID_0145,68,Male,Bachelor's,80k-100k,Retired,66391,False,65+
+ID_0146,46,Other,Master's,80k-100k,Employed,29785,True,45-54
+ID_0147,24,Female,Some College,40k-60k,Employed,48238,True,18-24
+ID_0148,30,Female,Bachelor's,40k-60k,Employed,12577,False,25-34
+ID_0149,62,Female,Bachelor's,80k-100k,Employed,72256,False,55-64
+ID_0150,70,Female,Bachelor's,20k-40k,Retired,46952,False,65+
+ID_0151,40,Male,Bachelor's,<20k,Unemployed,10478,False,35-44
+ID_0152,67,Male,Bachelor's,40k-60k,Retired,09300,False,65+
+ID_0153,74,Male,Bachelor's,40k-60k,Employed,81692,False,65+
+ID_0154,42,Male,Bachelor's,20k-40k,Retired,39003,False,35-44
+ID_0155,78,Male,Some College,20k-40k,Student,35516,True,65+
+ID_0156,58,Male,Bachelor's,<20k,Employed,38227,False,55-64
+ID_0157,62,Male,HS Graduate,20k-40k,Employed,39580,True,55-64
+ID_0158,30,Female,Master's,20k-40k,Employed,96830,True,25-34
+ID_0159,54,Female,HS Graduate,20k-40k,Retired,55235,False,45-54
+ID_0160,47,Male,Some College,20k-40k,Employed,01604,False,45-54
+ID_0161,43,Female,Bachelor's,40k-60k,Retired,09583,False,35-44
+ID_0162,29,Female,Bachelor's,20k-40k,Student,52236,False,25-34
+ID_0163,74,Male,HS Graduate,100k+,Employed,84957,True,65+
+ID_0164,18,Female,HS Graduate,40k-60k,Employed,08883,True,
+ID_0165,35,Male,Doctorate,<20k,Retired,77982,True,25-34
+ID_0166,75,Male,Less than HS,20k-40k,Retired,54676,True,65+
+ID_0167,38,Female,Less than HS,60k-80k,Employed,47735,False,35-44
+ID_0168,70,Male,Bachelor's,<20k,Retired,45150,True,65+
+ID_0169,71,Male,Bachelor's,100k+,Retired,57748,False,65+
+ID_0170,79,Female,Bachelor's,40k-60k,Employed,57025,False,65+
+ID_0171,41,Female,Bachelor's,40k-60k,Retired,49747,False,35-44
+ID_0172,77,Female,Master's,100k+,Employed,48691,True,65+
+ID_0173,34,Female,Master's,100k+,Student,36068,False,25-34
+ID_0174,59,Female,Bachelor's,100k+,Employed,33060,False,55-64
+ID_0175,77,Female,HS Graduate,100k+,Retired,33815,True,65+
+ID_0176,26,Male,Some College,100k+,Employed,32999,False,25-34
+ID_0177,69,Female,Bachelor's,80k-100k,Retired,87639,True,65+
+ID_0178,57,Female,Some College,20k-40k,Employed,69596,False,55-64
+ID_0179,45,Male,HS Graduate,20k-40k,Student,30728,False,35-44
+ID_0180,32,Female,Bachelor's,20k-40k,Employed,13267,False,25-34
+ID_0181,30,Female,Master's,100k+,Student,31150,False,25-34
+ID_0182,45,Male,Some College,20k-40k,Employed,93912,False,35-44
+ID_0183,70,Male,Bachelor's,<20k,Retired,06370,False,65+
+ID_0184,34,Male,Bachelor's,80k-100k,Unemployed,26763,False,25-34
+ID_0185,79,Female,Some College,20k-40k,Retired,71518,False,65+
+ID_0186,26,Male,Bachelor's,60k-80k,Employed,22475,False,25-34
+ID_0187,73,Male,HS Graduate,100k+,Retired,36149,True,65+
+ID_0188,38,Male,Some College,40k-60k,Student,65838,True,35-44
+ID_0189,47,Female,Bachelor's,60k-80k,Employed,43541,True,45-54
+ID_0190,28,Female,Bachelor's,60k-80k,Employed,69852,False,25-34
+ID_0191,47,Female,Some College,60k-80k,Student,78573,True,45-54
+ID_0192,53,Male,HS Graduate,20k-40k,Employed,75935,False,45-54
+ID_0193,73,Female,Bachelor's,40k-60k,Employed,87515,True,65+
+ID_0194,42,Female,HS Graduate,<20k,Unemployed,20035,True,35-44
+ID_0195,24,Female,Less than HS,60k-80k,Retired,71860,False,18-24
+ID_0196,37,Female,Some College,40k-60k,Employed,10489,True,35-44
+ID_0197,72,Male,Bachelor's,20k-40k,Unemployed,41496,False,65+
+ID_0198,71,Male,Bachelor's,40k-60k,Retired,89389,False,65+
+ID_0199,76,Male,Doctorate,40k-60k,Retired,54212,True,65+
+ID_0200,77,Female,HS Graduate,20k-40k,Retired,22543,False,65+
+ID_0201,52,Female,HS Graduate,20k-40k,Employed,60818,False,45-54
+ID_0202,27,Female,Bachelor's,80k-100k,Employed,27134,False,25-34
+ID_0203,52,Female,Bachelor's,80k-100k,Unemployed,96898,False,45-54
+ID_0204,18,Female,HS Graduate,40k-60k,Employed,19299,True,
+ID_0205,31,Male,Some College,60k-80k,Employed,96470,True,25-34
+ID_0206,62,Male,Some College,40k-60k,Employed,32824,False,55-64
+ID_0207,22,Female,Bachelor's,80k-100k,Employed,18940,False,18-24
+ID_0208,57,Other,HS Graduate,20k-40k,Employed,14085,True,55-64
+ID_0209,61,Female,Doctorate,100k+,Employed,99640,True,55-64
+ID_0210,55,Female,Some College,40k-60k,Employed,26899,False,45-54
+ID_0211,73,Male,HS Graduate,40k-60k,Unemployed,20873,True,65+
+ID_0212,72,Male,HS Graduate,60k-80k,Retired,79026,True,65+
+ID_0213,51,Female,Less than HS,20k-40k,Student,04967,True,45-54
+ID_0214,41,Female,Bachelor's,60k-80k,Retired,09610,False,35-44
+ID_0215,21,Female,Bachelor's,20k-40k,Employed,14928,True,18-24
+ID_0216,44,Female,Less than HS,20k-40k,Employed,41800,False,35-44
+ID_0217,22,Male,Bachelor's,60k-80k,Employed,27478,False,18-24
+ID_0218,60,Male,Bachelor's,20k-40k,Employed,73891,False,55-64
+ID_0219,30,Female,Some College,20k-40k,Student,40641,False,25-34
+ID_0220,57,Male,Some College,80k-100k,Employed,61393,False,55-64
+ID_0221,38,Female,Some College,100k+,Employed,53829,False,35-44
+ID_0222,54,Female,HS Graduate,60k-80k,Employed,66361,True,45-54
+ID_0223,49,Female,Some College,80k-100k,Employed,42458,True,45-54
+ID_0224,55,Other,HS Graduate,100k+,Employed,98044,True,45-54
+ID_0225,48,Male,Some College,60k-80k,Employed,64901,True,45-54
+ID_0226,49,Female,Master's,100k+,Employed,11306,False,45-54
+ID_0227,32,Male,Less than HS,20k-40k,Employed,45727,False,25-34
+ID_0228,72,Male,HS Graduate,60k-80k,Retired,16712,True,65+
+ID_0229,74,Female,Bachelor's,<20k,Retired,85693,False,65+
+ID_0230,65,Male,HS Graduate,80k-100k,Employed,88324,False,55-64
+ID_0231,47,Female,HS Graduate,80k-100k,Employed,65707,False,45-54
+ID_0232,60,Female,Some College,40k-60k,Employed,13201,False,55-64
+ID_0233,24,Male,Master's,60k-80k,Student,28090,True,18-24
+ID_0234,55,Male,HS Graduate,80k-100k,Employed,33929,False,45-54
+ID_0235,48,Male,Master's,60k-80k,Employed,33955,False,45-54
+ID_0236,61,Female,Bachelor's,<20k,Employed,75252,False,55-64
+ID_0237,43,Female,Bachelor's,80k-100k,Retired,05878,False,35-44
+ID_0238,53,Female,Bachelor's,20k-40k,Student,37374,False,45-54
+ID_0239,63,Male,Less than HS,60k-80k,Employed,70820,False,55-64
+ID_0240,60,Male,Less than HS,20k-40k,Employed,88222,False,55-64
+ID_0241,43,Male,HS Graduate,<20k,Employed,37681,True,35-44
+ID_0242,61,Female,Less than HS,20k-40k,Employed,61500,False,55-64
+ID_0243,19,Male,Doctorate,100k+,Student,47223,False,18-24
+ID_0244,60,Male,Bachelor's,60k-80k,Student,55713,True,55-64
+ID_0245,62,Male,Some College,<20k,Employed,97265,False,55-64
+ID_0246,60,Female,Bachelor's,80k-100k,Student,98071,True,55-64
+ID_0247,26,Female,Doctorate,100k+,Employed,40025,True,25-34
+ID_0248,75,Female,Doctorate,80k-100k,Retired,05293,True,65+
+ID_0249,76,Female,Bachelor's,40k-60k,Retired,30810,True,65+
+ID_0250,70,Female,Some College,40k-60k,Employed,41354,False,65+
+ID_0251,65,Male,Less than HS,<20k,Employed,79692,False,55-64
+ID_0252,22,Male,Less than HS,20k-40k,Employed,01277,False,18-24
+ID_0253,44,Female,Less than HS,80k-100k,Employed,31056,False,35-44
+ID_0254,29,Male,Less than HS,<20k,Employed,53149,False,25-34
+ID_0255,52,Male,Master's,100k+,Retired,96088,True,45-54
+ID_0256,46,Male,Master's,<20k,Retired,47733,True,45-54
+ID_0257,33,Male,Bachelor's,<20k,Employed,02034,True,25-34
+ID_0258,36,Male,Bachelor's,20k-40k,Unemployed,76457,False,35-44
+ID_0259,66,Female,Some College,80k-100k,Retired,66579,False,65+
+ID_0260,77,Male,HS Graduate,40k-60k,Unemployed,43167,True,65+
+ID_0261,60,Male,Master's,<20k,Employed,12255,False,55-64
+ID_0262,70,Male,HS Graduate,60k-80k,Retired,03314,False,65+
+ID_0263,68,Female,Bachelor's,100k+,Retired,39087,True,65+
+ID_0264,44,Female,HS Graduate,40k-60k,Employed,55242,False,35-44
+ID_0265,35,Male,Master's,<20k,Employed,56161,True,25-34
+ID_0266,76,Female,Bachelor's,<20k,Retired,90618,False,65+
+ID_0267,58,Male,Bachelor's,80k-100k,Employed,57706,False,55-64
+ID_0268,30,Female,Less than HS,60k-80k,Employed,19944,False,25-34
+ID_0269,47,Female,Some College,100k+,Employed,92047,False,45-54
+ID_0270,43,Female,Some College,40k-60k,Employed,86657,False,35-44
+ID_0271,23,Female,HS Graduate,<20k,Student,26017,True,18-24
+ID_0272,20,Male,Master's,40k-60k,Unemployed,61480,True,18-24
+ID_0273,40,Female,Bachelor's,60k-80k,Student,22822,False,35-44
+ID_0274,29,Male,Some College,20k-40k,Employed,55225,True,25-34
+ID_0275,58,Female,HS Graduate,100k+,Employed,27625,True,55-64
+ID_0276,58,Male,Bachelor's,40k-60k,Unemployed,67564,True,55-64
+ID_0277,32,Male,HS Graduate,40k-60k,Employed,89019,True,25-34
+ID_0278,18,Male,Less than HS,20k-40k,Employed,75335,True,
+ID_0279,67,Male,Less than HS,20k-40k,Employed,49026,False,65+
+ID_0280,64,Female,Less than HS,60k-80k,Retired,05614,True,55-64
+ID_0281,25,Female,Some College,40k-60k,Retired,70133,False,18-24
+ID_0282,48,Male,HS Graduate,<20k,Employed,42245,False,45-54
+ID_0283,28,Male,Bachelor's,20k-40k,Employed,70647,False,25-34
+ID_0284,34,Female,Bachelor's,60k-80k,Unemployed,54887,False,25-34
+ID_0285,44,Male,Some College,80k-100k,Employed,18621,False,35-44
+ID_0286,77,Male,Some College,20k-40k,Retired,14386,True,65+
+ID_0287,48,Female,Master's,60k-80k,Employed,56525,False,45-54
+ID_0288,44,Male,Bachelor's,20k-40k,Employed,73751,True,35-44
+ID_0289,31,Male,HS Graduate,60k-80k,Employed,94613,False,25-34
+ID_0290,68,Female,Some College,60k-80k,Retired,29473,True,65+
+ID_0291,76,Male,HS Graduate,<20k,Retired,53478,True,65+
+ID_0292,40,Male,HS Graduate,60k-80k,Employed,94922,True,35-44
+ID_0293,73,Female,Doctorate,20k-40k,Retired,81085,False,65+
+ID_0294,22,Male,HS Graduate,20k-40k,Employed,99055,True,18-24
+ID_0295,47,Male,Bachelor's,40k-60k,Employed,47705,False,45-54
+ID_0296,51,Female,HS Graduate,40k-60k,Retired,06182,False,45-54
+ID_0297,64,Female,Master's,80k-100k,Employed,62112,True,55-64
+ID_0298,36,Female,HS Graduate,<20k,Retired,18801,False,35-44
+ID_0299,74,Male,HS Graduate,80k-100k,Employed,91226,True,65+
+ID_0300,48,Male,Bachelor's,<20k,Student,34297,False,45-54
+ID_0301,33,Female,Bachelor's,20k-40k,Unemployed,75988,False,25-34
+ID_0302,62,Male,Bachelor's,40k-60k,Retired,87095,False,55-64
+ID_0303,44,Male,Bachelor's,40k-60k,Unemployed,32701,False,35-44
+ID_0304,78,Female,HS Graduate,100k+,Retired,04249,False,65+
+ID_0305,43,Male,Some College,40k-60k,Unemployed,08871,True,35-44
+ID_0306,56,Male,Bachelor's,20k-40k,Student,74454,False,55-64
+ID_0307,46,Male,Bachelor's,100k+,Retired,16551,True,45-54
+ID_0308,66,Female,HS Graduate,20k-40k,Employed,60086,True,65+
+ID_0309,68,Male,Bachelor's,20k-40k,Employed,59249,False,65+
+ID_0310,74,Male,Master's,60k-80k,Retired,02000,True,65+
+ID_0311,56,Male,Bachelor's,100k+,Employed,00991,False,55-64
+ID_0312,61,Female,Less than HS,60k-80k,Student,71248,False,55-64
+ID_0313,62,Female,Some College,60k-80k,Employed,77861,False,55-64
+ID_0314,46,Male,Some College,60k-80k,Employed,81441,False,45-54
+ID_0315,62,Female,HS Graduate,60k-80k,Unemployed,71063,False,55-64
+ID_0316,63,Male,Some College,80k-100k,Student,14976,True,55-64
+ID_0317,64,Male,Some College,20k-40k,Employed,62824,False,55-64
+ID_0318,48,Female,Less than HS,20k-40k,Employed,64049,True,45-54
+ID_0319,19,Female,HS Graduate,20k-40k,Retired,67378,True,18-24
+ID_0320,23,Male,HS Graduate,80k-100k,Employed,83835,True,18-24
+ID_0321,26,Female,HS Graduate,60k-80k,Student,49206,False,25-34
+ID_0322,32,Male,HS Graduate,40k-60k,Employed,85253,True,25-34
+ID_0323,37,Other,Less than HS,<20k,Employed,44437,False,35-44
+ID_0324,65,Female,HS Graduate,20k-40k,Retired,15595,False,55-64
+ID_0325,75,Other,Master's,100k+,Retired,13205,True,65+
+ID_0326,19,Male,Bachelor's,20k-40k,Employed,66231,False,18-24
+ID_0327,20,Male,Some College,60k-80k,Unemployed,36922,False,18-24
+ID_0328,72,Female,Master's,20k-40k,Retired,72085,False,65+
+ID_0329,69,Female,HS Graduate,60k-80k,Retired,51148,True,65+
+ID_0330,72,Female,Bachelor's,60k-80k,Student,50821,False,65+
+ID_0331,70,Male,HS Graduate,80k-100k,Retired,30493,False,65+
+ID_0332,47,Female,Bachelor's,40k-60k,Retired,06412,False,45-54
+ID_0333,25,Female,HS Graduate,60k-80k,Employed,76394,False,18-24
+ID_0334,57,Female,Less than HS,40k-60k,Unemployed,69017,False,55-64
+ID_0335,38,Male,HS Graduate,100k+,Employed,34970,True,35-44
+ID_0336,56,Female,Master's,40k-60k,Employed,10851,True,55-64
+ID_0337,60,Female,HS Graduate,20k-40k,Employed,14081,True,55-64
+ID_0338,71,Male,HS Graduate,60k-80k,Retired,27916,False,65+
+ID_0339,30,Female,HS Graduate,40k-60k,Employed,61118,False,25-34
+ID_0340,57,Male,Bachelor's,80k-100k,Employed,44936,True,55-64
+ID_0341,58,Female,Some College,20k-40k,Unemployed,11010,False,55-64
+ID_0342,65,Female,Bachelor's,20k-40k,Employed,71409,True,55-64
+ID_0343,54,Male,Some College,100k+,Retired,72679,False,45-54
+ID_0344,72,Female,Bachelor's,100k+,Retired,78421,False,65+
+ID_0345,49,Female,Less than HS,40k-60k,Student,78069,False,45-54
+ID_0346,31,Female,Some College,<20k,Employed,33512,True,25-34
+ID_0347,18,Female,Master's,20k-40k,Employed,83703,False,
+ID_0348,44,Male,Bachelor's,20k-40k,Student,73906,False,35-44
+ID_0349,41,Female,Doctorate,60k-80k,Unemployed,48240,False,35-44
+ID_0350,68,Male,Bachelor's,20k-40k,Employed,02439,True,65+
+ID_0351,66,Male,Some College,80k-100k,Retired,02299,False,65+
+ID_0352,39,Male,Bachelor's,<20k,Employed,80556,False,35-44
+ID_0353,31,Female,Bachelor's,60k-80k,Employed,22814,True,25-34
+ID_0354,62,Female,HS Graduate,60k-80k,Employed,92963,True,55-64
+ID_0355,25,Female,Less than HS,60k-80k,Employed,22297,False,18-24
+ID_0356,44,Female,Some College,40k-60k,Employed,73053,False,35-44
+ID_0357,20,Female,HS Graduate,60k-80k,Employed,30824,False,18-24
+ID_0358,50,Female,HS Graduate,80k-100k,Employed,45404,True,45-54
+ID_0359,68,Male,Master's,80k-100k,Retired,72887,False,65+
+ID_0360,64,Female,Bachelor's,<20k,Unemployed,17363,True,55-64
+ID_0361,38,Male,Bachelor's,<20k,Unemployed,47636,False,35-44
+ID_0362,76,Female,Some College,80k-100k,Employed,80873,True,65+
+ID_0363,49,Male,HS Graduate,40k-60k,Employed,65243,True,45-54
+ID_0364,57,Male,Bachelor's,100k+,Employed,55610,True,55-64
+ID_0365,58,Male,Some College,40k-60k,Employed,18487,False,55-64
+ID_0366,62,Male,Bachelor's,20k-40k,Employed,03030,True,55-64
+ID_0367,61,Male,Master's,100k+,Employed,43782,False,55-64
+ID_0368,58,Male,HS Graduate,40k-60k,Retired,85409,False,55-64
+ID_0369,49,Male,HS Graduate,40k-60k,Employed,30302,False,45-54
+ID_0370,69,Male,Some College,80k-100k,Retired,08998,True,65+
+ID_0371,41,Male,Some College,60k-80k,Employed,61695,True,35-44
+ID_0372,28,Male,Less than HS,20k-40k,Employed,58460,True,25-34
+ID_0373,54,Female,Master's,60k-80k,Employed,42610,False,45-54
+ID_0374,68,Female,Doctorate,40k-60k,Retired,94381,False,65+
+ID_0375,38,Female,Master's,40k-60k,Employed,99411,True,35-44
+ID_0376,35,Female,Master's,60k-80k,Unemployed,08393,False,25-34
+ID_0377,28,Female,Doctorate,100k+,Unemployed,77318,True,25-34
+ID_0378,44,Female,Master's,40k-60k,Employed,00724,False,35-44
+ID_0379,60,Male,Bachelor's,60k-80k,Unemployed,63405,False,55-64
+ID_0380,55,Female,HS Graduate,60k-80k,Employed,78373,True,45-54
+ID_0381,18,Male,HS Graduate,20k-40k,Employed,83736,False,
+ID_0382,71,Female,Less than HS,40k-60k,Retired,45084,False,65+
+ID_0383,46,Female,Some College,40k-60k,Student,19991,False,45-54
+ID_0384,38,Female,Bachelor's,<20k,Employed,68418,False,35-44
+ID_0385,46,Male,Some College,80k-100k,Employed,14079,False,45-54
+ID_0386,26,Female,Some College,20k-40k,Employed,90320,True,25-34
+ID_0387,78,Other,HS Graduate,<20k,Retired,64435,False,65+
+ID_0388,79,Female,Less than HS,40k-60k,Retired,20317,False,65+
+ID_0389,24,Female,Some College,20k-40k,Employed,07201,False,18-24
+ID_0390,55,Male,Less than HS,60k-80k,Retired,74496,False,45-54
+ID_0391,48,Male,HS Graduate,40k-60k,Retired,02073,True,45-54
+ID_0392,44,Male,Some College,20k-40k,Employed,93803,False,35-44
+ID_0393,77,Female,Some College,100k+,Retired,33104,False,65+
+ID_0394,72,Male,HS Graduate,20k-40k,Student,44498,False,65+
+ID_0395,59,Male,Bachelor's,40k-60k,Employed,15766,False,55-64
+ID_0396,49,Male,Some College,80k-100k,Employed,86974,False,45-54
+ID_0397,22,Male,Less than HS,40k-60k,Employed,40016,True,18-24
+ID_0398,50,Male,Bachelor's,100k+,Employed,18433,True,45-54
+ID_0399,32,Male,Some College,80k-100k,Employed,44046,False,25-34
+ID_0400,74,Female,Less than HS,100k+,Retired,19198,False,65+
+ID_0401,22,Male,Master's,20k-40k,Unemployed,62648,False,18-24
+ID_0402,37,Male,Bachelor's,40k-60k,Retired,40763,False,35-44
+ID_0403,55,Female,Some College,80k-100k,Employed,84265,False,45-54
+ID_0404,54,Other,Master's,80k-100k,Employed,26615,True,45-54
+ID_0405,34,Male,Master's,100k+,Employed,53812,False,25-34
+ID_0406,67,Male,HS Graduate,80k-100k,Retired,27399,True,65+
+ID_0407,21,Female,Bachelor's,60k-80k,Unemployed,73900,False,18-24
+ID_0408,73,Female,Bachelor's,<20k,Retired,69939,False,65+
+ID_0409,38,Female,Less than HS,20k-40k,Employed,94975,True,35-44
+ID_0410,72,Male,Bachelor's,<20k,Retired,74556,True,65+
+ID_0411,51,Male,Less than HS,20k-40k,Student,08463,True,45-54
+ID_0412,57,Female,Bachelor's,20k-40k,Employed,60531,True,55-64
+ID_0413,22,Female,Bachelor's,<20k,Unemployed,66757,True,18-24
+ID_0414,21,Male,Some College,20k-40k,Employed,48835,False,18-24
+ID_0415,74,Male,Master's,80k-100k,Unemployed,22170,False,65+
+ID_0416,39,Female,Bachelor's,20k-40k,Employed,80347,True,35-44
+ID_0417,31,Male,Master's,80k-100k,Employed,61283,False,25-34
+ID_0418,21,Female,HS Graduate,60k-80k,Student,34673,False,18-24
+ID_0419,25,Male,Less than HS,80k-100k,Employed,93194,True,18-24
+ID_0420,20,Male,Bachelor's,20k-40k,Student,58443,False,18-24
+ID_0421,63,Male,HS Graduate,20k-40k,Employed,51484,True,55-64
+ID_0422,46,Female,Some College,20k-40k,Student,93380,True,45-54
+ID_0423,43,Male,Bachelor's,20k-40k,Employed,98951,False,35-44
+ID_0424,67,Female,HS Graduate,<20k,Retired,69046,True,65+
+ID_0425,72,Male,HS Graduate,60k-80k,Retired,55705,True,65+
+ID_0426,47,Female,Some College,80k-100k,Employed,25272,True,45-54
+ID_0427,29,Other,HS Graduate,60k-80k,Employed,89626,False,25-34
+ID_0428,32,Female,Some College,40k-60k,Student,65285,True,25-34
+ID_0429,69,Other,Less than HS,20k-40k,Employed,80882,False,65+
+ID_0430,69,Male,HS Graduate,40k-60k,Retired,18474,False,65+
+ID_0431,75,Other,Bachelor's,40k-60k,Employed,94713,True,65+
+ID_0432,58,Male,Some College,60k-80k,Unemployed,96959,True,55-64
+ID_0433,19,Male,Bachelor's,100k+,Unemployed,56161,True,18-24
+ID_0434,18,Male,HS Graduate,<20k,Unemployed,50256,True,
+ID_0435,64,Female,Bachelor's,100k+,Student,90772,True,55-64
+ID_0436,72,Female,Doctorate,100k+,Employed,20269,True,65+
+ID_0437,64,Female,Bachelor's,<20k,Employed,12867,True,55-64
+ID_0438,45,Other,Bachelor's,20k-40k,Employed,60837,True,35-44
+ID_0439,57,Female,HS Graduate,20k-40k,Employed,53951,False,55-64
+ID_0440,52,Female,Some College,40k-60k,Employed,30307,True,45-54
+ID_0441,51,Male,Master's,<20k,Employed,69898,False,45-54
+ID_0442,21,Female,Bachelor's,20k-40k,Employed,14789,True,18-24
+ID_0443,35,Female,Some College,100k+,Employed,74886,False,25-34
+ID_0444,29,Female,Master's,100k+,Student,07048,False,25-34
+ID_0445,67,Male,HS Graduate,20k-40k,Retired,07480,True,65+
+ID_0446,38,Male,Bachelor's,80k-100k,Employed,13930,False,35-44
+ID_0447,27,Male,HS Graduate,80k-100k,Unemployed,20181,False,25-34
+ID_0448,38,Male,Bachelor's,20k-40k,Employed,99134,False,35-44
+ID_0449,57,Male,Less than HS,20k-40k,Employed,49354,False,55-64
+ID_0450,42,Female,Master's,60k-80k,Employed,08061,True,35-44
+ID_0451,67,Female,Bachelor's,80k-100k,Student,06688,False,65+
+ID_0452,34,Female,HS Graduate,100k+,Employed,78857,False,25-34
+ID_0453,68,Male,Bachelor's,<20k,Employed,99189,True,65+
+ID_0454,23,Male,Bachelor's,60k-80k,Employed,81055,False,18-24
+ID_0455,31,Male,HS Graduate,40k-60k,Employed,36375,False,25-34
+ID_0456,54,Male,Less than HS,100k+,Student,81997,True,45-54
+ID_0457,57,Male,Some College,40k-60k,Unemployed,15756,False,55-64
+ID_0458,57,Male,HS Graduate,40k-60k,Student,38788,True,55-64
+ID_0459,35,Female,Bachelor's,<20k,Employed,55207,False,25-34
+ID_0460,47,Male,Some College,20k-40k,Student,89215,True,45-54
+ID_0461,26,Female,Some College,40k-60k,Employed,72949,False,25-34
+ID_0462,31,Female,Some College,<20k,Employed,55643,False,25-34
+ID_0463,63,Female,Doctorate,40k-60k,Employed,03504,False,55-64
+ID_0464,69,Female,Bachelor's,20k-40k,Student,46428,False,65+
+ID_0465,63,Female,Bachelor's,80k-100k,Retired,17755,True,55-64
+ID_0466,34,Female,Some College,<20k,Employed,17033,True,25-34
+ID_0467,79,Female,Less than HS,80k-100k,Retired,63931,False,65+
+ID_0468,51,Male,HS Graduate,60k-80k,Student,79482,False,45-54
+ID_0469,63,Male,Bachelor's,20k-40k,Employed,73302,False,55-64
+ID_0470,76,Female,Some College,<20k,Retired,17084,False,65+
+ID_0471,39,Male,HS Graduate,80k-100k,Employed,57081,False,35-44
+ID_0472,70,Female,Master's,20k-40k,Retired,70462,True,65+
+ID_0473,49,Female,Some College,<20k,Unemployed,05702,False,45-54
+ID_0474,29,Male,Master's,20k-40k,Employed,26722,False,25-34
+ID_0475,72,Female,Master's,100k+,Retired,88322,False,65+
+ID_0476,74,Female,Less than HS,20k-40k,Employed,97427,False,65+
+ID_0477,33,Female,Master's,60k-80k,Student,10229,True,25-34
+ID_0478,39,Female,Less than HS,80k-100k,Employed,35759,False,35-44
+ID_0479,55,Female,Doctorate,80k-100k,Student,47286,True,45-54
+ID_0480,67,Female,Some College,20k-40k,Retired,58749,False,65+
+ID_0481,56,Female,Bachelor's,100k+,Unemployed,48683,False,55-64
+ID_0482,19,Male,Bachelor's,60k-80k,Employed,38195,True,18-24
+ID_0483,62,Male,Some College,80k-100k,Retired,29956,False,55-64
+ID_0484,72,Male,Bachelor's,40k-60k,Employed,86563,False,65+
+ID_0485,25,Male,Master's,100k+,Employed,32406,False,18-24
+ID_0486,61,Male,Master's,100k+,Employed,05064,True,55-64
+ID_0487,18,Female,Bachelor's,40k-60k,Student,37832,False,
+ID_0488,58,Female,Bachelor's,100k+,Employed,39819,False,55-64
+ID_0489,57,Female,HS Graduate,20k-40k,Employed,93991,False,55-64
+ID_0490,58,Female,Bachelor's,100k+,Student,93160,False,55-64
+ID_0491,22,Male,Bachelor's,20k-40k,Student,27913,False,18-24
+ID_0492,62,Male,Bachelor's,20k-40k,Employed,09020,False,55-64
+ID_0493,63,Female,Bachelor's,40k-60k,Employed,44017,True,55-64
+ID_0494,53,Male,HS Graduate,60k-80k,Employed,16643,False,45-54
+ID_0495,34,Female,HS Graduate,60k-80k,Retired,99895,False,25-34
+ID_0496,58,Male,Less than HS,40k-60k,Student,12913,False,55-64
+ID_0497,47,Male,Bachelor's,<20k,Student,39358,True,45-54
+ID_0498,69,Male,HS Graduate,40k-60k,Student,66741,True,65+
+ID_0499,32,Female,Bachelor's,20k-40k,Employed,00588,True,25-34
+ID_0500,37,Female,Less than HS,60k-80k,Employed,00689,False,35-44
+ID_0501,53,Female,Some College,20k-40k,Employed,23282,True,45-54
+ID_0502,19,Female,HS Graduate,20k-40k,Employed,54009,True,18-24
+ID_0503,77,Female,Some College,100k+,Retired,86729,False,65+
+ID_0504,76,Female,Less than HS,<20k,Retired,03365,True,65+
+ID_0505,62,Female,Bachelor's,60k-80k,Retired,03015,False,55-64
+ID_0506,21,Male,HS Graduate,<20k,Retired,68983,False,18-24
+ID_0507,67,Female,Less than HS,20k-40k,Retired,59728,False,65+
+ID_0508,41,Female,Master's,80k-100k,Employed,42428,True,35-44
+ID_0509,65,Male,HS Graduate,40k-60k,Employed,07050,True,55-64
+ID_0510,72,Male,Bachelor's,40k-60k,Employed,06338,True,65+
+ID_0511,76,Male,Doctorate,80k-100k,Unemployed,33630,False,65+
+ID_0512,59,Male,Some College,80k-100k,Employed,81958,True,55-64
+ID_0513,19,Female,Some College,80k-100k,Employed,09088,True,18-24
+ID_0514,63,Female,Some College,60k-80k,Unemployed,95491,False,55-64
+ID_0515,19,Female,Some College,40k-60k,Retired,31129,True,18-24
+ID_0516,67,Female,Some College,40k-60k,Retired,92614,False,65+
+ID_0517,18,Female,HS Graduate,60k-80k,Employed,86152,False,
+ID_0518,30,Male,Some College,40k-60k,Retired,27088,True,25-34
+ID_0519,23,Female,Bachelor's,<20k,Unemployed,69913,False,18-24
+ID_0520,39,Female,HS Graduate,<20k,Student,02014,False,35-44
+ID_0521,34,Female,Bachelor's,20k-40k,Employed,76419,True,25-34
+ID_0522,76,Female,Bachelor's,<20k,Student,56068,True,65+
+ID_0523,66,Female,Less than HS,20k-40k,Retired,78951,False,65+
+ID_0524,39,Male,Less than HS,60k-80k,Employed,69555,True,35-44
+ID_0525,60,Female,Some College,<20k,Employed,60650,False,55-64
+ID_0526,23,Female,Bachelor's,60k-80k,Student,67761,False,18-24
+ID_0527,69,Female,HS Graduate,80k-100k,Retired,00713,True,65+
+ID_0528,20,Male,Bachelor's,20k-40k,Retired,02087,False,18-24
+ID_0529,63,Male,Bachelor's,20k-40k,Employed,38184,True,55-64
+ID_0530,74,Male,Bachelor's,<20k,Retired,47279,True,65+
+ID_0531,23,Female,Less than HS,40k-60k,Employed,03161,False,18-24
+ID_0532,34,Male,Bachelor's,60k-80k,Student,97183,True,25-34
+ID_0533,52,Female,Less than HS,40k-60k,Student,03003,False,45-54
+ID_0534,66,Male,HS Graduate,20k-40k,Retired,54374,False,65+
+ID_0535,68,Male,HS Graduate,40k-60k,Retired,48432,True,65+
+ID_0536,67,Female,Bachelor's,80k-100k,Retired,28047,True,65+
+ID_0537,54,Female,Doctorate,<20k,Employed,13495,True,45-54
+ID_0538,64,Female,HS Graduate,80k-100k,Employed,43733,False,55-64
+ID_0539,52,Male,Some College,60k-80k,Employed,83829,True,45-54
+ID_0540,40,Male,HS Graduate,20k-40k,Employed,75974,True,35-44
+ID_0541,25,Male,Bachelor's,40k-60k,Employed,46004,False,18-24
+ID_0542,24,Male,Some College,<20k,Unemployed,87976,False,18-24
+ID_0543,67,Female,Some College,20k-40k,Retired,12833,True,65+
+ID_0544,27,Male,Bachelor's,20k-40k,Employed,59388,False,25-34
+ID_0545,43,Other,Bachelor's,<20k,Employed,05962,True,35-44
+ID_0546,72,Female,Less than HS,20k-40k,Retired,37112,False,65+
+ID_0547,27,Female,Bachelor's,60k-80k,Employed,15089,True,25-34
+ID_0548,36,Other,Some College,100k+,Retired,92492,False,35-44
+ID_0549,40,Male,HS Graduate,60k-80k,Employed,69732,True,35-44
+ID_0550,48,Male,HS Graduate,40k-60k,Employed,03483,True,45-54
+ID_0551,50,Female,Master's,100k+,Unemployed,53332,True,45-54
+ID_0552,19,Male,Master's,100k+,Student,44217,False,18-24
+ID_0553,45,Female,Less than HS,20k-40k,Employed,67303,True,35-44
+ID_0554,75,Other,Bachelor's,40k-60k,Retired,45348,True,65+
+ID_0555,49,Female,Bachelor's,40k-60k,Student,88222,False,45-54
+ID_0556,50,Female,Master's,20k-40k,Employed,72263,True,45-54
+ID_0557,26,Female,Master's,100k+,Employed,35005,False,25-34
+ID_0558,78,Female,Bachelor's,20k-40k,Retired,71093,False,65+
+ID_0559,46,Male,HS Graduate,40k-60k,Student,94518,True,45-54
+ID_0560,32,Female,Some College,40k-60k,Student,16788,False,25-34
+ID_0561,35,Male,Bachelor's,80k-100k,Employed,88882,True,25-34
+ID_0562,35,Female,Doctorate,60k-80k,Employed,18978,False,25-34
+ID_0563,71,Female,Some College,60k-80k,Employed,75930,False,65+
+ID_0564,24,Male,Bachelor's,20k-40k,Student,51924,False,18-24
+ID_0565,31,Male,Bachelor's,60k-80k,Unemployed,90803,True,25-34
+ID_0566,46,Female,Less than HS,20k-40k,Employed,46207,True,45-54
+ID_0567,67,Female,Bachelor's,100k+,Employed,56639,False,65+
+ID_0568,79,Female,HS Graduate,80k-100k,Student,61886,False,65+
+ID_0569,69,Female,Bachelor's,40k-60k,Employed,63855,True,65+
+ID_0570,36,Female,Bachelor's,80k-100k,Employed,06123,True,35-44
+ID_0571,78,Male,Doctorate,40k-60k,Retired,75936,False,65+
+ID_0572,22,Female,Master's,<20k,Retired,72489,False,18-24
+ID_0573,58,Female,Less than HS,60k-80k,Retired,26023,False,55-64
+ID_0574,67,Male,Less than HS,40k-60k,Retired,33145,False,65+
+ID_0575,62,Male,Bachelor's,100k+,Employed,42658,True,55-64
+ID_0576,22,Female,Bachelor's,20k-40k,Employed,37748,False,18-24
+ID_0577,73,Female,Bachelor's,80k-100k,Retired,73021,False,65+
+ID_0578,71,Female,HS Graduate,60k-80k,Retired,60936,True,65+
+ID_0579,69,Female,Bachelor's,80k-100k,Retired,62212,False,65+
+ID_0580,32,Male,Some College,20k-40k,Student,67129,False,25-34
+ID_0581,43,Female,HS Graduate,40k-60k,Employed,46379,False,35-44
+ID_0582,41,Male,Less than HS,80k-100k,Student,58486,True,35-44
+ID_0583,36,Female,Master's,60k-80k,Student,53547,False,35-44
+ID_0584,37,Male,Some College,20k-40k,Employed,00957,True,35-44
+ID_0585,60,Female,Doctorate,40k-60k,Employed,59706,False,55-64
+ID_0586,26,Male,Bachelor's,100k+,Retired,19415,True,25-34
+ID_0587,70,Male,Less than HS,60k-80k,Retired,99055,False,65+
+ID_0588,71,Male,Bachelor's,60k-80k,Employed,88532,True,65+
+ID_0589,45,Male,Less than HS,80k-100k,Employed,20827,False,35-44
+ID_0590,33,Male,Bachelor's,40k-60k,Retired,65241,False,25-34
+ID_0591,28,Female,Some College,100k+,Employed,34206,False,25-34
+ID_0592,51,Male,Bachelor's,40k-60k,Employed,61254,True,45-54
+ID_0593,42,Male,Some College,20k-40k,Retired,81136,True,35-44
+ID_0594,57,Male,HS Graduate,<20k,Student,61445,False,55-64
+ID_0595,72,Male,HS Graduate,20k-40k,Retired,26403,False,65+
+ID_0596,74,Female,Some College,40k-60k,Retired,57656,True,65+
+ID_0597,38,Female,Doctorate,60k-80k,Employed,91445,False,35-44
+ID_0598,22,Male,Some College,80k-100k,Unemployed,67024,True,18-24
+ID_0599,28,Male,Bachelor's,100k+,Student,83424,False,25-34
+ID_0600,60,Female,Less than HS,<20k,Employed,90660,True,55-64
+ID_0601,26,Female,Some College,60k-80k,Retired,85455,True,25-34
+ID_0602,28,Male,Bachelor's,60k-80k,Employed,42405,False,25-34
+ID_0603,54,Male,Bachelor's,20k-40k,Employed,74350,False,45-54
+ID_0604,58,Male,Some College,40k-60k,Employed,53528,False,55-64
+ID_0605,18,Male,Some College,20k-40k,Unemployed,54214,True,
+ID_0606,43,Male,Bachelor's,<20k,Student,55408,True,35-44
+ID_0607,27,Male,HS Graduate,<20k,Student,28859,False,25-34
+ID_0608,76,Male,Less than HS,80k-100k,Retired,89541,True,65+
+ID_0609,57,Female,HS Graduate,60k-80k,Retired,54702,True,55-64
+ID_0610,36,Female,HS Graduate,60k-80k,Employed,41090,True,35-44
+ID_0611,33,Female,Doctorate,60k-80k,Employed,39129,True,25-34
+ID_0612,62,Female,Bachelor's,<20k,Unemployed,38471,True,55-64
+ID_0613,73,Male,Some College,20k-40k,Retired,89858,False,65+
+ID_0614,54,Male,Master's,20k-40k,Employed,73276,False,45-54
+ID_0615,67,Male,Master's,60k-80k,Retired,30131,False,65+
+ID_0616,58,Female,Some College,100k+,Employed,63591,True,55-64
+ID_0617,21,Female,Master's,60k-80k,Employed,23741,False,18-24
+ID_0618,31,Female,Less than HS,20k-40k,Employed,46021,True,25-34
+ID_0619,47,Male,Master's,100k+,Employed,39086,True,45-54
+ID_0620,24,Male,HS Graduate,60k-80k,Employed,46452,True,18-24
+ID_0621,29,Female,Bachelor's,60k-80k,Student,39039,False,25-34
+ID_0622,41,Female,HS Graduate,60k-80k,Employed,10482,False,35-44
+ID_0623,56,Male,Doctorate,60k-80k,Unemployed,57360,True,55-64
+ID_0624,60,Female,Less than HS,40k-60k,Unemployed,08838,False,55-64
+ID_0625,39,Male,Some College,20k-40k,Student,87227,False,35-44
+ID_0626,64,Female,Bachelor's,80k-100k,Student,21570,True,55-64
+ID_0627,47,Male,Bachelor's,<20k,Employed,28531,True,45-54
+ID_0628,77,Female,Bachelor's,20k-40k,Retired,65595,False,65+
+ID_0629,56,Female,Bachelor's,60k-80k,Unemployed,83131,True,55-64
+ID_0630,37,Other,Bachelor's,20k-40k,Student,74211,False,35-44
+ID_0631,43,Female,HS Graduate,60k-80k,Employed,04804,False,35-44
+ID_0632,66,Female,Some College,<20k,Retired,88378,False,65+
+ID_0633,22,Female,Some College,<20k,Student,33830,False,18-24
+ID_0634,57,Male,Doctorate,80k-100k,Student,36407,False,55-64
+ID_0635,59,Male,Some College,20k-40k,Unemployed,60030,False,55-64
+ID_0636,23,Male,HS Graduate,20k-40k,Employed,14115,False,18-24
+ID_0637,70,Male,Bachelor's,20k-40k,Retired,10614,True,65+
+ID_0638,51,Female,Some College,80k-100k,Employed,61725,False,45-54
+ID_0639,75,Male,HS Graduate,60k-80k,Retired,58102,False,65+
+ID_0640,77,Male,Bachelor's,100k+,Retired,56785,False,65+
+ID_0641,22,Female,HS Graduate,80k-100k,Employed,81340,False,18-24
+ID_0642,27,Female,Bachelor's,80k-100k,Employed,44308,False,25-34
+ID_0643,45,Female,Some College,40k-60k,Employed,47259,False,35-44
+ID_0644,20,Female,HS Graduate,80k-100k,Unemployed,60952,True,18-24
+ID_0645,30,Male,Master's,40k-60k,Employed,83113,False,25-34
+ID_0646,65,Male,HS Graduate,80k-100k,Unemployed,98529,False,55-64
+ID_0647,64,Female,HS Graduate,80k-100k,Retired,20754,True,55-64
+ID_0648,19,Male,Master's,100k+,Employed,57017,False,18-24
+ID_0649,79,Female,HS Graduate,20k-40k,Retired,86582,False,65+
+ID_0650,52,Female,HS Graduate,60k-80k,Student,63803,False,45-54
+ID_0651,69,Female,HS Graduate,40k-60k,Retired,86216,False,65+
+ID_0652,67,Female,Bachelor's,40k-60k,Retired,98418,True,65+
+ID_0653,79,Female,Some College,100k+,Employed,58194,False,65+
+ID_0654,69,Male,Bachelor's,40k-60k,Retired,08987,True,65+
+ID_0655,69,Female,HS Graduate,<20k,Retired,56632,True,65+
+ID_0656,64,Female,HS Graduate,60k-80k,Employed,74571,False,55-64
+ID_0657,71,Male,Bachelor's,60k-80k,Retired,45453,False,65+
+ID_0658,45,Female,HS Graduate,80k-100k,Employed,62509,True,35-44
+ID_0659,54,Male,Some College,60k-80k,Unemployed,40513,True,45-54
+ID_0660,40,Male,Bachelor's,<20k,Employed,30914,False,35-44
+ID_0661,60,Male,Doctorate,<20k,Employed,32546,False,55-64
+ID_0662,40,Female,Less than HS,20k-40k,Unemployed,75675,False,35-44
+ID_0663,52,Female,Some College,20k-40k,Employed,19671,True,45-54
+ID_0664,58,Female,Some College,80k-100k,Student,42310,False,55-64
+ID_0665,56,Female,Bachelor's,20k-40k,Employed,46196,True,55-64
+ID_0666,72,Female,Master's,100k+,Retired,63956,True,65+
+ID_0667,49,Male,Master's,80k-100k,Employed,71312,False,45-54
+ID_0668,19,Male,Some College,40k-60k,Student,43996,False,18-24
+ID_0669,64,Male,HS Graduate,<20k,Employed,89936,False,55-64
+ID_0670,61,Male,Some College,40k-60k,Employed,54455,False,55-64
+ID_0671,65,Female,HS Graduate,<20k,Employed,29835,False,55-64
+ID_0672,75,Female,Bachelor's,40k-60k,Unemployed,97583,False,65+
+ID_0673,33,Male,HS Graduate,80k-100k,Employed,94551,False,25-34
+ID_0674,33,Male,Bachelor's,100k+,Retired,30657,False,25-34
+ID_0675,68,Female,Master's,<20k,Retired,50520,True,65+
+ID_0676,20,Male,HS Graduate,20k-40k,Employed,66627,False,18-24
+ID_0677,45,Female,Bachelor's,60k-80k,Employed,37861,False,35-44
+ID_0678,46,Male,HS Graduate,20k-40k,Retired,37886,True,45-54
+ID_0679,71,Female,HS Graduate,40k-60k,Retired,66665,False,65+
+ID_0680,37,Female,HS Graduate,<20k,Retired,24590,True,35-44
+ID_0681,53,Female,HS Graduate,60k-80k,Employed,18433,True,45-54
+ID_0682,50,Female,HS Graduate,80k-100k,Employed,92419,False,45-54
+ID_0683,39,Female,Bachelor's,100k+,Retired,31179,True,35-44
+ID_0684,25,Female,Bachelor's,80k-100k,Employed,38151,True,18-24
+ID_0685,73,Male,HS Graduate,<20k,Retired,69947,False,65+
+ID_0686,64,Male,Master's,60k-80k,Unemployed,40288,False,55-64
+ID_0687,41,Female,Bachelor's,40k-60k,Retired,07567,False,35-44
+ID_0688,70,Male,Bachelor's,100k+,Retired,65887,False,65+
+ID_0689,75,Male,Some College,100k+,Retired,26694,False,65+
+ID_0690,71,Female,Less than HS,100k+,Retired,27332,False,65+
+ID_0691,54,Female,Bachelor's,80k-100k,Retired,52944,False,45-54
+ID_0692,37,Female,Master's,100k+,Student,16652,False,35-44
+ID_0693,29,Female,HS Graduate,60k-80k,Unemployed,28151,True,25-34
+ID_0694,37,Female,Bachelor's,100k+,Student,82711,True,35-44
+ID_0695,37,Female,Less than HS,40k-60k,Employed,88736,False,35-44
+ID_0696,21,Female,Bachelor's,80k-100k,Retired,04443,True,18-24
+ID_0697,47,Female,Less than HS,100k+,Employed,84231,True,45-54
+ID_0698,48,Female,Bachelor's,40k-60k,Employed,12611,False,45-54
+ID_0699,39,Male,Bachelor's,20k-40k,Unemployed,01049,False,35-44
+ID_0700,32,Female,HS Graduate,20k-40k,Employed,44973,True,25-34
+ID_0701,55,Female,Less than HS,<20k,Student,11995,False,45-54
+ID_0702,54,Male,Master's,80k-100k,Student,01007,True,45-54
+ID_0703,45,Male,Some College,40k-60k,Employed,67031,False,35-44
+ID_0704,28,Female,Bachelor's,60k-80k,Employed,76276,False,25-34
+ID_0705,31,Male,Bachelor's,40k-60k,Employed,23426,True,25-34
+ID_0706,28,Female,Master's,100k+,Retired,51476,False,25-34
+ID_0707,26,Male,Less than HS,20k-40k,Student,96740,False,25-34
+ID_0708,41,Female,Master's,80k-100k,Employed,13361,True,35-44
+ID_0709,27,Female,HS Graduate,<20k,Retired,82477,True,25-34
+ID_0710,55,Female,Less than HS,60k-80k,Employed,33036,True,45-54
+ID_0711,60,Male,Bachelor's,60k-80k,Employed,43667,False,55-64
+ID_0712,58,Male,Doctorate,80k-100k,Employed,81258,True,55-64
+ID_0713,54,Female,Less than HS,40k-60k,Employed,83089,True,45-54
+ID_0714,59,Female,Some College,20k-40k,Unemployed,06723,False,55-64
+ID_0715,49,Female,Some College,20k-40k,Employed,95976,True,45-54
+ID_0716,37,Female,HS Graduate,20k-40k,Student,95161,True,35-44
+ID_0717,31,Female,Doctorate,40k-60k,Unemployed,34565,False,25-34
+ID_0718,55,Female,Bachelor's,40k-60k,Employed,56907,True,45-54
+ID_0719,21,Female,Bachelor's,60k-80k,Employed,40694,False,18-24
+ID_0720,41,Female,Some College,80k-100k,Employed,75176,False,35-44
+ID_0721,49,Male,Some College,100k+,Employed,00616,False,45-54
+ID_0722,72,Male,Bachelor's,40k-60k,Retired,96013,False,65+
+ID_0723,70,Female,Some College,<20k,Retired,01624,False,65+
+ID_0724,27,Male,Bachelor's,80k-100k,Employed,65809,False,25-34
+ID_0725,71,Female,HS Graduate,40k-60k,Retired,87945,True,65+
+ID_0726,60,Female,Some College,40k-60k,Employed,50222,True,55-64
+ID_0727,33,Male,Master's,40k-60k,Retired,21159,False,25-34
+ID_0728,56,Female,Bachelor's,60k-80k,Employed,77707,True,55-64
+ID_0729,49,Male,HS Graduate,80k-100k,Retired,03304,False,45-54
+ID_0730,35,Female,Master's,100k+,Employed,02788,False,25-34
+ID_0731,42,Male,Bachelor's,100k+,Student,77671,True,35-44
+ID_0732,24,Female,Bachelor's,80k-100k,Employed,39153,False,18-24
+ID_0733,73,Male,HS Graduate,80k-100k,Retired,19068,False,65+
+ID_0734,79,Female,Some College,<20k,Retired,03252,True,65+
+ID_0735,70,Female,Bachelor's,80k-100k,Student,09604,False,65+
+ID_0736,64,Male,HS Graduate,<20k,Student,21608,True,55-64
+ID_0737,68,Female,HS Graduate,60k-80k,Retired,71603,False,65+
+ID_0738,35,Female,Some College,20k-40k,Student,19208,False,25-34
+ID_0739,64,Male,Less than HS,20k-40k,Employed,83519,False,55-64
+ID_0740,35,Male,Bachelor's,20k-40k,Employed,60029,True,25-34
+ID_0741,20,Male,HS Graduate,40k-60k,Retired,26316,True,18-24
+ID_0742,18,Male,HS Graduate,40k-60k,Employed,70148,False,
+ID_0743,50,Female,Master's,<20k,Retired,37203,False,45-54
+ID_0744,24,Male,Some College,80k-100k,Employed,81529,False,18-24
+ID_0745,27,Female,HS Graduate,80k-100k,Retired,64318,False,25-34
+ID_0746,61,Male,Some College,80k-100k,Unemployed,84123,False,55-64
+ID_0747,76,Male,HS Graduate,80k-100k,Employed,07766,True,65+
+ID_0748,25,Male,Less than HS,80k-100k,Employed,31790,False,18-24
+ID_0749,71,Male,Bachelor's,100k+,Retired,48681,False,65+
+ID_0750,49,Female,Bachelor's,40k-60k,Student,60905,True,45-54
+ID_0751,40,Male,Master's,40k-60k,Employed,38109,False,35-44
+ID_0752,34,Female,Bachelor's,80k-100k,Student,98883,False,25-34
+ID_0753,31,Female,Master's,80k-100k,Employed,58638,True,25-34
+ID_0754,34,Male,Doctorate,100k+,Student,94709,True,25-34
+ID_0755,42,Male,Bachelor's,60k-80k,Retired,83930,False,35-44
+ID_0756,38,Male,Master's,20k-40k,Employed,22100,True,35-44
+ID_0757,72,Male,Bachelor's,40k-60k,Unemployed,60163,False,65+
+ID_0758,23,Female,HS Graduate,20k-40k,Employed,55428,False,18-24
+ID_0759,37,Female,HS Graduate,80k-100k,Employed,73845,True,35-44
+ID_0760,66,Female,HS Graduate,100k+,Retired,40444,False,65+
+ID_0761,37,Female,Master's,60k-80k,Employed,55819,True,35-44
+ID_0762,75,Male,Bachelor's,20k-40k,Retired,91364,True,65+
+ID_0763,43,Male,Bachelor's,20k-40k,Student,83720,True,35-44
+ID_0764,49,Other,HS Graduate,60k-80k,Employed,65322,False,45-54
+ID_0765,25,Female,Some College,40k-60k,Employed,39577,True,18-24
+ID_0766,62,Male,Less than HS,40k-60k,Employed,50548,True,55-64
+ID_0767,65,Male,Master's,20k-40k,Employed,43576,False,55-64
+ID_0768,61,Male,Master's,40k-60k,Employed,87727,False,55-64
+ID_0769,76,Female,Bachelor's,20k-40k,Student,53709,True,65+
+ID_0770,46,Female,Less than HS,60k-80k,Employed,80806,True,45-54
+ID_0771,34,Male,HS Graduate,20k-40k,Employed,82766,False,25-34
+ID_0772,35,Male,HS Graduate,60k-80k,Employed,67467,False,25-34
+ID_0773,57,Male,HS Graduate,20k-40k,Employed,19415,False,55-64
+ID_0774,35,Male,Bachelor's,20k-40k,Employed,99224,True,25-34
+ID_0775,28,Female,HS Graduate,20k-40k,Unemployed,70217,True,25-34
+ID_0776,62,Female,Some College,60k-80k,Employed,90712,False,55-64
+ID_0777,29,Male,Bachelor's,40k-60k,Retired,77801,False,25-34
+ID_0778,32,Female,Some College,80k-100k,Employed,62504,False,25-34
+ID_0779,43,Male,HS Graduate,20k-40k,Employed,98634,False,35-44
+ID_0780,74,Female,Doctorate,<20k,Retired,49721,False,65+
+ID_0781,20,Female,Some College,20k-40k,Employed,37236,True,18-24
+ID_0782,20,Male,Bachelor's,20k-40k,Student,63509,False,18-24
+ID_0783,55,Female,HS Graduate,20k-40k,Retired,29986,True,45-54
+ID_0784,52,Male,Bachelor's,<20k,Employed,02028,False,45-54
+ID_0785,26,Male,HS Graduate,40k-60k,Unemployed,01218,False,25-34
+ID_0786,60,Male,Bachelor's,60k-80k,Unemployed,76879,False,55-64
+ID_0787,57,Male,Some College,80k-100k,Retired,99280,True,55-64
+ID_0788,21,Female,HS Graduate,20k-40k,Employed,90542,False,18-24
+ID_0789,71,Male,Less than HS,40k-60k,Employed,11217,True,65+
+ID_0790,73,Female,Master's,80k-100k,Employed,67435,True,65+
+ID_0791,37,Female,HS Graduate,20k-40k,Employed,29876,False,35-44
+ID_0792,32,Male,Bachelor's,80k-100k,Student,49359,False,25-34
+ID_0793,46,Male,Bachelor's,100k+,Retired,63404,False,45-54
+ID_0794,22,Male,HS Graduate,80k-100k,Employed,07917,False,18-24
+ID_0795,56,Male,HS Graduate,40k-60k,Student,54383,True,55-64
+ID_0796,57,Male,HS Graduate,40k-60k,Retired,38968,True,55-64
+ID_0797,24,Female,Bachelor's,60k-80k,Retired,41990,True,18-24
+ID_0798,25,Male,Some College,20k-40k,Student,58814,False,18-24
+ID_0799,49,Female,Master's,80k-100k,Student,77057,False,45-54
+ID_0800,53,Male,Bachelor's,40k-60k,Employed,10648,False,45-54
+ID_0801,50,Male,Bachelor's,80k-100k,Retired,68710,False,45-54
+ID_0802,71,Male,Less than HS,20k-40k,Retired,27783,False,65+
+ID_0803,54,Male,Bachelor's,<20k,Employed,00698,True,45-54
+ID_0804,49,Male,HS Graduate,60k-80k,Employed,38526,True,45-54
+ID_0805,60,Female,HS Graduate,40k-60k,Student,96887,False,55-64
+ID_0806,53,Female,Bachelor's,<20k,Employed,49290,False,45-54
+ID_0807,51,Male,Bachelor's,40k-60k,Student,50678,False,45-54
+ID_0808,66,Female,Some College,20k-40k,Retired,36664,False,65+
+ID_0809,42,Male,Bachelor's,60k-80k,Employed,70762,False,35-44
+ID_0810,61,Male,Some College,40k-60k,Employed,67213,True,55-64
+ID_0811,49,Female,Master's,20k-40k,Employed,36427,True,45-54
+ID_0812,19,Female,Less than HS,40k-60k,Employed,20064,False,18-24
+ID_0813,26,Female,Less than HS,20k-40k,Employed,43356,True,25-34
+ID_0814,55,Male,Bachelor's,60k-80k,Employed,69072,False,45-54
+ID_0815,46,Other,Bachelor's,20k-40k,Retired,73756,True,45-54
+ID_0816,55,Female,Bachelor's,80k-100k,Employed,79042,False,45-54
+ID_0817,35,Female,Bachelor's,<20k,Unemployed,08655,True,25-34
+ID_0818,39,Female,Master's,40k-60k,Employed,35147,True,35-44
+ID_0819,52,Female,Bachelor's,60k-80k,Employed,19619,False,45-54
+ID_0820,32,Female,Bachelor's,<20k,Student,81687,True,25-34
+ID_0821,24,Female,Bachelor's,20k-40k,Unemployed,19332,True,18-24
+ID_0822,30,Male,Master's,20k-40k,Employed,45239,False,25-34
+ID_0823,59,Female,HS Graduate,<20k,Employed,02743,False,55-64
+ID_0824,53,Male,Bachelor's,40k-60k,Retired,56931,True,45-54
+ID_0825,33,Other,Bachelor's,60k-80k,Employed,95716,True,25-34
+ID_0826,58,Female,HS Graduate,20k-40k,Employed,81328,False,55-64
+ID_0827,38,Female,Some College,40k-60k,Employed,22256,False,35-44
+ID_0828,45,Male,Less than HS,100k+,Student,27541,False,35-44
+ID_0829,27,Female,HS Graduate,80k-100k,Student,96544,True,25-34
+ID_0830,36,Male,Master's,<20k,Employed,83864,False,35-44
+ID_0831,34,Female,HS Graduate,<20k,Employed,93677,True,25-34
+ID_0832,18,Female,Bachelor's,40k-60k,Employed,98796,True,
+ID_0833,30,Male,HS Graduate,20k-40k,Employed,78767,True,25-34
+ID_0834,53,Male,Bachelor's,<20k,Employed,39302,True,45-54
+ID_0835,64,Female,HS Graduate,20k-40k,Employed,84470,False,55-64
+ID_0836,75,Male,Some College,<20k,Retired,26353,True,65+
+ID_0837,59,Male,Master's,40k-60k,Student,66613,False,55-64
+ID_0838,37,Male,Some College,40k-60k,Unemployed,76412,False,35-44
+ID_0839,58,Male,Some College,<20k,Student,66761,True,55-64
+ID_0840,57,Female,Some College,40k-60k,Employed,91068,False,55-64
+ID_0841,69,Female,HS Graduate,40k-60k,Retired,92918,False,65+
+ID_0842,23,Female,Some College,60k-80k,Retired,53139,False,18-24
+ID_0843,40,Male,Less than HS,100k+,Employed,95669,True,35-44
+ID_0844,59,Female,Some College,100k+,Employed,88125,True,55-64
+ID_0845,41,Female,Bachelor's,40k-60k,Student,54016,True,35-44
+ID_0846,69,Female,Bachelor's,80k-100k,Retired,80640,False,65+
+ID_0847,66,Male,Bachelor's,<20k,Retired,62017,True,65+
+ID_0848,22,Male,Less than HS,40k-60k,Unemployed,39610,False,18-24
+ID_0849,49,Female,Master's,60k-80k,Employed,29605,True,45-54
+ID_0850,63,Male,Some College,40k-60k,Employed,13007,False,55-64
+ID_0851,34,Female,Doctorate,20k-40k,Employed,63078,False,25-34
+ID_0852,28,Female,HS Graduate,<20k,Retired,65300,True,25-34
+ID_0853,44,Male,Master's,20k-40k,Retired,66457,False,35-44
+ID_0854,21,Female,Bachelor's,60k-80k,Employed,55781,False,18-24
+ID_0855,40,Female,Less than HS,100k+,Employed,10716,False,35-44
+ID_0856,40,Male,Doctorate,20k-40k,Employed,26509,False,35-44
+ID_0857,66,Male,Less than HS,100k+,Employed,89354,False,65+
+ID_0858,74,Male,Bachelor's,<20k,Retired,53955,False,65+
+ID_0859,51,Male,Master's,100k+,Employed,04364,False,45-54
+ID_0860,38,Male,HS Graduate,80k-100k,Employed,60568,True,35-44
+ID_0861,39,Male,HS Graduate,<20k,Employed,16829,True,35-44
+ID_0862,18,Male,Bachelor's,20k-40k,Employed,02886,True,
+ID_0863,49,Female,Bachelor's,<20k,Employed,06352,True,45-54
+ID_0864,79,Male,Master's,100k+,Retired,25110,False,65+
+ID_0865,45,Male,Bachelor's,40k-60k,Employed,41288,False,35-44
+ID_0866,35,Male,Some College,60k-80k,Unemployed,06858,False,25-34
+ID_0867,24,Male,Bachelor's,20k-40k,Unemployed,21634,True,18-24
+ID_0868,71,Female,Doctorate,100k+,Retired,39100,False,65+
+ID_0869,55,Female,HS Graduate,20k-40k,Student,16629,False,45-54
+ID_0870,23,Female,Less than HS,20k-40k,Retired,27408,False,18-24
+ID_0871,31,Female,Some College,20k-40k,Retired,28143,True,25-34
+ID_0872,47,Female,Master's,40k-60k,Employed,92312,True,45-54
+ID_0873,72,Female,HS Graduate,<20k,Employed,80791,True,65+
+ID_0874,75,Male,Master's,40k-60k,Retired,57248,False,65+
+ID_0875,61,Female,Doctorate,<20k,Employed,74809,True,55-64
+ID_0876,63,Female,Less than HS,40k-60k,Retired,88410,False,55-64
+ID_0877,31,Other,Some College,40k-60k,Student,74700,True,25-34
+ID_0878,61,Male,HS Graduate,20k-40k,Employed,12582,True,55-64
+ID_0879,58,Female,Some College,20k-40k,Unemployed,09571,True,55-64
+ID_0880,26,Male,Some College,60k-80k,Employed,98089,False,25-34
+ID_0881,48,Female,Bachelor's,<20k,Retired,73525,False,45-54
+ID_0882,19,Female,Bachelor's,20k-40k,Student,81349,False,18-24
+ID_0883,35,Female,Doctorate,60k-80k,Student,13088,True,25-34
+ID_0884,22,Female,HS Graduate,20k-40k,Employed,19735,True,18-24
+ID_0885,43,Female,Some College,40k-60k,Employed,02673,False,35-44
+ID_0886,40,Female,Bachelor's,20k-40k,Employed,99069,True,35-44
+ID_0887,29,Female,Some College,20k-40k,Employed,01812,True,25-34
+ID_0888,31,Male,Some College,80k-100k,Employed,18269,True,25-34
+ID_0889,77,Male,Bachelor's,20k-40k,Retired,31124,True,65+
+ID_0890,30,Male,Master's,20k-40k,Employed,19810,True,25-34
+ID_0891,52,Male,Some College,60k-80k,Employed,24491,True,45-54
+ID_0892,64,Other,Some College,20k-40k,Employed,47165,False,55-64
+ID_0893,32,Male,Doctorate,80k-100k,Employed,29092,False,25-34
+ID_0894,52,Female,Less than HS,100k+,Retired,67253,False,45-54
+ID_0895,69,Male,Some College,40k-60k,Retired,84206,True,65+
+ID_0896,36,Male,Bachelor's,<20k,Retired,44594,False,35-44
+ID_0897,32,Male,Less than HS,40k-60k,Employed,30721,True,25-34
+ID_0898,68,Male,Bachelor's,<20k,Retired,23684,False,65+
+ID_0899,25,Male,Less than HS,20k-40k,Employed,49144,False,18-24
+ID_0900,40,Female,Master's,80k-100k,Unemployed,34612,False,35-44
+ID_0901,30,Female,Bachelor's,<20k,Employed,19593,False,25-34
+ID_0902,40,Female,Less than HS,<20k,Unemployed,73000,True,35-44
+ID_0903,48,Female,Less than HS,20k-40k,Student,31802,False,45-54
+ID_0904,47,Female,Bachelor's,100k+,Employed,26354,False,45-54
+ID_0905,59,Female,Some College,20k-40k,Employed,91099,False,55-64
+ID_0906,19,Male,Bachelor's,20k-40k,Retired,05386,False,18-24
+ID_0907,28,Male,HS Graduate,40k-60k,Employed,28473,True,25-34
+ID_0908,42,Male,HS Graduate,40k-60k,Retired,79305,True,35-44
+ID_0909,46,Male,HS Graduate,40k-60k,Student,98160,False,45-54
+ID_0910,39,Female,HS Graduate,100k+,Employed,39976,True,35-44
+ID_0911,79,Female,Some College,20k-40k,Retired,81256,True,65+
+ID_0912,36,Female,Bachelor's,20k-40k,Retired,51455,False,35-44
+ID_0913,26,Female,Bachelor's,<20k,Employed,41920,True,25-34
+ID_0914,58,Male,Bachelor's,60k-80k,Employed,76560,False,55-64
+ID_0915,55,Male,Some College,20k-40k,Unemployed,54775,False,45-54
+ID_0916,46,Female,HS Graduate,80k-100k,Employed,31803,True,45-54
+ID_0917,27,Male,HS Graduate,100k+,Retired,94071,False,25-34
+ID_0918,39,Female,Some College,<20k,Employed,15264,True,35-44
+ID_0919,41,Male,Bachelor's,100k+,Employed,84736,True,35-44
+ID_0920,25,Female,Bachelor's,20k-40k,Employed,91313,True,18-24
+ID_0921,64,Female,Some College,40k-60k,Employed,24679,False,55-64
+ID_0922,23,Female,Bachelor's,80k-100k,Employed,16637,False,18-24
+ID_0923,24,Female,HS Graduate,60k-80k,Unemployed,70891,False,18-24
+ID_0924,37,Male,Master's,100k+,Student,46583,False,35-44
+ID_0925,34,Male,Master's,60k-80k,Unemployed,22206,True,25-34
+ID_0926,53,Male,HS Graduate,100k+,Employed,07159,False,45-54
+ID_0927,25,Male,Some College,80k-100k,Employed,58843,False,18-24
+ID_0928,77,Male,Bachelor's,20k-40k,Retired,47489,True,65+
+ID_0929,30,Female,Some College,100k+,Employed,84525,False,25-34
+ID_0930,41,Male,Master's,100k+,Employed,43399,False,35-44
+ID_0931,63,Female,Bachelor's,40k-60k,Employed,30562,False,55-64
+ID_0932,67,Female,Bachelor's,60k-80k,Retired,29240,True,65+
+ID_0933,48,Female,Some College,80k-100k,Employed,47173,False,45-54
+ID_0934,40,Female,Less than HS,80k-100k,Student,42490,True,35-44
+ID_0935,78,Female,HS Graduate,<20k,Retired,69504,False,65+
+ID_0936,34,Female,HS Graduate,60k-80k,Employed,41620,True,25-34
+ID_0937,67,Female,HS Graduate,100k+,Student,10262,False,65+
+ID_0938,63,Female,Doctorate,20k-40k,Employed,61751,True,55-64
+ID_0939,41,Male,Some College,80k-100k,Employed,57077,False,35-44
+ID_0940,60,Male,Master's,40k-60k,Unemployed,43684,True,55-64
+ID_0941,27,Female,Bachelor's,20k-40k,Employed,01340,False,25-34
+ID_0942,48,Male,Bachelor's,<20k,Employed,83661,False,45-54
+ID_0943,62,Female,HS Graduate,80k-100k,Student,39602,False,55-64
+ID_0944,78,Female,Some College,20k-40k,Retired,60473,True,65+
+ID_0945,37,Male,HS Graduate,20k-40k,Unemployed,10460,True,35-44
+ID_0946,33,Male,Doctorate,40k-60k,Employed,21290,True,25-34
+ID_0947,31,Male,Master's,60k-80k,Employed,43905,False,25-34
+ID_0948,20,Male,HS Graduate,20k-40k,Employed,76259,False,18-24
+ID_0949,47,Male,HS Graduate,60k-80k,Employed,27681,False,45-54
+ID_0950,35,Female,Some College,60k-80k,Student,48153,True,25-34
+ID_0951,76,Male,HS Graduate,<20k,Retired,52162,True,65+
+ID_0952,23,Female,Bachelor's,40k-60k,Employed,69075,False,18-24
+ID_0953,37,Male,Bachelor's,60k-80k,Retired,76394,True,35-44
+ID_0954,52,Female,Bachelor's,20k-40k,Employed,92005,True,45-54
+ID_0955,36,Female,Bachelor's,80k-100k,Student,61687,True,35-44
+ID_0956,43,Female,Some College,40k-60k,Employed,97557,True,35-44
+ID_0957,52,Female,HS Graduate,<20k,Employed,02464,True,45-54
+ID_0958,29,Female,Bachelor's,20k-40k,Employed,56436,False,25-34
+ID_0959,25,Male,Master's,40k-60k,Retired,94263,True,18-24
+ID_0960,74,Male,Less than HS,<20k,Retired,70431,False,65+
+ID_0961,74,Male,Some College,<20k,Retired,09035,False,65+
+ID_0962,54,Female,Less than HS,<20k,Employed,03902,False,45-54
+ID_0963,66,Male,Bachelor's,40k-60k,Retired,48614,True,65+
+ID_0964,27,Female,HS Graduate,20k-40k,Employed,31675,True,25-34
+ID_0965,38,Male,Bachelor's,80k-100k,Student,63606,True,35-44
+ID_0966,66,Male,Some College,40k-60k,Employed,01222,False,65+
+ID_0967,58,Female,Bachelor's,80k-100k,Retired,82408,False,55-64
+ID_0968,62,Female,Some College,60k-80k,Employed,11740,False,55-64
+ID_0969,59,Other,HS Graduate,40k-60k,Employed,71506,True,55-64
+ID_0970,46,Female,HS Graduate,60k-80k,Employed,95471,False,45-54
+ID_0971,48,Male,HS Graduate,40k-60k,Unemployed,89017,False,45-54
+ID_0972,57,Female,Bachelor's,20k-40k,Employed,64086,True,55-64
+ID_0973,24,Male,Bachelor's,40k-60k,Employed,14978,True,18-24
+ID_0974,51,Male,HS Graduate,80k-100k,Student,85841,False,45-54
+ID_0975,51,Male,Some College,40k-60k,Student,41845,True,45-54
+ID_0976,47,Female,Less than HS,20k-40k,Unemployed,29839,False,45-54
+ID_0977,21,Male,Bachelor's,20k-40k,Retired,58920,True,18-24
+ID_0978,58,Female,HS Graduate,40k-60k,Employed,91974,True,55-64
+ID_0979,47,Male,Master's,60k-80k,Employed,15330,False,45-54
+ID_0980,42,Male,Bachelor's,100k+,Student,79731,True,35-44
+ID_0981,31,Male,Bachelor's,40k-60k,Employed,66488,False,25-34
+ID_0982,41,Male,HS Graduate,<20k,Employed,85512,False,35-44
+ID_0983,60,Other,Less than HS,<20k,Student,59770,False,55-64
+ID_0984,48,Female,Bachelor's,20k-40k,Employed,74451,False,45-54
+ID_0985,70,Male,Some College,<20k,Retired,23804,True,65+
+ID_0986,79,Female,HS Graduate,80k-100k,Retired,33318,False,65+
+ID_0987,56,Female,Bachelor's,80k-100k,Student,83420,False,55-64
+ID_0988,45,Male,Some College,100k+,Employed,41352,False,35-44
+ID_0989,42,Female,HS Graduate,60k-80k,Employed,36423,True,35-44
+ID_0990,36,Female,Bachelor's,60k-80k,Employed,77328,True,35-44
+ID_0991,21,Male,Master's,80k-100k,Employed,27319,False,18-24
+ID_0992,51,Male,HS Graduate,100k+,Employed,89246,False,45-54
+ID_0993,49,Male,Bachelor's,80k-100k,Employed,97510,True,45-54
+ID_0994,42,Male,Bachelor's,80k-100k,Student,84735,False,35-44
+ID_0995,72,Male,Doctorate,60k-80k,Retired,68100,True,65+
+ID_0996,39,Female,HS Graduate,<20k,Retired,94245,False,35-44
+ID_0997,70,Female,Doctorate,40k-60k,Retired,52208,False,65+
+ID_0998,45,Male,HS Graduate,60k-80k,Retired,42601,False,35-44
+ID_0999,72,Male,Some College,40k-60k,Retired,70777,False,65+
+ID_1000,68,Female,Some College,80k-100k,Retired,11854,True,65+
+ID_1001,70,Male,HS Graduate,80k-100k,Retired,21293,True,65+
+ID_1002,35,Female,Bachelor's,40k-60k,Unemployed,89295,True,25-34
+ID_1003,70,Other,Bachelor's,<20k,Retired,53783,False,65+
+ID_1004,24,Female,HS Graduate,20k-40k,Student,48359,True,18-24
+ID_1005,28,Female,HS Graduate,20k-40k,Unemployed,62096,True,25-34
+ID_1006,59,Male,HS Graduate,20k-40k,Employed,75042,False,55-64
+ID_1007,28,Male,Some College,60k-80k,Employed,15407,False,25-34
+ID_1008,72,Female,Some College,<20k,Retired,47203,False,65+
+ID_1009,26,Female,Some College,<20k,Employed,66747,False,25-34
+ID_1010,52,Male,Less than HS,40k-60k,Student,51780,True,45-54
+ID_1011,73,Male,Some College,80k-100k,Retired,71503,True,65+
+ID_1012,54,Female,Bachelor's,<20k,Employed,51408,False,45-54
+ID_1013,40,Male,HS Graduate,80k-100k,Student,02460,True,35-44
+ID_1014,50,Male,HS Graduate,20k-40k,Employed,27204,True,45-54
+ID_1015,18,Female,Some College,<20k,Employed,91822,False,
+ID_1016,37,Male,Some College,40k-60k,Employed,78498,False,35-44
+ID_1017,22,Male,Bachelor's,100k+,Employed,76940,True,18-24
+ID_1018,46,Female,Master's,40k-60k,Employed,91658,True,45-54
+ID_1019,43,Female,Bachelor's,60k-80k,Employed,99461,False,35-44
+ID_1020,68,Male,Bachelor's,80k-100k,Retired,53884,True,65+
+ID_1021,55,Male,Some College,80k-100k,Employed,83373,True,45-54
+ID_1022,20,Female,HS Graduate,<20k,Employed,20129,False,18-24
+ID_1023,38,Female,Some College,60k-80k,Employed,63030,True,35-44
+ID_1024,76,Male,Master's,60k-80k,Retired,97277,True,65+
+ID_1025,30,Male,Master's,60k-80k,Student,83721,False,25-34
+ID_1026,48,Female,Some College,80k-100k,Retired,57757,False,45-54
+ID_1027,34,Female,HS Graduate,40k-60k,Employed,60968,False,25-34
+ID_1028,52,Female,HS Graduate,20k-40k,Unemployed,06828,False,45-54
+ID_1029,40,Female,Less than HS,60k-80k,Employed,82162,False,35-44
+ID_1030,20,Female,Bachelor's,40k-60k,Student,18793,False,18-24
+ID_1031,70,Male,HS Graduate,80k-100k,Retired,98483,False,65+
+ID_1032,72,Female,Some College,100k+,Retired,38841,False,65+
+ID_1033,62,Female,Bachelor's,80k-100k,Employed,23075,True,55-64
+ID_1034,19,Female,HS Graduate,100k+,Employed,91305,False,18-24
+ID_1035,20,Male,Some College,20k-40k,Employed,61158,False,18-24
+ID_1036,37,Female,HS Graduate,80k-100k,Retired,06748,False,35-44
+ID_1037,65,Female,Some College,20k-40k,Employed,01195,True,55-64
+ID_1038,70,Male,Less than HS,<20k,Retired,70777,False,65+
+ID_1039,61,Female,Some College,60k-80k,Employed,85172,False,55-64
+ID_1040,74,Female,Bachelor's,40k-60k,Retired,99720,True,65+
+ID_1041,26,Female,Bachelor's,100k+,Unemployed,50447,False,25-34
+ID_1042,65,Male,Some College,40k-60k,Employed,72684,False,55-64
+ID_1043,21,Male,Bachelor's,100k+,Employed,03488,False,18-24
+ID_1044,79,Female,HS Graduate,<20k,Retired,37172,False,65+
+ID_1045,42,Female,Bachelor's,80k-100k,Employed,85056,False,35-44
+ID_1046,69,Female,HS Graduate,80k-100k,Employed,43801,False,65+
+ID_1047,67,Female,Some College,60k-80k,Retired,09078,False,65+
+ID_1048,75,Male,HS Graduate,20k-40k,Retired,09509,False,65+
+ID_1049,18,Female,HS Graduate,80k-100k,Employed,77675,True,
+ID_1050,56,Female,Master's,100k+,Employed,09077,True,55-64
+ID_1051,69,Female,HS Graduate,60k-80k,Retired,11262,True,65+
+ID_1052,29,Female,HS Graduate,40k-60k,Student,14464,False,25-34
+ID_1053,57,Female,Some College,20k-40k,Employed,27662,False,55-64
+ID_1054,57,Female,HS Graduate,<20k,Employed,96892,False,55-64
+ID_1055,77,Male,Master's,20k-40k,Retired,08459,False,65+
+ID_1056,41,Male,Master's,100k+,Employed,89771,False,35-44
+ID_1057,71,Male,HS Graduate,40k-60k,Retired,28085,False,65+
+ID_1058,26,Female,Less than HS,80k-100k,Student,31814,True,25-34
+ID_1059,63,Male,HS Graduate,40k-60k,Student,88217,False,55-64
+ID_1060,37,Female,Some College,100k+,Retired,44681,False,35-44
+ID_1061,22,Female,HS Graduate,20k-40k,Employed,57486,False,18-24
+ID_1062,37,Female,Some College,<20k,Unemployed,38612,False,35-44
+ID_1063,38,Male,Bachelor's,80k-100k,Student,36832,False,35-44
+ID_1064,19,Female,Some College,60k-80k,Unemployed,19336,True,18-24
+ID_1065,38,Female,HS Graduate,40k-60k,Retired,64497,True,35-44
+ID_1066,59,Female,Some College,20k-40k,Student,25193,False,55-64
+ID_1067,41,Female,Bachelor's,20k-40k,Employed,59533,True,35-44
+ID_1068,26,Other,Some College,40k-60k,Retired,45387,True,25-34
+ID_1069,56,Female,HS Graduate,60k-80k,Unemployed,54878,True,55-64
+ID_1070,72,Female,Some College,40k-60k,Retired,56165,True,65+
+ID_1071,47,Female,Some College,40k-60k,Student,09861,False,45-54
+ID_1072,71,Female,HS Graduate,40k-60k,Employed,92086,False,65+
+ID_1073,35,Female,Doctorate,100k+,Student,21176,False,25-34
+ID_1074,75,Female,Bachelor's,60k-80k,Retired,82571,False,65+
+ID_1075,61,Male,Bachelor's,60k-80k,Employed,81312,True,55-64
+ID_1076,60,Female,Master's,80k-100k,Retired,03665,True,55-64
+ID_1077,27,Male,Bachelor's,20k-40k,Student,85574,False,25-34
+ID_1078,62,Female,Bachelor's,<20k,Unemployed,55688,False,55-64
+ID_1079,58,Female,Some College,100k+,Employed,10557,True,55-64
+ID_1080,65,Female,Some College,40k-60k,Employed,04675,False,55-64
+ID_1081,79,Male,Less than HS,40k-60k,Retired,36254,True,65+
+ID_1082,38,Female,HS Graduate,40k-60k,Employed,45584,True,35-44
+ID_1083,39,Female,Some College,100k+,Employed,14624,True,35-44
+ID_1084,34,Female,Bachelor's,60k-80k,Student,57808,False,25-34
+ID_1085,22,Female,Some College,20k-40k,Retired,38236,False,18-24
+ID_1086,23,Male,Bachelor's,40k-60k,Employed,07758,True,18-24
+ID_1087,27,Female,Bachelor's,80k-100k,Employed,44250,False,25-34
+ID_1088,60,Female,Less than HS,40k-60k,Student,11931,False,55-64
+ID_1089,19,Male,HS Graduate,20k-40k,Employed,07735,False,18-24
+ID_1090,24,Male,HS Graduate,100k+,Retired,35414,True,18-24
+ID_1091,63,Female,HS Graduate,100k+,Student,59195,True,55-64
+ID_1092,21,Male,Some College,100k+,Student,22806,True,18-24
+ID_1093,54,Female,Bachelor's,<20k,Employed,36795,False,45-54
+ID_1094,36,Male,HS Graduate,20k-40k,Employed,68086,False,35-44
+ID_1095,70,Female,Bachelor's,40k-60k,Retired,55183,True,65+
+ID_1096,45,Female,Master's,80k-100k,Employed,00706,False,35-44
+ID_1097,37,Female,Some College,60k-80k,Student,61352,False,35-44
+ID_1098,77,Female,Bachelor's,80k-100k,Employed,73453,False,65+
+ID_1099,47,Female,HS Graduate,100k+,Employed,99849,False,45-54
+ID_1100,59,Female,Bachelor's,80k-100k,Student,31021,False,55-64
+ID_1101,55,Female,HS Graduate,20k-40k,Employed,10962,False,45-54
+ID_1102,19,Female,Bachelor's,20k-40k,Employed,02679,True,18-24
+ID_1103,20,Male,Some College,20k-40k,Student,28126,True,18-24
+ID_1104,77,Female,Master's,20k-40k,Retired,08702,False,65+
+ID_1105,64,Male,Some College,20k-40k,Employed,33456,False,55-64
+ID_1106,59,Female,Less than HS,80k-100k,Employed,70631,False,55-64
+ID_1107,66,Male,Some College,<20k,Retired,99716,False,65+
+ID_1108,56,Male,Bachelor's,60k-80k,Employed,25586,False,55-64
+ID_1109,42,Male,Bachelor's,80k-100k,Employed,88657,False,35-44
+ID_1110,19,Male,Doctorate,<20k,Employed,74978,False,18-24
+ID_1111,56,Male,Bachelor's,<20k,Employed,54755,True,55-64
+ID_1112,32,Female,Some College,20k-40k,Employed,30372,False,25-34
+ID_1113,20,Female,HS Graduate,20k-40k,Unemployed,16809,False,18-24
+ID_1114,22,Male,Less than HS,40k-60k,Unemployed,40377,False,18-24
+ID_1115,71,Male,Doctorate,60k-80k,Retired,88259,False,65+
+ID_1116,57,Female,Master's,100k+,Employed,74610,False,55-64
+ID_1117,53,Male,HS Graduate,20k-40k,Employed,47463,True,45-54
+ID_1118,67,Female,Bachelor's,40k-60k,Retired,32880,True,65+
+ID_1119,68,Male,Bachelor's,60k-80k,Unemployed,97132,False,65+
+ID_1120,57,Female,Bachelor's,<20k,Retired,96383,False,55-64
+ID_1121,72,Male,Bachelor's,20k-40k,Retired,69957,False,65+
+ID_1122,55,Male,Less than HS,80k-100k,Employed,31658,False,45-54
+ID_1123,54,Female,Master's,20k-40k,Student,04211,True,45-54
+ID_1124,44,Male,Some College,80k-100k,Retired,06029,True,35-44
+ID_1125,22,Other,Some College,20k-40k,Retired,04788,False,18-24
+ID_1126,34,Female,Some College,<20k,Retired,98361,False,25-34
+ID_1127,79,Female,Some College,40k-60k,Retired,94604,False,65+
+ID_1128,55,Female,Bachelor's,80k-100k,Unemployed,10550,False,45-54
+ID_1129,62,Male,Bachelor's,80k-100k,Employed,37279,False,55-64
+ID_1130,58,Female,Some College,20k-40k,Unemployed,81482,False,55-64
+ID_1131,73,Male,Bachelor's,100k+,Retired,10013,True,65+
+ID_1132,29,Female,HS Graduate,40k-60k,Employed,22647,True,25-34
+ID_1133,59,Female,Master's,<20k,Unemployed,54144,True,55-64
+ID_1134,48,Male,Less than HS,<20k,Student,94668,True,45-54
+ID_1135,50,Male,Some College,40k-60k,Unemployed,01089,True,45-54
+ID_1136,60,Female,Less than HS,40k-60k,Employed,65387,False,55-64
+ID_1137,46,Female,Some College,<20k,Employed,96480,True,45-54
+ID_1138,55,Female,HS Graduate,100k+,Retired,96688,True,45-54
+ID_1139,20,Female,Master's,100k+,Student,12037,False,18-24
+ID_1140,55,Male,Less than HS,80k-100k,Employed,69357,True,45-54
+ID_1141,58,Female,Some College,40k-60k,Employed,25554,True,55-64
+ID_1142,71,Female,Bachelor's,60k-80k,Retired,45460,False,65+
+ID_1143,57,Male,HS Graduate,20k-40k,Employed,49786,True,55-64
+ID_1144,47,Male,Bachelor's,60k-80k,Employed,72892,True,45-54
+ID_1145,64,Female,Master's,100k+,Employed,43613,True,55-64
+ID_1146,39,Female,Bachelor's,60k-80k,Employed,04377,False,35-44
+ID_1147,55,Male,HS Graduate,20k-40k,Employed,96729,False,45-54
+ID_1148,49,Female,HS Graduate,20k-40k,Employed,46675,True,45-54
+ID_1149,72,Female,HS Graduate,100k+,Retired,20778,False,65+
+ID_1150,60,Other,HS Graduate,20k-40k,Employed,28873,True,55-64
+ID_1151,78,Male,Less than HS,80k-100k,Employed,03722,False,65+
+ID_1152,27,Female,Master's,40k-60k,Retired,39127,False,25-34
+ID_1153,49,Male,Some College,40k-60k,Unemployed,11439,True,45-54
+ID_1154,60,Female,HS Graduate,60k-80k,Employed,99362,False,55-64
+ID_1155,21,Male,HS Graduate,<20k,Employed,76994,False,18-24
+ID_1156,46,Female,Some College,40k-60k,Employed,93179,False,45-54
+ID_1157,62,Male,HS Graduate,<20k,Unemployed,83311,False,55-64
+ID_1158,25,Female,Master's,60k-80k,Employed,29311,False,18-24
+ID_1159,37,Female,HS Graduate,<20k,Retired,96495,False,35-44
+ID_1160,64,Male,Master's,<20k,Unemployed,70335,False,55-64
+ID_1161,24,Male,Bachelor's,80k-100k,Retired,86280,False,18-24
+ID_1162,18,Male,Doctorate,40k-60k,Employed,05221,False,
+ID_1163,77,Female,Less than HS,20k-40k,Retired,09543,False,65+
+ID_1164,42,Male,Less than HS,40k-60k,Student,83586,False,35-44
+ID_1165,43,Male,Some College,40k-60k,Employed,97955,False,35-44
+ID_1166,26,Male,Master's,40k-60k,Employed,86042,True,25-34
+ID_1167,40,Female,Bachelor's,100k+,Employed,78954,True,35-44
+ID_1168,57,Male,Bachelor's,60k-80k,Employed,69040,False,55-64
+ID_1169,19,Male,Less than HS,20k-40k,Student,87591,False,18-24
+ID_1170,43,Female,Some College,40k-60k,Student,67270,False,35-44
+ID_1171,31,Female,HS Graduate,<20k,Employed,78405,False,25-34
+ID_1172,79,Female,Some College,20k-40k,Retired,06103,False,65+
+ID_1173,61,Male,HS Graduate,100k+,Retired,41084,True,55-64
+ID_1174,48,Male,HS Graduate,40k-60k,Employed,03926,True,45-54
+ID_1175,43,Female,Bachelor's,80k-100k,Employed,36035,False,35-44
+ID_1176,72,Female,Master's,20k-40k,Retired,48622,False,65+
+ID_1177,66,Female,Bachelor's,20k-40k,Retired,84378,False,65+
+ID_1178,36,Male,Bachelor's,20k-40k,Student,98805,False,35-44
+ID_1179,55,Female,Doctorate,20k-40k,Employed,27598,False,45-54
+ID_1180,70,Female,HS Graduate,60k-80k,Employed,61218,False,65+
+ID_1181,22,Female,Less than HS,40k-60k,Employed,21131,False,18-24
+ID_1182,74,Female,Bachelor's,40k-60k,Retired,87296,True,65+
+ID_1183,23,Male,Some College,60k-80k,Student,89735,True,18-24
+ID_1184,52,Female,Some College,60k-80k,Employed,57909,False,45-54
+ID_1185,33,Female,HS Graduate,80k-100k,Employed,23697,True,25-34
+ID_1186,48,Female,Some College,40k-60k,Employed,45244,False,45-54
+ID_1187,35,Female,Some College,80k-100k,Employed,74496,True,25-34
+ID_1188,31,Female,HS Graduate,40k-60k,Retired,40771,False,25-34
+ID_1189,42,Female,Some College,60k-80k,Employed,73692,False,35-44
+ID_1190,32,Female,Some College,80k-100k,Employed,53707,True,25-34
+ID_1191,43,Male,Master's,<20k,Retired,55963,False,35-44
+ID_1192,79,Female,Doctorate,40k-60k,Employed,98999,False,65+
+ID_1193,53,Female,Bachelor's,100k+,Employed,50623,False,45-54
+ID_1194,28,Male,Doctorate,40k-60k,Employed,19880,True,25-34
+ID_1195,54,Male,HS Graduate,80k-100k,Employed,81737,False,45-54
+ID_1196,58,Male,Bachelor's,20k-40k,Retired,82098,False,55-64
+ID_1197,54,Male,Some College,60k-80k,Employed,85965,False,45-54
+ID_1198,24,Female,Bachelor's,80k-100k,Employed,99168,False,18-24
+ID_1199,35,Male,HS Graduate,40k-60k,Student,15031,False,25-34
+ID_1200,67,Female,Bachelor's,40k-60k,Retired,85443,True,65+
+ID_1201,37,Male,Less than HS,<20k,Retired,68649,True,35-44
+ID_1202,73,Male,HS Graduate,<20k,Employed,68639,False,65+
+ID_1203,19,Female,Bachelor's,40k-60k,Employed,87601,False,18-24
+ID_1204,43,Female,Bachelor's,80k-100k,Employed,40141,True,35-44
+ID_1205,40,Male,Some College,100k+,Employed,93061,False,35-44
+ID_1206,49,Other,Bachelor's,60k-80k,Employed,22791,False,45-54
+ID_1207,30,Female,HS Graduate,80k-100k,Employed,89405,True,25-34
+ID_1208,30,Male,Bachelor's,60k-80k,Employed,15704,True,25-34
+ID_1209,34,Female,Less than HS,60k-80k,Employed,53016,False,25-34
+ID_1210,42,Male,Bachelor's,80k-100k,Employed,06626,True,35-44
+ID_1211,75,Female,Some College,40k-60k,Retired,23897,True,65+
+ID_1212,39,Female,Master's,40k-60k,Employed,30579,True,35-44
+ID_1213,44,Male,Some College,20k-40k,Employed,63429,False,35-44
+ID_1214,34,Female,Some College,80k-100k,Employed,55932,False,25-34
+ID_1215,43,Male,Some College,<20k,Retired,20313,True,35-44
+ID_1216,55,Female,Some College,20k-40k,Employed,59581,True,45-54
+ID_1217,31,Male,HS Graduate,40k-60k,Employed,88570,False,25-34
+ID_1218,70,Female,Bachelor's,100k+,Retired,86427,True,65+
+ID_1219,31,Female,Some College,80k-100k,Employed,58153,False,25-34
+ID_1220,29,Male,Some College,20k-40k,Student,21792,False,25-34
+ID_1221,22,Female,Less than HS,60k-80k,Employed,67160,False,18-24
+ID_1222,54,Female,Less than HS,100k+,Employed,10152,True,45-54
+ID_1223,21,Female,Bachelor's,40k-60k,Employed,82049,False,18-24
+ID_1224,72,Female,Master's,40k-60k,Retired,51335,True,65+
+ID_1225,46,Male,Some College,40k-60k,Employed,62213,False,45-54
+ID_1226,42,Male,HS Graduate,20k-40k,Unemployed,80005,False,35-44
+ID_1227,62,Male,HS Graduate,100k+,Employed,61787,True,55-64
+ID_1228,21,Male,Master's,80k-100k,Employed,07117,True,18-24
+ID_1229,67,Male,Bachelor's,60k-80k,Employed,94642,False,65+
+ID_1230,33,Female,Doctorate,40k-60k,Employed,67103,True,25-34
+ID_1231,67,Male,Less than HS,100k+,Retired,58809,False,65+
+ID_1232,19,Female,Master's,60k-80k,Employed,48540,False,18-24
+ID_1233,40,Male,Bachelor's,20k-40k,Employed,22349,True,35-44
+ID_1234,21,Male,Master's,20k-40k,Employed,48530,False,18-24
+ID_1235,37,Male,Less than HS,60k-80k,Employed,37502,False,35-44
+ID_1236,34,Female,Bachelor's,80k-100k,Employed,15180,False,25-34
+ID_1237,69,Female,Some College,40k-60k,Retired,25556,True,65+
+ID_1238,23,Male,Bachelor's,60k-80k,Employed,73532,False,18-24
+ID_1239,35,Female,Some College,20k-40k,Employed,93014,True,25-34
+ID_1240,37,Female,Bachelor's,<20k,Employed,27963,False,35-44
+ID_1241,76,Female,Doctorate,100k+,Unemployed,83494,True,65+
+ID_1242,56,Female,Bachelor's,40k-60k,Employed,58539,False,55-64
+ID_1243,62,Male,Bachelor's,80k-100k,Retired,01829,True,55-64
+ID_1244,58,Male,Bachelor's,80k-100k,Student,04989,False,55-64
+ID_1245,51,Male,Bachelor's,20k-40k,Student,96619,False,45-54
+ID_1246,57,Female,HS Graduate,<20k,Employed,47634,False,55-64
+ID_1247,63,Female,HS Graduate,80k-100k,Unemployed,67586,False,55-64
+ID_1248,71,Female,Bachelor's,<20k,Retired,44770,False,65+
+ID_1249,41,Male,Less than HS,20k-40k,Student,80535,False,35-44
+ID_1250,35,Male,Bachelor's,<20k,Employed,20925,False,25-34
+ID_1251,47,Female,Bachelor's,40k-60k,Unemployed,82475,False,45-54
+ID_1252,76,Other,Some College,20k-40k,Unemployed,26286,True,65+
+ID_1253,18,Female,Master's,20k-40k,Employed,83132,False,
