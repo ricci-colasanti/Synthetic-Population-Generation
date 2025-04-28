@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetic Population Generation and Validation Proposal</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #2980b9;
+            --light-bg: #f9f9f9;
+            --card-bg: #ffffff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar Styles */
+        #sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        
+        #sidebar h2 {
+            color: white;
+            padding: 0 20px;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #sidebar li {
+            padding: 5px 20px;
+        }
+        
+        #sidebar a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        #sidebar a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        #sidebar .nav-item {
+            padding-left: 20px;
+            border-left: 3px solid transparent;
+        }
+        
+        #sidebar .nav-item.active {
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        #sidebar .sub-item {
+            padding-left: 30px;
+            font-size: 0.9em;
+        }
+        
+        /* Main Content Styles */
+        main {
+            padding: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+            margin-top: 30px;
+            scroll-margin-top: 20px;
+        }
+        
+        h3 {
+            color: var(--accent-color);
+            scroll-margin-top: 20px;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .full-width-card {
+            background: var(--card-bg);
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .axiom {
+            background-color: #e8f4fc;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .methodology {
+            background-color: #f0f7ea;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .step {
+            background-color: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .outcome {
+            background-color: #f5eef8;
+            border-left: 4px solid #9b59b6;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .conclusion {
+            background-color: #eaf2f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+            
+            #sidebar {
+                position: static;
+                height: auto;
+                padding-bottom: 20px;
+            }
+            
+            main {
+                padding: 20px;
+            }
+            
+            .full-width-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="#problem-statement" class="nav-item">Problem Statement</a>
+                <ul>
+                    <li><a href="#axioms" class="sub-item">Axioms</a></li>
+                    <li><a href="#hypothesis" class="sub-item">Hypothesis</a></li>
+                </ul>
+            </li>
+            <li><a href="#methodology" class="nav-item">Methodology</a></li>
+            <li><a href="#proposed-steps" class="nav-item">Proposed Steps</a>
+                <ul>
+                    <li><a href="#step1" class="sub-item">Step 1: Create Population</a></li>
+                    <li><a href="#step2" class="sub-item">Step 2: Compare Populations</a></li>
+                </ul>
+            </li>
+            <li><a href="#expected-outcomes" class="nav-item">Expected Outcomes</a></li>
+            <li><a href="#conclusion" class="nav-item">Conclusion</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <header>
+            <h1>Synthetic Population Generation and Validation Proposal</h1>
+        </header>
+
+        <!-- Problem Statement as full-width card -->
+        <div class="full-width-card">
+            <h2 id="problem-statement">Problem Statement</h2>
+            <p><strong>The Problem:</strong> We currently lack a real population dataset to test the synthetic population (synth-pop) method effectively.</p>
+            
+            <h3 id="axioms">Axioms</h3>
+            <div class="axiom">
+                <ol>
+                    <li>A synthetic population should be as close to a twin of the target population as possible.</li>
+                    <li>The synthetic population generation method should be applicable to all populations.</li>
+                    <li>We can create a precise <b>artificial population</b> using deterministic methods.</li>
+                </ol>
+            </div>
+            
+            <h3 id="hypothesis">Hypothesis</h3>
+            <p>The synthetic population generation method should be able to create a population that is a twin of an artificial population</p>
+        </div>
+        
+        <!-- Methodology as full-width card -->
+        <div class="full-width-card">
+            <h2 id="methodology">Methodology</h2>
+            <div class="methodology">
+                <h3>Deterministic Rules for Artificial Population Generation:</h3>
+                <ul>
+                    <li>Create sample LOAs with a mixed makeup.</li>
+                    <li>Take a subsection of the artificial population for survey purposes.</li>
+                    <li>Conduct a census on the full artificial population.</li>
+                </ul>
+                
+                <h3>Comparison Methods:</h3>
+                <ul>
+                    <li>Compare the results between:
+                        <ul>
+                            <li>IPF + Monte Carlo</li>
+                            <li>Just Synthetic Annealing</li>
+                            <li>GAN + Simulated Annealing  (offer this to Daniel)</li>    
+                        </ul> 
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <h2 id="proposed-steps">Proposed Steps</h2>
+        <div class="step">
+            <h3 id="step1">Step 1: Create a National Artifical Population</h3>
+            <ul>
+                <li>Decide on:</li>
+                    <ul>
+                        <li>Size of the population </li>
+                        <li>Granularity of the population</li>
+                    </ul>
+                <li>Create rules for population generation</li>
+                    <ul>
+                        <li>Have population groupings</li>
+                        <li>Have diferent proportions of grouping within an area</li>
+                        <li>Add randomness</li>
+                    </ul>
+            </ul>
+            
+
+        </div>
+        
+        <h2 id="expected-outcomes">Expected Outcomes</h2>
+        <div class="outcome">
+            <ul>
+                <li>A validated synthetic population generation method that can be applied to various populations.</li>
+                <li>Insights into the effectiveness of different comparison methods (RF+ Monte Carlo with GA1V + SA, just SA, and GAN+ R version of SA).</li>
+                <li>Identification of any selection biases in the survey and census data.</li>
+            </ul>
+        </div>
+        
+        <div class="conclusion" id="conclusion">
+            <h2>Conclusion</h2>
+            <p>This proposal outlines a comprehensive approach to generating and validating a synthetic population using deterministic methods and various comparison techniques. The results will provide valuable insights into the accuracy and applicability of the synthetic population generation method.</p>
+        </div>
+        
+        <footer>
+            <p>Synthetic Population Generation and Validation Proposal</p>
+        </footer>
+    </main>
+
+    <script>
+        // Highlight active navigation item as user scrolls
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('h2, h3');
+            const navItems = document.querySelectorAll('#sidebar .nav-item');
+            const subItems = document.querySelectorAll('#sidebar .sub-item');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                // Highlight main nav items
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href').includes(current)) {
+                        item.classList.add('active');
+                    }
+                });
+                
+                // Highlight sub-items
+                subItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href').includes(current)) {
+                        item.classList.add('active');
+                        // Also highlight parent item
+                        const parentItem = item.closest('li').querySelector('.nav-item');
+                        if (parentItem) {
+                            parentItem.classList.add('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
