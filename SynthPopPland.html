@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulated Annealing for Population Selection</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Link to  CSS file -->
+
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Simulated Annealing for Population Selection</h1>
+
+        <div class="note">
+            <strong>Objective:</strong> Select ~1000 individuals (with replacement) from 30,000 to match target
+            aggregated statistics (41 dimensions).
+        </div>
+
+        <h2>1. Problem Definition</h2>
+        <ul>
+            <li><strong>Input:</strong> 30,000 individuals with associated statistics</li>
+            <li><strong>Output:</strong> Subset of ~1000 individuals (allowing duplicates)</li>
+            <li><strong>Target:</strong> Match 41-dimensional aggregated statistics vector</li>
+            <li><strong>Constraints:</strong> Allow repeated selections</li>
+        </ul>
+
+        <h2>2. Simulated Annealing Implementation</h2>
+
+        <h3>Solution Representation</h3>
+        <p>Two possible approaches:</p>
+        <ul>
+            <li><strong>Count Vector:</strong> <code>[c₁, c₂, ..., c₃₀₀₀₀]</code> where cᵢ = selection count for
+                individual i</li>
+            <li><strong>Index List:</strong> <code>[idx₁, idx₂, ..., idx₁₀₀₀]</code> (allows duplicates)</li>
+        </ul>
+
+        <h3>Key Components</h3>
+        <table border="1" cellpadding="8" cellspacing="0">
+            <tr>
+                <th>Component</th>
+                <th>Implementation</th>
+            </tr>
+            <tr>
+                <td>Initial Solution</td>
+                <td>Random selection of 1000 indices (with replacement)</td>
+            </tr>
+            <tr>
+                <td>Cost Function</td>
+                <td>Distance between current and target statistics:<br>
+                    Euclidean: √Σ(aggᵢ - targetᵢ)²<br>
+                    Weighted: √Σwᵢ(aggᵢ - targetᵢ)²
+                </td>
+            </tr>
+            <tr>
+                <td>Neighborhood Generation</td>
+                <td>
+                    <ul>
+                        <li>Swap k random individuals</li>
+                        <li>Adjust counts for random individuals</li>
+                        <li>Add/remove individuals</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Cooling Schedule</td>
+                <td>
+                    Tₙ₊₁ = α·Tₙ (α = 0.95-0.99)<br>
+                    Initial T₀: Accept ~80% worse solutions
+                </td>
+            </tr>
+            <tr>
+                <td>Acceptance Criteria</td>
+                <td>Metropolis: P(accept) = min(1, exp(-ΔE/T))</td>
+            </tr>
+        </table>
+
+        <h3>Pseudocode</h3>
+        <div class="pseudocode">
+            def simulated_annealing(population, target_stats, max_iter=10000):
+            current = random_solution(size=1000)
+            current_cost = cost(current, target_stats)
+            T = initial_temperature # e.g., 1.0
+
+            for i in range(max_iter):
+            new = perturb(current)
+            new_cost = cost(new, target_stats)
+
+            if accept(new_cost, current_cost, T):
+            current, current_cost = new, new_cost
+
+            T *= cooling_rate # e.g., 0.95
+
+            if T < threshold: break return current </div>
+
+                <h2>3. Optimization Techniques</h2>
+                <ul>
+                    <li><strong>Precomputation:</strong> Cache individual statistics contributions</li>
+                    <li><strong>Incremental Updates:</strong> Only recompute changed portions of aggregate stats</li>
+                    <li><strong>Dimensionality Reduction:</strong> PCA if statistics are correlated</li>
+                    <li><strong>Parallelization:</strong> Run multiple chains with different temperatures</li>
+                </ul>
+
+                <h2>4. Practical Recommendations</h2>
+                <ol>
+                    <li>Start with small test cases (reduced population and stats)</li>
+                    <li>Visualize cost vs iteration to tune cooling schedule</li>
+                    <li>Compare with baseline random selection for validation</li>
+                    <li>Consider weighted cost functions if some stats are more important</li>
+                </ol>
+
+                <div class="note">
+                    <strong>Alternative Methods:</strong> If SA underperforms, consider Genetic Algorithms or Linear
+                    Programming approaches.
+                </div>
+        </div>
+</body>
+
+</html>

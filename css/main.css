@@ -106,3 +106,7 @@ a:hover {
   color: darkblue; /* Change the text color on hover */
   text-decoration: none; /* Optionally, add an underline on hover */
 }
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
