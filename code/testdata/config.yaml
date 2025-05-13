@@ -1,0 +1,16 @@
+microdata:
+  file: "data/microdata.csv"
+  id_column: "ID"  # Optional
+
+constraints:
+  - file: "data/age.csv"
+    microdata_id: "Age"
+    constraint_prefix: "Age%"
+    geography_column: "GEO_CODE"
+    set_as_population_total: true
+
+  - file: "data/sex.csv"
+    microdata_id: "Sex"
+    constraint_prefix: "Sex%"
+    geography_column: "GEO_CODE"
+    set_as_population_total: false
