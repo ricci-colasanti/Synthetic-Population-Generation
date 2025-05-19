@@ -1,6 +1,3 @@
-    // Your JSON data
-        
-
 // Populate dropdowns on page load
  // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
