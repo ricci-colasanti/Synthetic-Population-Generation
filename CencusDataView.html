@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Census Data Viewer</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .data-container {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .file-info {
+            margin-bottom: 15px;
+        }
+        .files-list, .data-types-list {
+            margin-top: 10px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Census Data Viewer</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="filenameSelect">Select by Filename:</label>
+                    <select class="form-control" id="filenameSelect">
+                        <option value="">-- Select a filename --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="descriptionSelect">Select by Description:</label>
+                    <select class="form-control" id="descriptionSelect">
+                        <option value="">-- Select a description --</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div id="dataDisplay" class="data-container" style="display: none;">
+            <div class="file-info">
+                <h3 id="selectedFilename"></h3>
+                <p id="selectedDescription"></p>
+                <p><strong>Year:</strong> <span id="selectedYear"></span></p>
+                <p><strong>Download:</strong> <a id="fileLink" href="#" target="_blank"></a></p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Files</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul id="filesList" class="files-list list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Data Types</h5>
+                        </div>
+                        <div class="card-body">
+                            <table id="dataTypesTable" class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 4 JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script src="js/CencusDataViewer.js"></script>
+</body>
+</html>
