@@ -1,0 +1,23 @@
+microdata:
+  file: "../data/Scotland/us_hh_modified.csv"
+  id_column: "hidp"  # Optional
+
+constraints:
+  - file: "../data/Scotland/census2022_c1_urbanrural_master.csv"
+    microdata_id: "s1_urbanrural"
+    constraint_prefix: "Ages1_urbanrural%"
+    geography_column: "areacode"
+    set_as_population_total: true
+
+  - file: "../data/Scotland/census2022_c2_hhsize.csv"
+    microdata_id: "s2_hh_size"
+    constraint_prefix: "s2_hh_size%"
+    geography_column: "areacode"
+    set_as_population_total: false
+
+  - file: "../data/Scotland/census2022_c3_hhtenure.csv"
+    microdata_id: "s3_hhtenure"
+    constraint_prefix: "s3_hhtenure%"
+    geography_column: "areacode"
+    set_as_population_total: false
+
